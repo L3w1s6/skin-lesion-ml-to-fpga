@@ -1,0 +1,101 @@
+\documentclass[12pt,nonacm,acmlarge,titlepage,screen]{acmart}
+
+% make ACM settings and load extra packages
+\input{hwu_template/acm_settings}
+\input{hwu_template/packages}
+
+% document details
+% replace those with your details
+\def\docTitle{Skin Lesion Classification on FPGA}
+\def\docAuthor{Lewis \textsc{Turner}}
+\def\docAuthorID{H00430662}
+\def\docSupervisor{Dr. Rob \textsc{Stewart}}
+\def\docDegree{BSc (Hons) Computer Science}
+%\def\docDegree{MSc Cookery}
+\def\docType{Research Report}
+% \def\docType{Honours Dissertation}
+% \def\docType{Masters Dissertation}
+\def\docCourse{F20PA/B/C - Honours Project}
+% \def\docCourse{F21RP - Research Methods and Project Planning}
+% \def\docCourse{F21MP - Masters Project and Dissertation}
+
+% load extra formatting
+\input{hwu_template/format}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FRONT MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{hwu_template/titlepage}
+
+\newpage
+\pagenumbering{roman}
+
+\input{hwu_template/declaration}
+
+% Acknowledgements
+\acknowledgements{
+Acknowledgements text.
+}
+
+% Abstract
+\abstract{
+PROBLEM/GAP I'VE IDENTIFIED (RESEARCH QUESTION). I used \underline{\hspace{1cm}} methods to compress \underline{\hspace{1cm}} skin lesion classification model onto AMD FPGA. If deployed model small enough \& but performance not good then maybe add module to pre-process input image. RESULTS I'VE GATHERED.
+}
+
+\input{hwu_template/contents}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN BODY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagenumbering{arabic}
+
+% Introduction
+%%%%%%%%%%%%%%%%%%%%
+\section{Introduction} \label{cha:intro}
+
+First paragraph of the introduction.
+
+\subsection{Background and Motivation} \label{sec:intro_motiv}
+
+\subsection{Aim and Objectives} \label{sec:intro_aim}
+
+\subsection{Organisation} \label{sec:intro_orga}
+
+Plan of the document.
+
+% Background Research
+%%%%%%%%%%%%%%%%%%%%
+\section{Background Research} \label{cha:back}
+
+Inserting a dummy reference for the template \cite{turing_computing_2009}.
+
+
+% Rest of the document...
+%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BACK MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% References
+\input{hwu_template/references}
+
+% Appendices
+\newpage
+\appendix
+
+\crefalias{chapter}{appendixchapter} % for appendix crossreferences
+
+\section{Project Management}
+
+\subsection{Gantt Chart}
+
+\section{Research Participant Questionnaire}
+
+% Rest of appendices...
+
+\end{document}
