@@ -2,4 +2,4 @@
 Heriot-Watt University dissertation project code.
 
 # Setup
-Follow steps in `PYNQ Setup.md` to setup remote connection via a wifi dongle instead of ethernet.
+See steps in `PYNQ Setup.md` for how I set up PYNQ board for running code remotely over wifi.
