@@ -1,0 +1,148 @@
+\documentclass[12pt,nonacm,acmlarge,titlepage,screen]{acmart}
+
+% make ACM settings and load extra packages
+\input{hwu_template/acm_settings}
+\input{hwu_template/packages}
+
+% document details
+% replace those with your details
+\def\docTitle{Skin Lesion Classification on FPGA}
+\def\docAuthor{Lewis \textsc{Turner}}
+\def\docAuthorID{H00430662}
+\def\docSupervisor{Dr. Rob \textsc{Stewart}}
+\def\docDegree{BSc (Hons) Computer Science}
+%\def\docDegree{MSc Cookery}
+\def\docType{Research Report}
+% \def\docType{Honours Dissertation}
+% \def\docType{Masters Dissertation}
+\def\docCourse{F20PA/B/C - Honours Project}
+% \def\docCourse{F21RP - Research Methods and Project Planning}
+% \def\docCourse{F21MP - Masters Project and Dissertation}
+
+% load extra formatting
+\input{hwu_template/format}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FRONT MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{hwu_template/titlepage}
+
+\newpage
+\pagenumbering{roman}
+
+\input{hwu_template/declaration}
+
+% Acknowledgements
+\acknowledgements{
+Acknowledgements text.
+}
+
+% Abstract
+\abstract{
+Abstract text.
+}
+
+\input{hwu_template/contents}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN BODY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagenumbering{arabic}
+
+% Introduction
+%%%%%%%%%%%%%%%%%%%%
+\section{Introduction} \label{cha:intro}
+
+First paragraph of the introduction.
+
+    \subsection{Background and Motivation} \label{sec:intro_motiv}
+
+    \subsection{Aim and Objectives} \label{sec:intro_aim}
+
+% Plan of the document.
+
+% Background Research
+%%%%%%%%%%%%%%%%%%%%
+\section{Literature Review} \label{cha:lit_rev}
+Grouping topic summaries, critical assessment, gaps\\
+Possibly use RADAR?
+
+    \subsection{Identify}
+    Identify key topics, themes, points
+
+    \subsection{Summaries and Critical Assessments}
+    For each summary of literature \& critical assessment of topic containing:\\
+        \textbullet~ How already published research fits together\\
+        \textbullet~ Areas of consensus \& disagreement\\
+        \textbullet~ Areas of controversy/where further research is required
+    
+    \subsection{Further Research Recommendations}
+    Address an identified gap/repeat the research
+
+    \subsection{Achknowledgments}
+    Sources for literature/statements
+    \\
+    Inserting a dummy reference for the template \cite{turing_computing_2009}. % example citation
+
+\section{Methodology} \label{sec:method}
+
+    \subsection{Requirements}
+
+\section{Feasiblity} \label{sec:feasiblity}
+
+    \subsection{Preliminary Work}
+    Summary of work carried out to prepare for this project to validate feasiblity.
+
+    \subsection{Evaluation Strategy}
+    Identify for the project:
+    \\
+        \textbullet~ What needs evaulating
+        \\
+        \textbullet~ Why it should be evaluated
+        \\
+        \textbullet~ How it should be evaluated
+        \\
+
+\section{Conclusions}
+Short summary of this doc
+
+% Rest of the document...
+%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BACK MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% References
+\input{hwu_template/references}
+
+\section{Project Management}
+
+    \subsection{Gantt Chart}
+    Plan of activities to be carried out in semester 1, then future plan for semester 2
+
+    \subsection{Analysis of Risks}
+    Including mitigation plans
+
+    \subsection{PLES}
+    A well-researched consideration of any Professional, Legal, Ethical, and Social Issues
+    pertinent to the project. (e.g. codes of conduct (BCS), codes of practice, standards,
+    computer law, ethical decision making, intellectual property, social aspects, copyright,
+    data protection, and so on).
+
+\section{Gen AI Summary}
+Summarising use of GenAI in project/deliverables
+
+% Appendices
+\newpage
+\appendix
+
+\crefalias{chapter}{appendixchapter} % for appendix crossreferences
+
+% Rest of appendices...
+
+\end{document}
