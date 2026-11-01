@@ -58,10 +58,13 @@ Abstract text.
 Summary of project motivation \& context
 
     \subsection{Background and Motivation} \label{sec:intro_motiv}
-    Identifying problems to be solved to achieve objectives
+    \textbullet~ Using papers (mainly) from literature review to provide background context\\
+    \textbullet~ Motivations for doing this project\\
+    \textbullet~ Identifying problems to be solved to achieve objectives
 
     \subsection{Aim and Objectives} \label{sec:intro_aim}
-    Stating project aims \& objectives (enumerated)
+    State project aims\\
+    Table of objectives with IDs to reference later
 
 % Plan of the document.
 
@@ -71,22 +74,41 @@ Summary of project motivation \& context
 Grouping topic summaries, critical assessment, gaps\\
 Possibly use RADAR?
 
-    \subsection{Identify}
-    Identify key topics, themes, points
+    % How I searched for papers, what tools did I use and how did I verify my sources
+    \subsection{Search Methods}
+    I used Google Gemini 3.8 Flash on thinking mode High (October 2026 version) to source the most
+    recent academic papers on a particular topic. I would ask it to create a table consisting of the
+    papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for
+    searching the internet like a more powerful keyword search.
+    \\
+    \\
+    I occasionally used Google Scholar as well to search a specific paper title provided by Gemini to
+    find the original source PDF/website.
 
-    \subsection{Summaries and Critical Assessments}
-    For each summary of literature \& critical assessment of topic containing:\\
-        \textbullet~ How already published research fits together\\
-        \textbullet~ Areas of consensus \& disagreement\\
-        \textbullet~ Areas of controversy/where further research is required
+    % what to do:
+    % Identify key topics, themes, points
+    %
+    % For each summary of literature \& critical assessment of topic containing:\\
+    %     \textbullet~ How already published research fits together\\
+    %     \textbullet~ Areas of consensus \& disagreement\\
+    %     \textbullet~ Areas of controversy/where further research is required
+
+    \subsection{Skin Lesion Classification Models}
+    Papers on recent skin classification models
+
+    \subsection{Machine Learning Models on FPGA}
+    Papers more generally on methodology for putting ML models on FPGA
+    
+    \subsection{Compressing Machine Learning Models to FPGA}
+    Papers on useful compression techniques for certain model types
     
     \subsection{Further Research Recommendations}
-    Address an identified gap/repeat the research
+    Identify gaps, need to repeat any research
 
-    \subsection{Acknowledgments}
+    \subsection{Acknowledgements}
     Sources for literature/statements
     \\
-    Inserting a dummy reference for the template \cite{turing_computing_2009}. % example citation
+    Example citation to stop LaTeX complaining: \cite{turing_computing_2009}. % example citation
 
 \section{Methodology} \label{sec:method}
 Detailed description of necessary methods, requirements, research questions that will be employed/
@@ -97,20 +119,20 @@ needed to complete the project
     Enumerated to be easier to reference again
 
     \subsection{Plan for Execution}
-    Explain how I plan to use experiments to fulfill all the requirements \& objectives
+    Explain how I plan to use experiments to fulfil all the requirements \& objectives
 
     \subsection{Experiment Planning}
     How I plan to conduct experiment(s) and what research question does it address/answer (detailed)
 
-\section{Feasiblity} \label{sec:feasiblity}
+\section{Feasibility} \label{sec:feasiblity}
 
     \subsection{Preliminary Work}
-    Summary of work carried out to prepare for this project to validate feasiblity.
+    Summary of work carried out to prepare for this project to validate feasibility.
 
     \subsection{Evaluation Strategy}
     Identify for the project:
     \\
-        \textbullet~ What needs evaulating
+        \textbullet~ What needs evaluating
         \\
         \textbullet~ Why it should be evaluated
         \\
