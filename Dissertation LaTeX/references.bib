@@ -1,25 +1,26 @@
-@article{smith2018,
+% Examples
+article{smith2018,
     title = "Implementing X in Z context",
     author = "Smith, John J. and Doe, Jane",
     year = "2018",
     journal = "Transactions on this topic"
 }
 
-@inproceedings{doe2015,
+inproceedings{doe2015,
     title = "Exploring Y",
     author = "Doe, Jane",
     year = "2015",
     booktitle = "Proceedings of that conference"
 }
 
-@book{alice2016,
+book{alice2016,
     title = "Handbook of this method",
     author = "Alice, Bob",
     year = "2016",
     publisher = "Great Publisher"
 }
 
-@misc{paperpile2022,
+misc{paperpile2022,
     title = "The 14 BibTeX entry types",
     author = "Paperpile{\ }LLC",
     howpublished = "\url{https://www.bibtex.com/e/entry-types/}",
@@ -28,7 +29,7 @@
 }
 
 
-@incollection{turing_computing_2009,
+incollection{turing_computing_2009,
 	address = {Dordrecht},
 	title = {Computing {Machinery} and {Intelligence}},
 	isbn = {978-1-4020-6710-5},
@@ -44,3 +45,35 @@
 	keywords = {Computing Machinery, Digital Computer, Performance Capacity, Real Robot, Turing Machine},
 	pages = {23--65},
 }
+
+% D1 sources
+
+% Skin lesion classification models
+@article{jesmdt_2025,
+    author = {Mao, Zhihao and Han, Jin and Shi, Mingzhu},
+    title = {Design and Implementation of a Real-Time Embedded System for Early Skin Cancer Detection},
+    journal = {Journal of Engineering and Science in Medical Diagnostics and Therapy},
+    volume = {9},
+    number = {2},
+    pages = {021202},
+    year = {2025},
+    month = {12},
+    abstract = {Early diagnosis of skin cancer is crucial for improving survival rates and reducing treatment costs. In this paper, an edge skin cancer diagnostic system based on hardware and software codesign is proposed. The software level is centered on an optimized lightweight neural network and proposes a self-supervised multidomain knowledge distillation (SSMD-KD) framework, which designs and introduces the multilayer feature knowledge distillation (MFKD) loss to replace the original single-layer distillation method, and fuses the patient's clinical metadata with the skin image features at the same time. The distillation framework uses ResNet50 and MobileNetV2 as teacher and student models and combines quantitative training to achieve model compression and optimization. The optimized models were run on a Xilinx Zynq-7020 SoC heterogeneous platform via a custom accelerator, supporting USB video class protocol USB dermatoscope input, high-definition multimedia interface (HDMI) real-time display, and Wi-Fi data transfer. Experiments on the ISIC2019 dataset showed that the system had a classification accuracy of 86\% on the test set across eight classes of skin lesions, with an inference speed of 14.28 FPS and a power consumption of only 2.9 W, validating the feasibility of the system for efficient and low-power skin cancer early diagnosis in edge environments.},
+    issn = {2572-7958},
+    doi = {10.1115/1.4069441},
+    url = {https://doi.org/10.1115/1.4069441},
+    eprint = {https://asmedigitalcollection.asme.org/medicaldiagnostics/article-pdf/9/2/021202/7529299/jesmdt-25-1029.pdf},
+}
+
+% Machine learning models on FPGA
+@misc{mobilenet_2017,
+      title={MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}, 
+      author={Andrew G. Howard and Menglong Zhu and Bo Chen and Dmitry Kalenichenko and Weijun Wang and Tobias Weyand and Marco Andreetto and Hartwig Adam},
+      year={2017},
+      eprint={1704.04861},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/1704.04861}, 
+}
+
+% Compressing machine learning models to FPGA

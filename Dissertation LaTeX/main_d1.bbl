@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -40,14 +40,27 @@
 \@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
 \makeatother
 
-\bibitem[Turing(2009)]%
-        {turing_computing_2009}
-\bibfield{author}{\bibinfo{person}{Alan~M. Turing}.} \bibinfo{year}{2009}\natexlab{}.
-\newblock \showarticletitle{Computing {Machinery} and {Intelligence}}.
-\newblock In \bibinfo{booktitle}{\emph{Parsing the {Turing} {Test}: {Philosophical} and {Methodological} {Issues} in the {Quest} for the {Thinking} {Computer}}}, \bibfield{editor}{\bibinfo{person}{Robert Epstein}, \bibinfo{person}{Gary Roberts}, {and} \bibinfo{person}{Grace Beber}} (Eds.). \bibinfo{publisher}{Springer Netherlands}, \bibinfo{address}{Dordrecht}, \bibinfo{pages}{23--65}.
+\bibitem[Howard et~al\mbox{.}(2017)]%
+        {mobilenet_2017}
+\bibfield{author}{\bibinfo{person}{Andrew~G. Howard}, \bibinfo{person}{Menglong Zhu}, \bibinfo{person}{Bo Chen}, \bibinfo{person}{Dmitry Kalenichenko}, \bibinfo{person}{Weijun Wang}, \bibinfo{person}{Tobias Weyand}, \bibinfo{person}{Marco Andreetto}, {and} \bibinfo{person}{Hartwig Adam}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \bibinfo{title}{MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}.
 \newblock
-\showISBNx{978-1-4020-6710-5}
-\href{https://doi.org/10.1007/978-1-4020-6710-5_3}{doi:\nolinkurl{10.1007/978-1-4020-6710-5_3}}
+\showeprint[arxiv]{1704.04861}~[cs.CV]
+\urldef\tempurl%
+\url{https://arxiv.org/abs/1704.04861}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Mao et~al\mbox{.}(2025)]%
+        {jesmdt_2025}
+\bibfield{author}{\bibinfo{person}{Zhihao Mao}, \bibinfo{person}{Jin Han}, {and} \bibinfo{person}{Mingzhu Shi}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Design and Implementation of a Real-Time Embedded System for Early Skin Cancer Detection}.
+\newblock \bibinfo{journal}{\emph{Journal of Engineering and Science in Medical Diagnostics and Therapy}} \bibinfo{volume}{9}, \bibinfo{number}{2} (\bibinfo{date}{12} \bibinfo{year}{2025}), \bibinfo{pages}{021202}.
+\newblock
+\showISSN{2572-7958}
+\showeprint{https://asmedigitalcollection.asme.org/medicaldiagnostics/article-pdf/9/2/021202/7529299/jesmdt-25-1029.pdf}
+\href{https://doi.org/10.1115/1.4069441}{doi:\nolinkurl{10.1115/1.4069441}}
 
 
 \end{thebibliography}
