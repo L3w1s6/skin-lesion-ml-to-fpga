@@ -1,2 +1,5 @@
 # File used by locally running LaTeX
 *.synctex.gz
+
+# VSCode settings folder
+/.vscode
