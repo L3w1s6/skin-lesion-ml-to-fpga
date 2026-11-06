@@ -70,56 +70,58 @@ Summary of project motivation \& context
 
 % Background Research
 %%%%%%%%%%%%%%%%%%%%
+\newpage
 \section{Literature Review} \label{cha:lit_rev}
 Grouping topic summaries, critical assessment, gaps\\
-Possibly use RADAR?
+    % RADAR: Relevance, Authority, Date, Appearance, Reason for writing
 
     % How I searched for papers, what tools did I use and how did I verify my sources
     \subsection{Search Methods}
-    I used Google Gemini 3.8 Flash on thinking mode High (October 2026 version) to source the most
-    recent academic papers on a particular topic. I would ask it to create a table consisting of the
-    papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for
-    searching the internet like a more powerful keyword search.
-    \\
-    \\
-    I occasionally used Google Scholar as well to search a specific paper title provided by Gemini to
-    find the original source PDF/website.
+        I used Google Gemini 3.8 Flash on thinking mode High (October 2026 version) to source the most
+        recent academic papers on a particular topic. I would ask it to create a table consisting of the
+        papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for
+        searching the internet like a more powerful keyword search.
+        \\[1\lineskip]
 
-    % what to do:
-    % Identify key topics, themes, points
-    %
-    % For each summary of literature \& critical assessment of topic containing:\\
-    %     \textbullet~ How already published research fits together\\
-    %     \textbullet~ Areas of consensus \& disagreement\\
-    %     \textbullet~ Areas of controversy/where further research is required
-
-
-    % RADAR: Relevance, Authority, Date, Appearance, Reason for writing
+        I sometimes used Google Scholar to search for particular keywords in paper titles.
 
     % Papers on recent skin classification models
     \subsection{Skin Lesion Classification Models}
-    Many different types of ML models trained to identify skin lesions from images:
-    \\
-    Multi-modal approach on an FPGA which combines image features with patient metadata \cite{jesmdt_2025}.
-    Uses MobileNetV2 architecture \cite{mobilenet_2017}.
-    \\
+        What is a skin lesion classification model?
+        \\
+        Type of Machine Learning model trained to identify lesion areas in images of skin areas \cite{tess_pi,jesmdt_2025}.
+        \\
+        Choosing an appropriate pre-existing model or training my own will determine the baseline performance I will evaluate against later on.
+        \\[1\baselineskip]
 
+        Existing models:
+        Multi-modal approach on an FPGA which combines image features with patient metadata \cite{jesmdt_2025}. Uses MobileNetV2 architecture.
+        \\
+        ADD PAPERS FOUND FROM SURVEY REVIEW HERE
+        \\[1\baselineskip]
+
+        Architectures:
+        \\
+        Fundamental MobileNet paper with X features \cite{mobilenet_2017}.
 
     % Papers more generally on methodology for putting ML models on FPGA
     \subsection{Machine Learning Models on FPGA}
-    Very popular fundamental paper presenting MobileNet architecture \cite{mobilenet_2017} % find MobileNetV2 paper?
+        Very popular fundamental paper presenting MobileNet architecture \cite{mobilenet_2017} % find MobileNetV2 paper?
+        % FIND OTHER PAPERS ON RUNNING PARTICULAR MODEL ARCHITECTURES ON FPGA
     
     \subsection{Compressing Machine Learning Models to FPGA}
-    Papers on useful compression techniques for certain model types
+        Papers on useful compression techniques for certain model types
+        % PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
     
     \subsection{Further Research Recommendations}
-    Identify gaps, need to repeat any research
+        Identify gaps, need to repeat any research
 
-    % Sources for literature/statements
     \subsection{Acknowledgements}
-    Skin lesion paper 1 \cite{jesmdt_2025}
-    % \\
-    % Example citation to stop LaTeX complaining: \cite{turing_computing_2009}. % example citation
+        Sources for literature/statements
+        \\
+        Continuing idea by supervisor Tess Watt in her paper but deployed to FPGA instead of RPi \cite{tess_pi}
+        \\
+        Survey of recent methods for skin lesion classification as of 2023 \cite{survey_2023}
 
 \section{Methodology} \label{sec:method}
 Detailed description of necessary methods, requirements, research questions that will be employed/

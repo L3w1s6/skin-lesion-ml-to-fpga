@@ -65,15 +65,44 @@ incollection{turing_computing_2009,
     eprint = {https://asmedigitalcollection.asme.org/medicaldiagnostics/article-pdf/9/2/021202/7529299/jesmdt-25-1029.pdf},
 }
 
+@article{survey_2023,
+    AUTHOR = {Debelee, Taye Girma},
+    TITLE = {Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review},
+    JOURNAL = {Diagnostics},
+    VOLUME = {13},
+    YEAR = {2023},
+    NUMBER = {19},
+    ARTICLE-NUMBER = {3147},
+    URL = {https://www.mdpi.com/2075-4418/13/19/3147},
+    PubMedID = {37835889},
+    ISSN = {2075-4418},
+    ABSTRACT = {Skin lesions are essential for the early detection and management of a number of dermatological disorders. Learning-based methods for skin lesion analysis have drawn much attention lately because of improvements in computer vision and machine learning techniques. A review of the most-recent methods for skin lesion classification, segmentation, and detection is presented in this survey paper. The significance of skin lesion analysis in healthcare and the difficulties of physical inspection are discussed in this survey paper. The review of state-of-the-art papers targeting skin lesion classification is then covered in depth with the goal of correctly identifying the type of skin lesion from dermoscopic, macroscopic, and other lesion image formats. The contribution and limitations of various techniques used in the selected study papers, including deep learning architectures and conventional machine learning methods, are examined. The survey then looks into study papers focused on skin lesion segmentation and detection techniques that aimed to identify the precise borders of skin lesions and classify them accordingly. These techniques make it easier to conduct subsequent analyses and allow for precise measurements and quantitative evaluations. The survey paper discusses well-known segmentation algorithms, including deep-learning-based, graph-based, and region-based ones. The difficulties, datasets, and evaluation metrics particular to skin lesion segmentation are also discussed. Throughout the survey, notable datasets, benchmark challenges, and evaluation metrics relevant to skin lesion analysis are highlighted, providing a comprehensive overview of the field. The paper concludes with a summary of the major trends, challenges, and potential future directions in skin lesion classification, segmentation, and detection, aiming to inspire further advancements in this critical domain of dermatological research.},
+    DOI = {10.3390/diagnostics13193147}
+}
+
 % Machine learning models on FPGA
 @misc{mobilenet_2017,
-      title={MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}, 
-      author={Andrew G. Howard and Menglong Zhu and Bo Chen and Dmitry Kalenichenko and Weijun Wang and Tobias Weyand and Marco Andreetto and Hartwig Adam},
-      year={2017},
-      eprint={1704.04861},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/1704.04861}, 
+    title={MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}, 
+    author={Andrew G. Howard and Menglong Zhu and Bo Chen and Dmitry Kalenichenko and Weijun Wang and Tobias Weyand and Marco Andreetto and Hartwig Adam},
+    year={2017},
+    eprint={1704.04861},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV},
+    url={https://arxiv.org/abs/1704.04861}, 
+}
+
+@article{tess_pi,
+    AUTHOR = {Watt, Tess and Chrysoulas, Christos and Barclay, Peter J. and El Boudani, Brahim and Kalliatakis, Grigorios},
+    TITLE = {Moving Healthcare AI Support Systems for Visually Detectable Diseases to Constrained Devices},
+    JOURNAL = {Applied Sciences},
+    VOLUME = {14},
+    YEAR = {2024},
+    NUMBER = {24},
+    ARTICLE-NUMBER = {11474},
+    URL = {https://www.mdpi.com/2076-3417/14/24/11474},
+    ISSN = {2076-3417},
+    ABSTRACT = {Image classification usually requires connectivity and access to the cloud, which is often limited in many parts of the world, including hard-to-reach rural areas. Tiny machine learning (tinyML) aims to solve this problem by hosting artificial intelligence (AI) assistants on constrained devices, eliminating connectivity issues by processing data within the device itself, without Internet or cloud access. This study explores the use of tinyML to provide healthcare support with low-spec devices in low-connectivity environments, focusing on the diagnosis of skin diseases and the ethical use of AI assistants in a healthcare setting. To investigate this, images of skin lesions were used to train a model for classifying visually detectable diseases (VDDs). The model weights were then offloaded to a Raspberry Pi with a webcam attached, to be used for the classification of skin lesions without Internet access. It was found that the developed prototype achieved a test accuracy of 78% when trained on the HAM10000 dataset, and a test accuracy of 85% when trained on the ISIC 2020 Challenge dataset.},
+    DOI = {10.3390/app142411474}
 }
 
 % Compressing machine learning models to FPGA

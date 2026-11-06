@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{2}
+\begin{thebibliography}{4}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -40,6 +40,16 @@
 \@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
 \makeatother
 
+\bibitem[Debelee(2023)]%
+        {survey_2023}
+\bibfield{author}{\bibinfo{person}{Taye~Girma Debelee}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review}.
+\newblock \bibinfo{journal}{\emph{Diagnostics}} \bibinfo{volume}{13}, \bibinfo{number}{19} (\bibinfo{year}{2023}).
+\newblock
+\showISSN{2075-4418}
+\href{https://doi.org/10.3390/diagnostics13193147}{doi:\nolinkurl{10.3390/diagnostics13193147}}
+
+
 \bibitem[Howard et~al\mbox{.}(2017)]%
         {mobilenet_2017}
 \bibfield{author}{\bibinfo{person}{Andrew~G. Howard}, \bibinfo{person}{Menglong Zhu}, \bibinfo{person}{Bo Chen}, \bibinfo{person}{Dmitry Kalenichenko}, \bibinfo{person}{Weijun Wang}, \bibinfo{person}{Tobias Weyand}, \bibinfo{person}{Marco Andreetto}, {and} \bibinfo{person}{Hartwig Adam}.} \bibinfo{year}{2017}\natexlab{}.
@@ -61,6 +71,16 @@
 \showISSN{2572-7958}
 \showeprint{https://asmedigitalcollection.asme.org/medicaldiagnostics/article-pdf/9/2/021202/7529299/jesmdt-25-1029.pdf}
 \href{https://doi.org/10.1115/1.4069441}{doi:\nolinkurl{10.1115/1.4069441}}
+
+
+\bibitem[Watt et~al\mbox{.}(2024)]%
+        {tess_pi}
+\bibfield{author}{\bibinfo{person}{Tess Watt}, \bibinfo{person}{Christos Chrysoulas}, \bibinfo{person}{Peter~J. Barclay}, \bibinfo{person}{Brahim El~Boudani}, {and} \bibinfo{person}{Grigorios Kalliatakis}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Moving Healthcare AI Support Systems for Visually Detectable Diseases to Constrained Devices}.
+\newblock \bibinfo{journal}{\emph{Applied Sciences}} \bibinfo{volume}{14}, \bibinfo{number}{24} (\bibinfo{year}{2024}).
+\newblock
+\showISSN{2076-3417}
+\href{https://doi.org/10.3390/app142411474}{doi:\nolinkurl{10.3390/app142411474}}
 
 
 \end{thebibliography}
