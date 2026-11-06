@@ -5,15 +5,32 @@
 ## Design and Implementation of a Real-Time Embedded System for Early Skin Cancer Detection
 - https://doi.org/10.1115/1.4069441
 - Dec 22, 2025
-<!-- multimodal edge diagnostic system on Xilinx Zynq-7020 FPGA that fuses dermoscopic image features with patient metadata using MobileNetV2 architecture -->
+- abstract, conclusion
+
+### Design
 - Paper contains hardware and software co-design
-    - Software:
-        - optimised lightweight NN
-        - proposed idea: "self-supervised multidomain knowledge distillation (SSMD-KD) framework"
-    - Hardware - 
-- Uses ResNet50 teacher, MobileNetV2 student models
+- Software design centred around an optimised lightweight NN
+- "Self-Supervised Multidomain Knowledge Distillation (SSMD-KD) framework"
+- introduces: "multilayer feature knowledge distillation (MFKD) loss to replace the original single-layer distillation method"
+- Distillation framework uses ResNet50 model as teacher, MobileNetV2 model as student
+
 - Combines quantitative training to achieve model compression & optimisation
-- 
+- Fuses patient clinical metadata with image features
+
+- Optimised model run on Xilinx Zynq-7020 SoC
+- [Baseline KD method paper](https://doi.org/10.1016/j.media.2022.102693)
+
+### Results
+- Used ISIC2019 dataset to test proposed framework
+- Classification accuracy of 86% on test set across 8 skin lesion classes
+- Inference speed of 14.28FPS
+- Power usage of only 2.9W
+
+### Conclusion
+- SSMD-KD improves skin lesion recognition of MobileNetV2 model - overall classification accuracy of 86% is 1.1% higher than original model
+- Acceleration architecture for Zynq-7020 achieves 14.28FPS - 2.6x higher than existing FPGA solution (baseline paper above)
+- Not been tried in actual clinical setting but designed to be for real-time
+
 
 
 ## 
