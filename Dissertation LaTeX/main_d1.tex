@@ -88,7 +88,7 @@ The proposal for this project was to run a skin lesion classification model on a
 \\
 The FPGA board has significant memory and resource constraints \cite{pynq_z1_man} so \cref{subsec:ml_compression} is to find suitable ML compression methods for FPGAs that best retain baseline model performance and best utilise the FPGA.
 \\
-Multiple deployment pipelines exist so \cref{subsec:ml_on_fpga} looks into multiple methods for deploying a model to FPGA with different benefits and supported model types.
+ML models are deployed to the FPGA using a pipeline framework, \cref{subsec:ml_on_fpga} looks into multiple methods for deploying a model to FPGA with different benefits and supported model types.
 \\
 The final area of research in \cref{subsec:ml_models} is finding existing skin lesion classification models, both unrelated to FPGAs and designed around running on an FPGA.
 
@@ -105,11 +105,24 @@ The final area of research in \cref{subsec:ml_models} is finding existing skin l
     recent academic papers on a particular topic. I would ask it to create a table consisting of the
     papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for
     searching the internet like a more powerful keyword search.
-    \medskip
-
-    I sometimes used Google Scholar to search for particular keywords in paper titles.
+    \\
+    I also used Google Scholar to search for papers by particular keywords such as "skin lesion classification".
 
     % RADAR: Relevance, Authority, Date, Appearance, Reason for writing
+
+    % Papers more generally on methodology for putting ML models on FPGA
+    \subsection{Machine Learning Models on FPGA} \label{subsec:ml_on_fpga}
+    Skin lesion classification models are image classifier models. This section describes a few options for pipelines that could be used.
+    \medskip
+
+    Explain here details about FINN framework: general process, benefits, drawbacks, supported model types
+    % \\
+    % Very popular fundamental paper presenting MobileNet architecture \cite{mobilenet_2017} % find MobileNetV2 paper?
+
+    % compression methods that best retain baseline model performance and best utilise FPGA
+    \subsection{Compressing Machine Learning Models to FPGA} \label{subsec:ml_compression}
+    Papers on useful compression techniques for certain model types
+    % PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
 
     % Papers on recent skin classification models
     \subsection{Skin Lesion Classification Models} \label{subsec:ml_models}
@@ -138,16 +151,6 @@ The final area of research in \cref{subsec:ml_models} is finding existing skin l
     Architectures:
     \\
     Fundamental MobileNet paper with X features \cite{mobilenet_2017}.
-
-    % Papers more generally on methodology for putting ML models on FPGA
-    \subsection{Machine Learning Models on FPGA} \label{subsec:ml_on_fpga}
-    Very popular fundamental paper presenting MobileNet architecture \cite{mobilenet_2017} % find MobileNetV2 paper?
-    % FIND OTHER PAPERS ON RUNNING PARTICULAR MODEL ARCHITECTURES ON FPGA
-    
-    % compression methods that best retain baseline model performance and best utilise FPGA
-    \subsection{Compressing Machine Learning Models to FPGA} \label{subsec:ml_compression}
-    Papers on useful compression techniques for certain model types
-    % PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
     
     \subsection{Further Research Recommendations}
     Identify gaps, need to repeat any research
