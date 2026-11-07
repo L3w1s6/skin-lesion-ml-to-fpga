@@ -7,9 +7,19 @@
 % document details
 % replace those with your details
 \def\docTitle{Skin Lesion Classification on FPGA}
-\def\docAuthor{Lewis \textsc{Turner}}
+\def\docAuthor{Lewis Turner}
 \def\docAuthorID{H00430662}
-\def\docSupervisor{Dr. Rob \textsc{Stewart}, Ms Tess \textsc{Watt}}
+
+% \def\docSupervisor{Dr. Rob \textsc{Stewart}, Ms. Tess \textsc{Watt}}
+\newcommand{\docSupervisorOne}{Dr. Rob Stewart}
+\newcommand{\docSupervisorTwo}{Ms. Tess Watt}
+\newcommand{\docSupervisor}{% stacked names for title page
+    \\
+    \docSupervisorOne
+    \\
+    \docSupervisorTwo
+}
+
 \def\docDegree{BSc (Hons) Computer Science}
 %\def\docDegree{MSc Cookery}
 \def\docType{Research Report}
@@ -70,58 +80,77 @@ Summary of project motivation \& context
 
 % Background Research
 %%%%%%%%%%%%%%%%%%%%
+
 \newpage
 \section{Literature Review} \label{cha:lit_rev}
-Grouping topic summaries, critical assessment, gaps\\
-    % RADAR: Relevance, Authority, Date, Appearance, Reason for writing
+% Add more references to back up statements later
+The proposal for this project was to run a skin lesion classification model on an FPGA. I chose the Xilinx PYNQ-Z1 FPGA board as my target hardware because any FPGA board would have been appropriate for this project and my supervisor Tess Watt had one available by donation to \docInstitution{} from AMD.
+\\
+The FPGA board has significant memory and resource constraints \cite{pynq_z1_man} so \cref{subsec:ml_compression} is to find suitable ML compression methods for FPGAs that best retain baseline model performance and best utilise the FPGA.
+\\
+Multiple deployment pipelines exist so \cref{subsec:ml_on_fpga} looks into multiple methods for deploying a model to FPGA with different benefits and supported model types.
+\\
+The final area of research in \cref{subsec:ml_models} is finding existing skin lesion classification models, both unrelated to FPGAs and designed around running on an FPGA.
+
+    \subsection{Acknowledgements}
+    Sources for literature/statements
+    \\
+    Continuing idea by supervisor Tess Watt in her paper but deployed to FPGA instead of RPi \cite{tess_pi}
+    \\
+    Survey of recent methods for skin lesion classification between 2017 and 2023 \cite{survey_2023}
 
     % How I searched for papers, what tools did I use and how did I verify my sources
     \subsection{Search Methods}
-        I used Google Gemini 3.8 Flash on thinking mode High (October 2026 version) to source the most
-        recent academic papers on a particular topic. I would ask it to create a table consisting of the
-        papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for
-        searching the internet like a more powerful keyword search.
-        \\[1\lineskip]
+    I used Google Gemini 3.8 Flash on thinking mode High (October 2026 version) to source the most
+    recent academic papers on a particular topic. I would ask it to create a table consisting of the
+    papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for
+    searching the internet like a more powerful keyword search.
+    \medskip
 
-        I sometimes used Google Scholar to search for particular keywords in paper titles.
+    I sometimes used Google Scholar to search for particular keywords in paper titles.
+
+    % RADAR: Relevance, Authority, Date, Appearance, Reason for writing
 
     % Papers on recent skin classification models
-    \subsection{Skin Lesion Classification Models}
-        What is a skin lesion classification model?
-        \\
-        Type of Machine Learning model trained to identify lesion areas in images of skin areas \cite{tess_pi,jesmdt_2025}.
-        \\
-        Choosing an appropriate pre-existing model or training my own will determine the baseline performance I will evaluate against later on.
-        \\[1\baselineskip]
+    \subsection{Skin Lesion Classification Models} \label{subsec:ml_models}
+    using ML has greatly improved early detection of skin lesions...
 
-        Existing models:
-        Multi-modal approach on an FPGA which combines image features with patient metadata \cite{jesmdt_2025}. Uses MobileNetV2 architecture.
-        \\
-        ADD PAPERS FOUND FROM SURVEY REVIEW HERE
-        \\[1\baselineskip]
 
-        Architectures:
-        \\
-        Fundamental MobileNet paper with X features \cite{mobilenet_2017}.
+    What is a skin lesion classification model?
+    \\
+    Type of Machine Learning model trained to identify lesion areas in images of skin areas \cite{tess_pi,jesmdt_2025}.
+    \\
+    Choosing an appropriate pre-existing model or training my own will determine the baseline performance I will evaluate against later on.
+    \\[1\baselineskip]
+
+    % verify dataset details later
+    Top datasets:\\
+    Ham10000 - contains 10,015 dermoscopic (medical, of skin area) images categorised for 7 different classes of skin lesion. Used as a standardised benchmark for multi-class skin lesion classification because data is verified to very high standard \cite{survey_2023}.
+    \\
+    ISIC Archive and Challenge - multiple releases of thousands of curated dermoscopic images. Used as a standardised competition benchmarks with split training/validation/test sets and evaluation protocols \cite{survey_2023}.
+    \\
+    PH2 - small set containing 200 dermoscopic images with 3 different classes. Used because includes expert manual verification.
+
+    Existing models:
+    Multi-modal approach on an FPGA which combines image features with patient metadata \cite{jesmdt_2025}. Uses MobileNetV2 architecture.
+    \\[1\baselineskip]
+
+    Architectures:
+    \\
+    Fundamental MobileNet paper with X features \cite{mobilenet_2017}.
 
     % Papers more generally on methodology for putting ML models on FPGA
-    \subsection{Machine Learning Models on FPGA}
-        Very popular fundamental paper presenting MobileNet architecture \cite{mobilenet_2017} % find MobileNetV2 paper?
-        % FIND OTHER PAPERS ON RUNNING PARTICULAR MODEL ARCHITECTURES ON FPGA
+    \subsection{Machine Learning Models on FPGA} \label{subsec:ml_on_fpga}
+    Very popular fundamental paper presenting MobileNet architecture \cite{mobilenet_2017} % find MobileNetV2 paper?
+    % FIND OTHER PAPERS ON RUNNING PARTICULAR MODEL ARCHITECTURES ON FPGA
     
-    \subsection{Compressing Machine Learning Models to FPGA}
-        Papers on useful compression techniques for certain model types
-        % PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
+    % compression methods that best retain baseline model performance and best utilise FPGA
+    \subsection{Compressing Machine Learning Models to FPGA} \label{subsec:ml_compression}
+    Papers on useful compression techniques for certain model types
+    % PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
     
     \subsection{Further Research Recommendations}
-        Identify gaps, need to repeat any research
-
-    \subsection{Acknowledgements}
-        Sources for literature/statements
-        \\
-        Continuing idea by supervisor Tess Watt in her paper but deployed to FPGA instead of RPi \cite{tess_pi}
-        \\
-        Survey of recent methods for skin lesion classification as of 2023 \cite{survey_2023}
+    Identify gaps, need to repeat any research
 
 \section{Methodology} \label{sec:method}
 Detailed description of necessary methods, requirements, research questions that will be employed/

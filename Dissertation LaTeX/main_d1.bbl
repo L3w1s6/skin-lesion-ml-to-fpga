@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{4}
+\begin{thebibliography}{5}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -48,6 +48,19 @@
 \newblock
 \showISSN{2075-4418}
 \href{https://doi.org/10.3390/diagnostics13193147}{doi:\nolinkurl{10.3390/diagnostics13193147}}
+
+
+\bibitem[{Diligent, Inc.}(0000)]%
+        {pynq_z1_man}
+\bibfield{author}{\bibinfo{person}{{Diligent, Inc.}}} \bibinfo{year}{[n.\,d.]}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{PYNQ-Z1} Reference Manual}}.
+\newblock
+\urldef\tempurl%
+\url{https://digilent.com/reference/programmable-logic/pynq-z1/reference-manual}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 2026-10-20}.
 
 
 \bibitem[Howard et~al\mbox{.}(2017)]%
