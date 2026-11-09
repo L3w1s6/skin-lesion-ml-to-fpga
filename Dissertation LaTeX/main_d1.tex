@@ -118,50 +118,29 @@ Summary of project motivation \& context
 %%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\section{Literature Review} \label{cha:lit_rev}
-% Add more references to back up statements later
-The proposal for this project was to run a skin lesion classification model on an FPGA. I chose the Xilinx PYNQ-Z1 FPGA board as my target hardware because any FPGA board would have been appropriate for this project and my supervisor Tess Watt had one available by donation to \docInstitution{} from AMD.
+% RADAR: Relevance, Authority, Date, Appearance, Reason for writing
+% 1. starting with finding current skin lesion models
+% 2. choosing mobile hardware as target: mobile, RPi, FPGA (biggest part)
+% 3. find pipelines for using FPGA
+% 4. compression techniques (assuming model too big at baseline)
+\section{Literature Review} \label{sec:lit_rev}
+This section covers my research for the areas of this project. First finding generally what a skin lesion classification model is, then looking into recent models (\cref{lit:models}). Then how I chose an FPGA as my target hardware (\cref{lit:hardware}). What methods exist for running a ML model on an FPGA (\cref{lit:fpga_pipelines}). Recent image classifier compression techniques so the model running on the FPGA has an accuracy closer to the baseline model (\cref{lit:compression}).
 \\
-The FPGA board has significant memory and resource constraints \cite{pynq_z1_man} so \cref{subsec:ml_compression} is to find suitable ML compression methods for FPGAs that best retain baseline model performance and best utilise the FPGA.
-\\
-ML models are deployed to the FPGA using a pipeline framework, \cref{subsec:ml_on_fpga} looks into multiple methods for deploying a model to FPGA with different benefits and supported model types.
-\\
-The final area of research in \cref{subsec:ml_models} is finding existing skin lesion classification models, both unrelated to FPGAs and designed around running on an FPGA.
+The methods I used for finding papers are in \cref{lit:search_methods}.
 
-    \subsection{Acknowledgements}
-    Sources for literature/statements
-    \\
-    Continuing idea by supervisor Tess Watt in her paper but deployed to FPGA instead of RPi \cite{tess_pi}
-    \\
-    Survey of recent methods for skin lesion classification between 2017 and 2023 \cite{survey_2023}
+    % \subsection{Acknowledgements}
+    % Sources for literature/statements
+    % \\
+    % Continuing idea by supervisor Tess Watt in her paper but deployed to FPGA instead of RPi \cite{tess_pi}
+    % \\
+    % Survey of recent methods for skin lesion classification between 2017 and 2023 \cite{survey_2023}
 
     % How I searched for papers, what tools did I use and how did I verify my sources
-    \subsection{Search Methods}
-    I used Google Gemini 3.8 Flash on thinking mode High (October 2026 version) to source the most
-    recent academic papers on a particular topic. I would ask it to create a table consisting of the
-    papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for
-    searching the internet like a more powerful keyword search.
-    \\
-    I also used Google Scholar to search for papers by particular keywords such as "skin lesion classification".
-
-    % RADAR: Relevance, Authority, Date, Appearance, Reason for writing
-
-    % Papers more generally on methodology for putting ML models on FPGA
-    \subsection{Machine Learning Models on FPGA} \label{subsec:ml_on_fpga}
-    Skin lesion classification models are image classifier models. This section describes a few options for pipelines that could be used.
-    \medskip
-
-    Explain here details about FINN framework: general process, benefits, drawbacks, supported model types
-    % \\
-    % Very popular fundamental paper presenting MobileNet architecture \cite{mobilenet_2017} % find MobileNetV2 paper?
-
-    % compression methods that best retain baseline model performance and best utilise FPGA
-    \subsection{Compressing Machine Learning Models to FPGA} \label{subsec:ml_compression}
-    Papers on useful compression techniques for certain model types
-    % PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
+    \subsection{Search Methods} \label{lit:search_methods}
+    I used a combination of Gemini 3.8 Flash on High thinking mode and Google Scholar to do keyword searches for relevant papers. For all papers I started with reading the abstract but only went to other sections if I required more information.
 
     % Papers on recent skin classification models
-    \subsection{Skin Lesion Classification Models} \label{subsec:ml_models}
+    \subsection{Skin Lesion Classification Models} \label{lit:models} % NEEDS REWRITE
     using ML has greatly improved early detection of skin lesions...
 
 
@@ -187,6 +166,23 @@ The final area of research in \cref{subsec:ml_models} is finding existing skin l
     Architectures:
     \\
     Fundamental MobileNet paper with X features \cite{mobilenet_2017}.
+
+    \subsection{Mobile Machine Learning Hardware Acceleration} \label{lit:hardware}
+    Looking into hardware options (RPi, mobile, FPGA), reasons for choosing FPGA
+
+    % Papers more generally on methodology for putting ML models on FPGA
+    \subsection{Machine Learning Models on FPGA} \label{lit:fpga_pipelines}
+    Skin lesion classification models are image classifier models. This section describes a few options for pipelines that could be used.
+    \medskip
+
+    Explain here details about FINN framework: general process, benefits, drawbacks, supported model types
+    % \\
+    % Very popular fundamental paper presenting MobileNet architecture \cite{mobilenet_2017} % find MobileNetV2 paper?
+
+    % compression methods that best retain baseline model performance and best utilise FPGA
+    \subsection{Compressing Machine Learning Models to FPGA} \label{lit:compression}
+    Papers on useful compression techniques for certain model types
+    % PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
     
     \subsection{Further Research Recommendations}
     Identify gaps, need to repeat any research
@@ -265,8 +261,9 @@ Short summary of this doc
     computer law, ethical decision making, intellectual property, social aspects, copyright,
     data protection, and so on).
 
-\section{Gen AI Summary}
-Summarising use of GenAI in project/deliverables
+% Summarising use of GenAI in project/deliverables
+\section{Gen AI Summary} \label{sec:genai}
+Searching for research papers I used Google Gemini 3.8 Flash on thinking mode High (October 2026 version) to source the most recent academic papers on a particular topic. I would ask it to create a table consisting of the papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for searching the internet like a more powerful keyword search.
 
 % Appendices
 \newpage
