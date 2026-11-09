@@ -4,6 +4,10 @@
 \input{hwu_template/acm_settings}
 \input{hwu_template/packages}
 
+\usepackage{enumitem} % requirements list
+% \usepackage{tabularx} % for requirements table
+% \usepackage{booktabs}
+
 % document details
 % replace those with your details
 \def\docTitle{Skin Lesion Classification on FPGA}
@@ -31,6 +35,30 @@
 
 % load extra formatting
 \input{hwu_template/format}
+
+% objectives list formatting
+\newlist{objs}{enumerate}{1}
+\setlist[objs]{
+    label=\textbf{O\arabic*}, % appearance in list
+    ref=[O\arabic*] % appearance when referencing
+}
+
+% functional requirements list formatting
+\newlist{reqs}{enumerate}{1}
+\setlist[reqs]{
+    label=\textbf{FR\arabic*}, % appearance in list
+    ref=[FR\arabic*], % appearance when referencing
+    % leftmargin=*,
+    % align=left
+}
+% \crefname{reqsi}{Requirement}{reqs} % ref link appearance of "Requirement [R?]"
+
+% non-function requirments list formatting
+\newlist{reqsn}{enumerate}{1}
+\setlist[reqsn]{
+    label=\textbf{NR\arabic*}, % appearance in list
+    ref=[NR\arabic*] % appearance when referencing
+}
 
 \begin{document}
 
@@ -75,6 +103,14 @@ Summary of project motivation \& context
     \subsection{Aim and Objectives} \label{sec:intro_aim}
     State project aims\\
     Table of objectives with IDs to reference later
+
+    \begin{objs}
+        \item\label{obj:train} Train/download a skin lesion model
+        \item\label{obj:compress} Compress skin lesion model successfully for FPGA
+        \item\label{obj:run} Run compressed model on FPGA successfully
+    \end{objs}
+
+    Testing referring to O - \ref{obj:run}
 
 % Plan of the document.
 
@@ -159,9 +195,26 @@ The final area of research in \cref{subsec:ml_models} is finding existing skin l
 Detailed description of necessary methods, requirements, research questions that will be employed/
 needed to complete the project
 
+    % MOSCOW, enumerate so can be referenced later
     \subsection{Requirements}
-    MOSCOW\\
-    Enumerated to be easier to reference again
+    Quick explanation of functional requirements
+    
+    \begin{reqs}
+        \item\label{req:model} Something about the skin lesion model
+        \item\label{req:compress} Something about the compression
+        \item\label{req:fpga} Something about the FPGA
+    \end{reqs}
+    
+    Testing referring to FR - \ref{req:model}
+    \\
+    Quick explanation of non-function requirements
+
+    \begin{reqsn}
+        \item\label{reqn:speed} Something about running speed
+        \item\label{reqn:compile_speed} Something about time taken to compile
+    \end{reqsn}
+
+    Testing referring to NR - \ref{reqn:compile_speed}
 
     \subsection{Plan for Execution}
     Explain how I plan to use experiments to fulfil all the requirements \& objectives
