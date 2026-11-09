@@ -111,11 +111,13 @@
 
 
 
-## FINN Docs
-- https://finn.readthedocs.io/en/latest/
-- Accessed 21/10/2026
+## FINN Project Page
+- https://xilinx.github.io/finn/
+- Accessed 9/11/26
 
-- FINN used to describe 2 separate but related areas: FINN Project, FINN Compiler
-### FINN Project
+- Implements NN network layers as streaming components (basically a hardware pipeline), super low latency
+- Runs NN in constant time determined by layer structure (execution completely input dependant)
+- Run speed variance is because of external factors
 
-### FINN Compiler
+- Designed for running image classifiers
+- Custom resources allocation for individual layers
