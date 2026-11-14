@@ -139,49 +139,76 @@ The methods I used for finding papers are in \cref{lit:search_methods}.
     \subsection{Search Methods} \label{lit:search_methods}
     I used a combination of Gemini 3.8 Flash on High thinking mode and Google Scholar to do keyword searches for relevant papers. For all papers I started with reading the abstract but only went to other sections if I required more information.
 
+    % \subsection{Skin Lesion Classification Models} \label{lit:models}
+    % This section covers what a skin lesion classification machine learning model is and recently published models.
+
+    %     % Covers what skin lesion model is -> properties of current unrelated models -> properties of current FPGA models -> summary of what datasets they used
+    %     \subsubsection{What is a Skin Lesion Model}
+    %     A skin lesion model is a name for an image classifier CNN that has been trained on a dataset of dermoscopic images to identify 
+
+    %     \subsubsection{Recent Models}
+    %     Some detail on models I found, not a list, include architecture used?
+
+    %     \subsubsection{Models Designed for FPGA}
+    %     Similar to recent models section but taking note of performance differences (baseline and deployed)
+
+    %     \subsubsection{Datasets}
+    %     Summarise common datasets used in these models
+    
+    % Papers on recent skin classification models
     \subsection{Skin Lesion Classification Models} \label{lit:models}
-    This section covers what a skin lesion classification machine learning model is and recently published models.
-
-        % Covers what skin lesion model is -> properties of current unrelated models -> properties of current FPGA models -> summary of what datasets they used
-        \subsubsection{What is a Skin Lesion Model}
-        General description of what it is
-
-        \subsubsection{Recent Models}
-        Some detail on models I found, not a list, include architecture used?
-
-        \subsubsection{Models Designed for FPGA}
-        Similar to recent models section but taking note of performance differences (baseline and deployed)
+    From the papers I read, recent models are trained to identify the same 7 types of skin lesions \cite{survey_2023} (cite survey, 2 most recent papers).
 
         \subsubsection{Datasets}
-        Summarise common datasets used in these models
+        There are a few popular datasets used to train these models.
+        \\
+        Ham10000 is a dataset containing 10,015 images of which xx\% show skin lesions (cite source, source for metrics \%) that have been verified manually to NAME standard (cite standard) manually.
+        \\
+        There are several versions of ISIC from 2017 to 2025 used in the papers I found, REASON FOR DIFFERENT VERSIONS (cite REASON).
+        \\
+        Other datasets exist beyond the ones mentioned but haven't been used to train as many models so there will be less options to compare to.
 
-    % Papers on recent skin classification models
-    \subsection{Skin Lesion Classification Models} \label{lit:models} % NEEDS REWRITE
-    using ML has greatly improved early detection of skin lesions...
+        \subsubsection{Recent Models Performance}
+        They use however different methods and techniques with varying performance. Performance is typically measured by model accuracy for the dataset it was trained on.
+        \\
+        Results of models are typically compared in terms of classification accuracy on a test dataset unseen to the models (cite both years surveys). A model is typically considered better if the accuracy is as close to 100\% as possible without the model overfitting. An overfitting model will appear to have high accuracy during testing then have lower accuracy on unseen data (cite overfitting definition).
+
+        \subsubsection{Model Architectures}
+        Recent model architectures can achieve accuracies of 9x\% (cite models) which is a xx\% uplift from earlier fundamental papers such as MobileNet in 2017 (cite mobilenet 2017).
+        \\
+        There is no single model architecture, I found a few of best performing ones from the last few years to compare:
+        \begin{itemize}
+            \item architecture 1 with benefits
+            \item architecture 2 with benefits
+            \item ...
+        \end{itemize}
+
+    % \subsection{Skin Lesion Classification Models} \label{lit:models} % NEEDS REWRITE
+    % using ML has greatly improved early detection of skin lesions...
 
 
-    What is a skin lesion classification model?
-    \\
-    Type of Machine Learning model trained to identify lesion areas in images of skin areas \cite{tess_pi,jesmdt_2025}.
-    \\
-    Choosing an appropriate pre-existing model or training my own will determine the baseline performance I will evaluate against later on.
-    \\[1\baselineskip]
+    % What is a skin lesion classification model?
+    % \\
+    % Type of Machine Learning model trained to identify lesion areas in images of skin areas \cite{tess_pi,jesmdt_2025}.
+    % \\
+    % Choosing an appropriate pre-existing model or training my own will determine the baseline performance I will evaluate against later on.
+    % \\[1\baselineskip]
 
-    % verify dataset details later
-    Top datasets:\\
-    Ham10000 - contains 10,015 dermoscopic (medical, of skin area) images categorised for 7 different classes of skin lesion. Used as a standardised benchmark for multi-class skin lesion classification because data is verified to very high standard \cite{survey_2023}.
-    \\
-    ISIC Archive and Challenge - multiple releases of thousands of curated dermoscopic images. Used as a standardised competition benchmarks with split training/validation/test sets and evaluation protocols \cite{survey_2023}.
-    \\
-    PH2 - small set containing 200 dermoscopic images with 3 different classes. Used because includes expert manual verification.
+    % % verify dataset details later
+    % Top datasets:\\
+    % Ham10000 - contains 10,015 dermoscopic (medical, of skin area) images categorised for 7 different classes of skin lesion. Used as a standardised benchmark for multi-class skin lesion classification because data is verified to very high standard \cite{survey_2023}.
+    % \\
+    % ISIC Archive and Challenge - multiple releases of thousands of curated dermoscopic images. Used as a standardised competition benchmarks with split training/validation/test sets and evaluation protocols \cite{survey_2023}.
+    % \\
+    % PH2 - small set containing 200 dermoscopic images with 3 different classes. Used because includes expert manual verification.
 
-    Existing models:
-    Multi-modal approach on an FPGA which combines image features with patient metadata \cite{jesmdt_2025}. Uses MobileNetV2 architecture.
-    \\[1\baselineskip]
+    % Existing models:
+    % Multi-modal approach on an FPGA which combines image features with patient metadata \cite{jesmdt_2025}. Uses MobileNetV2 architecture.
+    % \\[1\baselineskip]
 
-    Architectures:
-    \\
-    Fundamental MobileNet paper with X features \cite{mobilenet_2017}.
+    % Architectures:
+    % \\
+    % Fundamental MobileNet paper with X features \cite{mobilenet_2017}.
 
     \subsection{Mobile Machine Learning Hardware Acceleration} \label{lit:hardware}
     Looking into hardware options (RPi, mobile, FPGA), reasons for choosing FPGA
