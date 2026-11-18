@@ -47,70 +47,117 @@ incollection{turing_computing_2009,
 }
 
 ============ Other ============
+PYNQ manual
 @manual{pynq_z1_man,
-    author = {{Diligent, Inc.}},
-    title = {{PYNQ-Z1} Reference Manual},
-    url = {https://digilent.com/reference/programmable-logic/pynq-z1/reference-manual},
-    note = "Accessed: 2026-10-20"
+	author = {{Diligent, Inc.}},
+	title = {{PYNQ-Z1} Reference Manual},
+	url = {https://digilent.com/reference/programmable-logic/pynq-z1/reference-manual},
+	note = "Accessed: 20/10/2026"
 }
+
+FINN project site (different from docs site)
+@manual{finn_project,
+  author = {FINN},
+  title = {FINN: Dataflow compiler for QNN inference on FPGAs},
+  url = {https://xilinx.github.io/finn/},
+  note = "Accessed: 9/11/26"
+}
+
+FINN paper
+
+
+========== Datasets ===========
+HAM10000 source page
+@misc{ham_src,
+	author = {Tschandl, Philipp},
+	title = {The {HAM10000} dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions},
+	year = {2018},
+	publisher = {Harvard Dataverse},
+	version = {V4},
+	url = {https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T},
+	doi = {10.7910/DVN/DBW86T}
+}
+
+PH2
+@INPROCEEDINGS{ph2_paper,
+	author={Mendonça, Teresa and Ferreira, Pedro M. and Marques, Jorge S. and Marcal, André R. S. and Rozeira, Jorge},
+	booktitle={2013 35th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)}, 
+	title={PH2 - A dermoscopic image database for research and benchmarking}, 
+	year={2013},
+	publisher={},
+	volume={},
+	number={},
+	pages={5437-5440},
+	abstract={The increasing incidence of melanoma has recently promoted the development of computer-aided diagnosis systems for the classification of dermoscopic images. Unfortunately, the performance of such systems cannot be compared since they are evaluated in different sets of images by their authors and there are no public databases available to perform a fair evaluation of multiple systems. In this paper, a dermoscopic image database, called PH2, is presented. The PH2 database includes the manual segmentation, the clinical diagnosis, and the identification of several dermoscopic structures, performed by expert dermatologists, in a set of 200 dermoscopic images. The PH2 database will be made freely available for research and benchmarking purposes.},
+	keywords={Lesions;Databases;Malignant tumors;Image segmentation;Skin;Image color analysis;Manuals},
+	doi={10.1109/EMBC.2013.6610779},
+	url={https://doi.org/10.1109/EMBC.2013.6610779},
+	ISSN={1558-4615},
+	month={July},
+}
+
 
 ============ PAPERS ============
 
-% Skin lesion classification models
+Skin lesion classification models
+
+Design and Implementation of a Real-Time Embedded System for Early Skin Cancer Detection
 @article{jesmdt_2025,
-    author = {Mao, Zhihao and Han, Jin and Shi, Mingzhu},
-    title = {Design and Implementation of a Real-Time Embedded System for Early Skin Cancer Detection},
-    journal = {Journal of Engineering and Science in Medical Diagnostics and Therapy},
-    volume = {9},
-    number = {2},
-    pages = {021202},
-    year = {2025},
-    month = {12},
-    abstract = {Early diagnosis of skin cancer is crucial for improving survival rates and reducing treatment costs. In this paper, an edge skin cancer diagnostic system based on hardware and software codesign is proposed. The software level is centered on an optimized lightweight neural network and proposes a self-supervised multidomain knowledge distillation (SSMD-KD) framework, which designs and introduces the multilayer feature knowledge distillation (MFKD) loss to replace the original single-layer distillation method, and fuses the patient's clinical metadata with the skin image features at the same time. The distillation framework uses ResNet50 and MobileNetV2 as teacher and student models and combines quantitative training to achieve model compression and optimization. The optimized models were run on a Xilinx Zynq-7020 SoC heterogeneous platform via a custom accelerator, supporting USB video class protocol USB dermatoscope input, high-definition multimedia interface (HDMI) real-time display, and Wi-Fi data transfer. Experiments on the ISIC2019 dataset showed that the system had a classification accuracy of 86\% on the test set across eight classes of skin lesions, with an inference speed of 14.28 FPS and a power consumption of only 2.9 W, validating the feasibility of the system for efficient and low-power skin cancer early diagnosis in edge environments.},
-    issn = {2572-7958},
-    doi = {10.1115/1.4069441},
-    url = {https://doi.org/10.1115/1.4069441},
-    eprint = {https://asmedigitalcollection.asme.org/medicaldiagnostics/article-pdf/9/2/021202/7529299/jesmdt-25-1029.pdf},
+	author = {Mao, Zhihao and Han, Jin and Shi, Mingzhu},
+	title = {Design and Implementation of a Real-Time Embedded System for Early Skin Cancer Detection},
+	journal = {Journal of Engineering and Science in Medical Diagnostics and Therapy},
+	volume = {9},
+	number = {2},
+	pages = {021202},
+	year = {2025},
+	month = {12},
+	abstract = {Early diagnosis of skin cancer is crucial for improving survival rates and reducing treatment costs. In this paper, an edge skin cancer diagnostic system based on hardware and software codesign is proposed. The software level is centered on an optimized lightweight neural network and proposes a self-supervised multidomain knowledge distillation (SSMD-KD) framework, which designs and introduces the multilayer feature knowledge distillation (MFKD) loss to replace the original single-layer distillation method, and fuses the patient's clinical metadata with the skin image features at the same time. The distillation framework uses ResNet50 and MobileNetV2 as teacher and student models and combines quantitative training to achieve model compression and optimization. The optimized models were run on a Xilinx Zynq-7020 SoC heterogeneous platform via a custom accelerator, supporting USB video class protocol USB dermatoscope input, high-definition multimedia interface (HDMI) real-time display, and Wi-Fi data transfer. Experiments on the ISIC2019 dataset showed that the system had a classification accuracy of 86\% on the test set across eight classes of skin lesions, with an inference speed of 14.28 FPS and a power consumption of only 2.9 W, validating the feasibility of the system for efficient and low-power skin cancer early diagnosis in edge environments.},
+	issn = {2572-7958},
+	doi = {10.1115/1.4069441},
+	url = {https://doi.org/10.1115/1.4069441},
+	eprint = {https://asmedigitalcollection.asme.org/medicaldiagnostics/article-pdf/9/2/021202/7529299/jesmdt-25-1029.pdf},
 }
 
+Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review
 @article{survey_2023,
-    AUTHOR = {Debelee, Taye Girma},
-    TITLE = {Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review},
-    JOURNAL = {Diagnostics},
-    VOLUME = {13},
-    YEAR = {2023},
-    NUMBER = {19},
-    ARTICLE-NUMBER = {3147},
-    URL = {https://www.mdpi.com/2075-4418/13/19/3147},
-    PubMedID = {37835889},
-    ISSN = {2075-4418},
-    ABSTRACT = {Skin lesions are essential for the early detection and management of a number of dermatological disorders. Learning-based methods for skin lesion analysis have drawn much attention lately because of improvements in computer vision and machine learning techniques. A review of the most-recent methods for skin lesion classification, segmentation, and detection is presented in this survey paper. The significance of skin lesion analysis in healthcare and the difficulties of physical inspection are discussed in this survey paper. The review of state-of-the-art papers targeting skin lesion classification is then covered in depth with the goal of correctly identifying the type of skin lesion from dermoscopic, macroscopic, and other lesion image formats. The contribution and limitations of various techniques used in the selected study papers, including deep learning architectures and conventional machine learning methods, are examined. The survey then looks into study papers focused on skin lesion segmentation and detection techniques that aimed to identify the precise borders of skin lesions and classify them accordingly. These techniques make it easier to conduct subsequent analyses and allow for precise measurements and quantitative evaluations. The survey paper discusses well-known segmentation algorithms, including deep-learning-based, graph-based, and region-based ones. The difficulties, datasets, and evaluation metrics particular to skin lesion segmentation are also discussed. Throughout the survey, notable datasets, benchmark challenges, and evaluation metrics relevant to skin lesion analysis are highlighted, providing a comprehensive overview of the field. The paper concludes with a summary of the major trends, challenges, and potential future directions in skin lesion classification, segmentation, and detection, aiming to inspire further advancements in this critical domain of dermatological research.},
-    DOI = {10.3390/diagnostics13193147}
+	AUTHOR = {Debelee, Taye Girma},
+	TITLE = {Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review},
+	JOURNAL = {Diagnostics},
+	VOLUME = {13},
+	YEAR = {2023},
+	NUMBER = {19},
+	ARTICLE-NUMBER = {3147},
+	URL = {https://www.mdpi.com/2075-4418/13/19/3147},
+	PubMedID = {37835889},
+	ISSN = {2075-4418},
+	ABSTRACT = {Skin lesions are essential for the early detection and management of a number of dermatological disorders. Learning-based methods for skin lesion analysis have drawn much attention lately because of improvements in computer vision and machine learning techniques. A review of the most-recent methods for skin lesion classification, segmentation, and detection is presented in this survey paper. The significance of skin lesion analysis in healthcare and the difficulties of physical inspection are discussed in this survey paper. The review of state-of-the-art papers targeting skin lesion classification is then covered in depth with the goal of correctly identifying the type of skin lesion from dermoscopic, macroscopic, and other lesion image formats. The contribution and limitations of various techniques used in the selected study papers, including deep learning architectures and conventional machine learning methods, are examined. The survey then looks into study papers focused on skin lesion segmentation and detection techniques that aimed to identify the precise borders of skin lesions and classify them accordingly. These techniques make it easier to conduct subsequent analyses and allow for precise measurements and quantitative evaluations. The survey paper discusses well-known segmentation algorithms, including deep-learning-based, graph-based, and region-based ones. The difficulties, datasets, and evaluation metrics particular to skin lesion segmentation are also discussed. Throughout the survey, notable datasets, benchmark challenges, and evaluation metrics relevant to skin lesion analysis are highlighted, providing a comprehensive overview of the field. The paper concludes with a summary of the major trends, challenges, and potential future directions in skin lesion classification, segmentation, and detection, aiming to inspire further advancements in this critical domain of dermatological research.},
+	DOI = {10.3390/diagnostics13193147}
 }
 
-% Machine learning models on FPGA
+Machine learning models on FPGA
+
 @misc{mobilenet_2017,
-    title={MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}, 
-    author={Andrew G. Howard and Menglong Zhu and Bo Chen and Dmitry Kalenichenko and Weijun Wang and Tobias Weyand and Marco Andreetto and Hartwig Adam},
-    year={2017},
-    eprint={1704.04861},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV},
-    url={https://arxiv.org/abs/1704.04861}, 
+	title={MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}, 
+	author={Andrew G. Howard and Menglong Zhu and Bo Chen and Dmitry Kalenichenko and Weijun Wang and Tobias Weyand and Marco Andreetto and Hartwig Adam},
+	year={2017},
+	eprint={1704.04861},
+	archivePrefix={arXiv},
+	primaryClass={cs.CV},
+	url={https://arxiv.org/abs/1704.04861}, 
 }
 
 @article{tess_pi,
-    AUTHOR = {Watt, Tess and Chrysoulas, Christos and Barclay, Peter J. and El Boudani, Brahim and Kalliatakis, Grigorios},
-    TITLE = {Moving Healthcare AI Support Systems for Visually Detectable Diseases to Constrained Devices},
-    JOURNAL = {Applied Sciences},
-    VOLUME = {14},
-    YEAR = {2024},
-    NUMBER = {24},
-    ARTICLE-NUMBER = {11474},
-    URL = {https://www.mdpi.com/2076-3417/14/24/11474},
-    ISSN = {2076-3417},
-    ABSTRACT = {Image classification usually requires connectivity and access to the cloud, which is often limited in many parts of the world, including hard-to-reach rural areas. Tiny machine learning (tinyML) aims to solve this problem by hosting artificial intelligence (AI) assistants on constrained devices, eliminating connectivity issues by processing data within the device itself, without Internet or cloud access. This study explores the use of tinyML to provide healthcare support with low-spec devices in low-connectivity environments, focusing on the diagnosis of skin diseases and the ethical use of AI assistants in a healthcare setting. To investigate this, images of skin lesions were used to train a model for classifying visually detectable diseases (VDDs). The model weights were then offloaded to a Raspberry Pi with a webcam attached, to be used for the classification of skin lesions without Internet access. It was found that the developed prototype achieved a test accuracy of 78% when trained on the HAM10000 dataset, and a test accuracy of 85% when trained on the ISIC 2020 Challenge dataset.},
-    DOI = {10.3390/app142411474}
+	AUTHOR = {Watt, Tess and Chrysoulas, Christos and Barclay, Peter J. and El Boudani, Brahim and Kalliatakis, Grigorios},
+	TITLE = {Moving Healthcare AI Support Systems for Visually Detectable Diseases to Constrained Devices},
+	JOURNAL = {Applied Sciences},
+	VOLUME = {14},
+	YEAR = {2024},
+	NUMBER = {24},
+	ARTICLE-NUMBER = {11474},
+	URL = {https://www.mdpi.com/2076-3417/14/24/11474},
+	ISSN = {2076-3417},
+	ABSTRACT = {Image classification usually requires connectivity and access to the cloud, which is often limited in many parts of the world, including hard-to-reach rural areas. Tiny machine learning (tinyML) aims to solve this problem by hosting artificial intelligence (AI) assistants on constrained devices, eliminating connectivity issues by processing data within the device itself, without Internet or cloud access. This study explores the use of tinyML to provide healthcare support with low-spec devices in low-connectivity environments, focusing on the diagnosis of skin diseases and the ethical use of AI assistants in a healthcare setting. To investigate this, images of skin lesions were used to train a model for classifying visually detectable diseases (VDDs). The model weights were then offloaded to a Raspberry Pi with a webcam attached, to be used for the classification of skin lesions without Internet access. It was found that the developed prototype achieved a test accuracy of 78% when trained on the HAM10000 dataset, and a test accuracy of 85% when trained on the ISIC 2020 Challenge dataset.},
+	DOI = {10.3390/app142411474}
 }
 
-% Compressing machine learning models to FPGA
+Compressing machine learning models to FPGA

@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{1}
+\begin{thebibliography}{5}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -48,6 +48,48 @@
 \newblock
 \showISSN{2075-4418}
 \href{https://doi.org/10.3390/diagnostics13193147}{doi:\nolinkurl{10.3390/diagnostics13193147}}
+
+
+\bibitem[FINN(0000)]%
+        {finn_project}
+\bibfield{author}{\bibinfo{person}{FINN}.} \bibinfo{year}{[n.\,d.]}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{FINN: Dataflow compiler for QNN inference on FPGAs}}.
+\newblock
+\urldef\tempurl%
+\url{https://xilinx.github.io/finn/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 9/11/26}.
+
+
+\bibitem[Howard et~al\mbox{.}(2017)]%
+        {mobilenet_2017}
+\bibfield{author}{\bibinfo{person}{Andrew~G. Howard}, \bibinfo{person}{Menglong Zhu}, \bibinfo{person}{Bo Chen}, \bibinfo{person}{Dmitry Kalenichenko}, \bibinfo{person}{Weijun Wang}, \bibinfo{person}{Tobias Weyand}, \bibinfo{person}{Marco Andreetto}, {and} \bibinfo{person}{Hartwig Adam}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \bibinfo{title}{MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}.
+\newblock
+\showeprint[arxiv]{1704.04861}~[cs.CV]
+\urldef\tempurl%
+\url{https://arxiv.org/abs/1704.04861}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Mendonça et~al\mbox{.}(2013)]%
+        {ph2_paper}
+\bibfield{author}{\bibinfo{person}{Teresa Mendonça}, \bibinfo{person}{Pedro~M. Ferreira}, \bibinfo{person}{Jorge~S. Marques}, \bibinfo{person}{André R.~S. Marcal}, {and} \bibinfo{person}{Jorge Rozeira}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{PH2 - A dermoscopic image database for research and benchmarking}. In \bibinfo{booktitle}{\emph{2013 35th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)}}. \bibinfo{pages}{5437--5440}.
+\newblock
+\showISSN{1558-4615}
+\href{https://doi.org/10.1109/EMBC.2013.6610779}{doi:\nolinkurl{10.1109/EMBC.2013.6610779}}
+
+
+\bibitem[Tschandl(2018)]%
+        {ham_src}
+\bibfield{author}{\bibinfo{person}{Philipp Tschandl}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \bibinfo{title}{The {HAM10000} dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions}.
+\newblock
+\href{https://doi.org/10.7910/DVN/DBW86T}{doi:\nolinkurl{10.7910/DVN/DBW86T}}
 
 
 \end{thebibliography}
