@@ -1,5 +1,16 @@
 # Research Papers Notes - Running NN on Mobile Hardware
 
+## Improving Healthcare AI-Support Systems for Skin Lesion Diagnosis With tinyML
+- https://doi.org/10.1109/ICDCSW63273.2025.00067
+- 2025
+- Abstract
+- Tess' paper
+
+- Reviewing tinyML for various existing multimodal models
+- Proposes healthcare AI-support system for diagnosing in remote areas
+
+
+
 ## Moving Healthcare AI Support Systems for Visually Detectable Diseases to Constrained Devices
 - https://doi.org/10.3390/app142411474
 - Sep 27, 2024
@@ -21,13 +32,3 @@
 - Used ISIC2020 Challenge dataset - achieved classification accuracy of 85%
 - Compared against [Aburaed et al.](https://doi.org/10.1109/ICECS49266.2020.9294814), they used Ham10000 with accuracy being 99% because different hyperparameters and more epochs
 - Much higher training batch size
-
-
-
-## Improving Healthcare AI-Support Systems for Skin Lesion Diagnosis With tinyML
-- https://doi.org/10.1109/ICDCSW63273.2025.00067
-- 2025
-- Abstract
-
-- Reviewing tinyML for various existing multimodal models
-- Proposes healthcare AI-support system for diagnosing in remote areas
