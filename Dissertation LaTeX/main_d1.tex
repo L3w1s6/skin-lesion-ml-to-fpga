@@ -198,7 +198,7 @@ This section covers my research for the areas of this project. First finding gen
 		The PYNQ-Z1 is part of a series of boards by Xilinx (now owned by AMD) designed to make running neural networks on FPGAs more easily accessible \cite{pynq_z1_man}. It is an embedded SoC architecture that has an ARM CPU which can run a Linux bootloader similar to a RPi and an embedded Field Programmable Gate Array (FPGA) chip which can be used to create specialised accelerator hardware. Both chips share system resources including RAM \cite[Section 2]{pynq_z1_man}. An FPGA can achieve higher speeds than most accelerators while being programmable, only requiring a few Watts and having limited hardware resources. The PYNQ-Z1 provides a base framework to allow using the FPGA without having to design physical logic circuits. Many frameworks exist to generate efficient and optimised logic circuits which is explored in \bcref{lit:fpga_pipelines}.
 
 	% Papers more generally on methodology for putting ML models on FPGA
-	\subsection{Machine Learning Models on FPGA} \label{lit:fpga_pipelines}
+	\subsection{Machine Learning Models to FPGA Frameworks} \label{lit:fpga_pipelines}
 	This section describes a few of the options for frameworks that could be used to run a skin lesion classification machine learning model on an FPGA.
 
 		% Mentioned as an option but only an old version supports PYNQ-Z1
