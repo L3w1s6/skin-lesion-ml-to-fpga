@@ -8,6 +8,11 @@
 
 - Reviewing tinyML for various existing multimodal models
 - Proposes healthcare AI-support system for diagnosing in remote areas
+- Discusses experiments that will be conducted (no results?):
+	- Examining model compression techniques (knowledge distillation, pruning, quantisation)
+	- Comparing CNNs with VLMs for skin lesion classification data
+	- Developing a cheap, portable, energy-efficient system
+- Suggests lack of open-source skin lesion data & research on compressing VLMs for use on constrained devices
 
 
 

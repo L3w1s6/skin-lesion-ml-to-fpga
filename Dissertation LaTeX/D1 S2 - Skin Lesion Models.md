@@ -55,4 +55,15 @@
 
 
 
+## Advanced hybrid transformer CNN framework for improved skin lesion classification and segmentation
+- https://doi.org/10.1038/s41598-026-43376-0
+- Mar 15, 2026
+- Abstract
+
+- Transformer-based dual-architecture, contains multiple models for skin lesion classification and segmentation
+- Based on Global Contextual Vision Transformer (GlobalSkinNet) which is a combination of convolution and transformer models
+- GlobalSkinNet model trained using selected parameters & Adam optimiser for skin lesion classification
+
+
+
 # Research Papers Notes - Skin Lesion Classification on FPGAs
