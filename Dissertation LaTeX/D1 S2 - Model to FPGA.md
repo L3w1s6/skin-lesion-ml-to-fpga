@@ -85,6 +85,12 @@
 
 
 
+## hls4ml
+- 
+- 
+
+
+
 ## A Compiler-Aware Framework for Partitioned Neural Network Inference on FPGA DPUs
 - https://doi.org/10.64552/wipiec.v12i2.144
 - Aug 25, 2026

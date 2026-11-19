@@ -199,30 +199,19 @@ This section covers my research for the areas of this project. First finding gen
 
 	% Papers more generally on methodology for putting ML models on FPGA
 	\subsection{Machine Learning Models on FPGA} \label{lit:fpga_pipelines}
-	This section describes a few of the options for pipelines that could be used to run a machine learning model on an FPGA.
+	This section describes a few of the options for frameworks that could be used to run a skin lesion classification machine learning model on an FPGA.
 
 		% Mentioned as an option but only an old version supports PYNQ-Z1
 		\subsubsection{Vitis AI}
-		Vitis is a software platform used for digital signal processing and machine learning (cite vitis). The Vitis AI framework is part of the platform and is designed for AI acceleration of CNN models. A variety of tools and optimisations are included for designing programmable logic focusing on better area compute density and reducing power consumption compared to traditional implementations. It abstracts the programming to C/C++ languages level to allow for easier porting between specific hardware. The current version of Vitis AI is 5.0. The Zynq-7000 family (includes PYNQ-Z1) lost support as of version 1.4 because they were considered to not have enough resources for acceptable performance. Using this framework may still be possible but would be unlikely to have the same latest features as frameworks since 2021 (cite support).
-		\\
-		\cite[Page 14, AI Engine Development Environment]{vitis_paper}
-		\\
-		\cite[AMD Support Page, GitHub Vitis 1.4 Release]{vitis_1_4_support, vitis_1_4_git}
+		Vitis is a software platform used for digital signal processing and machine learning. The Vitis AI framework is part of the platform and is designed for AI acceleration of CNN models \cite[Page 16, AI Engine Development Environment]{vitis_paper}. A variety of tools and optimisations are included for designing programmable logic focusing on better area compute density and reducing power consumption compared to traditional implementations. It abstracts the programming to C/C++ languages level to allow for easier porting between specific hardware. The current version of Vitis AI is 5.0. The Zynq-7000 family (includes PYNQ-Z1) lost support as of version 1.4 because they were considered to not have enough resources for acceptable performance. Using this framework may still be possible but would be unlikely to have the same latest features as frameworks since 2021 \cite[AMD Support Page, GitHub Vitis 1.4 Release]{vitis_1_4_support, vitis_1_4_git}.
 
-		% Explain here details about FINN framework: general process, benefits, drawbacks, supported model types
+		% Kinda supported for PYNQ-Z1
 		\subsubsection{FINN}
-		\cite{finn_paper}
-		Preface with the FINN project and FINN compiler are separate but closely related projects. The FINN project uses the FINN compiler as part of a bigger pipeline.
-		\\
-		FINN is a pipeline for running quantised neural networks on FPGAs. It implements NN layers as streaming components meaning there are no processor clock cycles but instead the code is run directly in hardware. This means the NN runs in essentially constant time and with sub-microsecond latency. The main trade-off is that 
-		- Runs NN in constant time determined by layer structure (execution completely input dependant)
-		- Run speed variance is because of external factors
+		FINN is a framework specifically for running machine learning models on an FPGA rather than code. It implements a neural network as a series of interconnected streaming layers. A streaming component doesn't run a list of operations like a CPU but instead runs more like a single complex operation. This means that the runtime is not based on a clock speed but instead on the throughput speed (speed at which signals can be sent through the circuit) with a sub-microsecond latency \cite{finn_project, finn_paper}. Almost all machine learning models use too much memory to directly fit on the limited on-chip memory of an FPGA which is why the FINN framework also includes the FINN compiler. The FINN compiler is similar in principle to lossy image compression where through various tuneable compression techniques it reduces the size of a machine learning model while aiming to cause as small of a model performance loss as possible \cite{finn_paper}. In \cite[Getting Started > Supported FPGA Hardware]{finn_docs} the PYNQ-Z1 is listed as retired in favour of larger FPGA boards. Although no longer officially supported the docs explain how it can be re-enabled through a config file and should still work.
 
-		- Designed for running image classifiers
-		- Custom resources allocation for individual layers
-		\cite{finn_project}
+		\subsubsection{HLS 4 ML}
+		Come back to this framework if time allows
 		
-
 	% compression methods that best retain baseline model performance and best utilise FPGA
 	\subsection{Compressing Machine Learning Models to FPGA} \label{lit:compression}
 	Papers on useful compression techniques for certain model types
@@ -300,6 +289,8 @@ Short summary of this doc
 
 	\subsection{Analysis of Risks}
 	Including mitigation plans
+
+	% Risk 1 - PYNQ-Z1 is unsupported by FINN so not guaranteed to work
 
 	\subsection{PLES}
 	A well-researched consideration of any Professional, Legal, Ethical, and Social Issues
