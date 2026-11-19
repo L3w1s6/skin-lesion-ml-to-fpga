@@ -50,9 +50,9 @@
 \href{https://doi.org/10.3390/diagnostics13193147}{doi:\nolinkurl{10.3390/diagnostics13193147}}
 
 
-\bibitem[{Diligent, Inc.}(0000)]%
+\bibitem[{Diligent, Inc.}(nd)]%
         {pynq_z1_man}
-\bibfield{author}{\bibinfo{person}{{Diligent, Inc.}}} \bibinfo{year}{[n.\,d.]}\natexlab{}.
+\bibfield{author}{\bibinfo{person}{{Diligent, Inc.}}} \bibinfo{year}{[n.d]}\natexlab{}.
 \newblock \bibinfo{booktitle}{\emph{{PYNQ-Z1} Reference Manual}}.
 \newblock
 \urldef\tempurl%
@@ -63,9 +63,9 @@
 \shownote{Accessed: 20/10/2026}.
 
 
-\bibitem[FINN(0000)]%
+\bibitem[FINN(nd)]%
         {finn_project}
-\bibfield{author}{\bibinfo{person}{FINN}.} \bibinfo{year}{[n.\,d.]}\natexlab{}.
+\bibfield{author}{\bibinfo{person}{FINN}.} \bibinfo{year}{[n.d]}\natexlab{}.
 \newblock \bibinfo{booktitle}{\emph{FINN: Dataflow compiler for QNN inference on FPGAs}}.
 \newblock
 \urldef\tempurl%
