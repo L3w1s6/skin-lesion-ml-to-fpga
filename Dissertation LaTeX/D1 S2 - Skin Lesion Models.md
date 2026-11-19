@@ -66,4 +66,19 @@
 
 
 
-# Research Papers Notes - Skin Lesion Classification on FPGAs
+## Multimodal skin lesion classification for early cancer diagnosis using deep learning
+- https://doi.org/10.3389/fphys.2026.1717517
+- Feb 9, 2026
+- Abstract
+
+- Combines 3 prominent DCNN architectures into single model - DenseNet 201, VGG16, InceptionV3
+
+- Used Ham10000 dataset - applied a variety of preprocessing methods
+### Method
+1. Creating customised CNN models:
+    1. Top layers of base model re-trained
+    2. Re-trained half layers of base models and additional layers added
+2. Merged customised models and tuned hyperparameters to enhance performance
+3. Model dependency for clinical applications improved using Grad-CAM
+### Results
+- New combined model outperforms individual models with testing accuracy of 97.9%, precision of 99.2%
