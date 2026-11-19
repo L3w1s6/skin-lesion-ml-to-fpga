@@ -176,8 +176,21 @@ This section covers my research for the areas of this project. First finding gen
 			\item ...
 		\end{itemize}
 
+	% Looking into hardware options (RPi, mobile, FPGA)
 	\subsection{Mobile Machine Learning Hardware Acceleration} \label{lit:hardware}
-	Looking into hardware options (RPi, mobile, FPGA), reasons for choosing FPGA
+	Many options for portable hardware exist such as RPi, mobile, embedded FPGAs, Nvidia accelerators. Scope and timeframe of this project only allows for focusing on one target hardware.
+
+	I am familiar with using a RPi but unfamiliar with FPGAs.
+	I am familiar with the Raspberry Pi 3. It is a board with an embedded System on Chip (SoC) that runs a custom Linux operating system. A cheap (around £30 at time research) hardware package often used for running lightweight servers and connecting to a vast array of peripherals. Not known for high performance but only uses a few Watts of power.
+
+	A Field Programmable Gate Array (FPGA) requires either specialist equipment to use or is integrated into an embedded system. The PYNQ-Z1 is similar to a RPi as an embedded SoC board, part of a series of boards by Xilinx (now owned by AMD) designed to make running neural networks on FPGAs more easily accessible.
+	
+	Looking into FPGAs shows clear advantage of specialised hardware that can run machine learning models at higher speeds than most accelerators while requiring only a few Watts and having quite limited hardware resources. An embedded FPGA like PYNQ-Z1 board has several advantages. It can be setup to run a linux bootloader which makes the ARM CPU and programmable hardware as easy to access as a RPi. The FPGA requires physical logic designing which is beyond the scope of this project so instead a compilation software can be used instead as covered in (\cref{lit:fpga_pipelines}).
+	
+	RPi boards are similarly designed as an embedded SoC architecture however possess no specialised acceleration hardware beyond what is expected of a modern CPU.
+	A RPi-3 has been used for skin lesion classification already \cite{tess_pi}.
+	
+	Mobile is a full system including various sensors, cameras, processors. Designed to juggle many user tasks and programs running at once so may prove difficult to take full advance of hardware.
 
 	% Papers more generally on methodology for putting ML models on FPGA
 	\subsection{Machine Learning Models on FPGA} \label{lit:fpga_pipelines}
@@ -202,6 +215,8 @@ This section covers my research for the areas of this project. First finding gen
 
 	\subsection{Further Research Recommendations}
 	Identify gaps, need to repeat any research
+
+	Gap I want to address: is it possible to take a skin lesion classification model unrelated to FPGAs and fit it entirely within PYNQ-Z1 FPGA hardware without significant accuracy loss.
 
 \section{Methodology} \label{sec:method}
 Detailed description of necessary methods, requirements, research questions that will be employed/

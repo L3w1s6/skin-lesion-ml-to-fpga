@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{5}
+\begin{thebibliography}{6}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -90,6 +90,16 @@
 \newblock \bibinfo{title}{The {HAM10000} dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions}.
 \newblock
 \href{https://doi.org/10.7910/DVN/DBW86T}{doi:\nolinkurl{10.7910/DVN/DBW86T}}
+
+
+\bibitem[Watt et~al\mbox{.}(2024)]%
+        {tess_pi}
+\bibfield{author}{\bibinfo{person}{Tess Watt}, \bibinfo{person}{Christos Chrysoulas}, \bibinfo{person}{Peter~J. Barclay}, \bibinfo{person}{Brahim El~Boudani}, {and} \bibinfo{person}{Grigorios Kalliatakis}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Moving Healthcare AI Support Systems for Visually Detectable Diseases to Constrained Devices}.
+\newblock \bibinfo{journal}{\emph{Applied Sciences}} \bibinfo{volume}{14}, \bibinfo{number}{24} (\bibinfo{year}{2024}).
+\newblock
+\showISSN{2076-3417}
+\href{https://doi.org/10.3390/app142411474}{doi:\nolinkurl{10.3390/app142411474}}
 
 
 \end{thebibliography}
