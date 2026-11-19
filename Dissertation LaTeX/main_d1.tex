@@ -188,21 +188,30 @@ This section covers my research for the areas of this project. First finding gen
 	\subsection{Mobile Hardware for Machine Learning Acceleration} \label{lit:hardware}
 	Many options for portable hardware exist such as mobile, Nvidia AI accelerators, RPi, embedded FPGAs. This section covers a few popular options including the PYNQ-Z1 I will be using.
 	
-	\subsubsection{Raspberry Pi 3}
-	RPi boards are designed as an embedded System on Chip (SoC) architecture however possess no specialised acceleration hardware beyond what is expected of a modern CPU. I am already familiar with the Raspberry Pi 3 \cite{pi3_product_page}. A cheap (around £30 at time of research) hardware package often used for running lightweight servers and connecting to a vast array of peripherals via a custom Linux operating system. Not known for high performance but has low power usage of only 1.5-4W according to \cite[Section 6]{tess_pi}.
+		\subsubsection{Raspberry Pi 3}
+		RPi boards are designed as an embedded System on Chip (SoC) architecture however possess no specialised acceleration hardware beyond what is expected of a modern CPU. I am already familiar with the Raspberry Pi 3 \cite{pi3_product_page}. A cheap (around £30 at time of research) hardware package often used for running lightweight servers and connecting to a vast array of peripherals via a custom Linux operating system. Not known for high performance but has low power usage of only 1.5-4W according to \cite[Section 6]{tess_pi}.
 
-	\subsubsection{Mobile}
-	Modern mobile phones have various sensors, cameras and processors designed for general purpose use. For this project only the phone's processor and any AI accelerators would be used so many of the features would be unutilised. This amounts to a larger cost to have access to processors that exist on cheaper and simpler embedded SoC boards.
+		\subsubsection{Mobile}
+		Modern mobile phones have various sensors, cameras and processors designed for general purpose use. For this project only the phone's processor and any AI accelerators would be used so many of the features would be unutilised. This amounts to a larger cost to have access to processors that exist on cheaper and simpler embedded SoC boards.
 
-	\subsubsection{PYNQ-Z1}
-	The PYNQ-Z1 is part of a series of boards by Xilinx (now owned by AMD) designed to make running neural networks on FPGAs more easily accessible \cite{pynq_z1_man}. It is an embedded SoC architecture that has an ARM CPU which can run a Linux bootloader similar to a RPi and an embedded Field Programmable Gate Array (FPGA) chip which can be used to create specialised accelerator hardware. Both chips share system resources including RAM \cite[Section 2]{pynq_z1_man}. An FPGA can achieve higher speeds than most accelerators while being programmable, only requiring a few Watts and having limited hardware resources. The PYNQ-Z1 provides a base framework to allow using the FPGA without having to design physical logic circuits. Many frameworks exist to generate efficient and optimised logic circuits which is explored in \bcref{lit:fpga_pipelines}.
+		\subsubsection{PYNQ-Z1}
+		The PYNQ-Z1 is part of a series of boards by Xilinx (now owned by AMD) designed to make running neural networks on FPGAs more easily accessible \cite{pynq_z1_man}. It is an embedded SoC architecture that has an ARM CPU which can run a Linux bootloader similar to a RPi and an embedded Field Programmable Gate Array (FPGA) chip which can be used to create specialised accelerator hardware. Both chips share system resources including RAM \cite[Section 2]{pynq_z1_man}. An FPGA can achieve higher speeds than most accelerators while being programmable, only requiring a few Watts and having limited hardware resources. The PYNQ-Z1 provides a base framework to allow using the FPGA without having to design physical logic circuits. Many frameworks exist to generate efficient and optimised logic circuits which is explored in \bcref{lit:fpga_pipelines}.
 
 	% Papers more generally on methodology for putting ML models on FPGA
 	\subsection{Machine Learning Models on FPGA} \label{lit:fpga_pipelines}
-	This section describes a few options for pipelines that could be used.
+	This section describes a few of the options for pipelines that could be used to run a machine learning model on an FPGA.
 
-	% Explain here details about FINN framework: general process, benefits, drawbacks, supported model types
+		% Mentioned as an option but only an old version supports PYNQ-Z1
+		\subsubsection{Vitis AI}
+		Vitis is a software platform used for digital signal processing and machine learning (cite vitis). The Vitis AI framework is part of the platform and is designed for AI acceleration of CNN models. A variety of tools and optimisations are included for designing programmable logic focusing on better area compute density and reducing power consumption compared to traditional implementations. It abstracts the programming to C/C++ languages level to allow for easier porting between specific hardware. The current version of Vitis AI is 5.0. The Zynq-7000 family (includes PYNQ-Z1) lost support as of version 1.4 because they were considered to not have enough resources for acceptable performance. Using this framework may still be possible but would be unlikely to have the same latest features as frameworks since 2021 (cite support).
+		\\
+		\cite[Page 14, AI Engine Development Environment]{vitis_paper}
+		\\
+		\cite[AMD Support Page, GitHub Vitis 1.4 Release]{vitis_1_4_support, vitis_1_4_git}
+
+		% Explain here details about FINN framework: general process, benefits, drawbacks, supported model types
 		\subsubsection{FINN}
+		\cite{finn_paper}
 		Preface with the FINN project and FINN compiler are separate but closely related projects. The FINN project uses the FINN compiler as part of a bigger pipeline.
 		\\
 		FINN is a pipeline for running quantised neural networks on FPGAs. It implements NN layers as streaming components meaning there are no processor clock cycles but instead the code is run directly in hardware. This means the NN runs in essentially constant time and with sub-microsecond latency. The main trade-off is that 
@@ -212,6 +221,7 @@ This section covers my research for the areas of this project. First finding gen
 		- Designed for running image classifiers
 		- Custom resources allocation for individual layers
 		\cite{finn_project}
+		
 
 	% compression methods that best retain baseline model performance and best utilise FPGA
 	\subsection{Compressing Machine Learning Models to FPGA} \label{lit:compression}

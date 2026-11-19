@@ -49,11 +49,11 @@ incollection{turing_computing_2009,
 ============ Other ============
 RPi 3 product page
 @misc{pi3_product_page,
-  author = {Raspberry Pi},
-  howpublished = {\url{https://www.raspberrypi.com/products/raspberry-pi-3-model-b/}},
-  title = {Raspberry Pi 3 Model B},
-  year = {2016},
-  note = "Accessed: 19/11/26"
+	author = {Raspberry Pi},
+	howpublished = {\url{https://www.raspberrypi.com/products/raspberry-pi-3-model-b/}},
+	title = {Raspberry Pi 3 Model B},
+	year = {2016},
+	note = "Accessed: 19/11/26"
 }
 
 PYNQ manual
@@ -65,17 +65,63 @@ PYNQ manual
 	note = "Accessed: 20/10/2026"
 }
 
+========= Frameworks ==========
 FINN project site (different from docs site)
 @manual{finn_project,
-  author = {FINN},
-  title = {FINN: Dataflow compiler for QNN inference on FPGAs},
-  year = {[n.d]},
-  url = {https://xilinx.github.io/finn/},
-  note = "Accessed: 9/11/26"
+	author = {FINN},
+	title = {FINN: Dataflow compiler for QNN inference on FPGAs},
+	year = {[n.d]},
+	url = {https://xilinx.github.io/finn/},
+	note = "Accessed: 9/11/26"
 }
 
 FINN paper
+@inproceedings{finn_paper,
+	author = {Umuroglu, Yaman and Fraser, Nicholas J. and Gambardella, Giulio and Blott, Michaela and Leong, Philip and Jahre, Magnus and Vissers, Kees},
+	title = {FINN: A Framework for Fast, Scalable Binarized Neural Network Inference},
+	year = {2017},
+	isbn = {9781450343541},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/3020078.3021744},
+	doi = {10.1145/3020078.3021744},
+	abstract = {Research has shown that convolutional neural networks contain significant redundancy, and high classification accuracy can be obtained even when weights and activations are reduced from floating point to binary values. In this paper, we present FINN, a framework for building fast and flexible FPGA accelerators using a flexible heterogeneous streaming architecture. By utilizing a novel set of optimizations that enable efficient mapping of binarized neural networks to hardware, we implement fully connected, convolutional and pooling layers, with per-layer compute resources being tailored to user-provided throughput requirements. On a ZC706 embedded FPGA platform drawing less than 25 W total system power, we demonstrate up to 12.3 million image classifications per second with 0.31 μs latency on the MNIST dataset with 95.8\% accuracy, and 21906 image classifications per second with 283 μs latency on the CIFAR-10 and SVHN datasets with respectively 80.1\% and 94.9\% accuracy. To the best of our knowledge, ours are the fastest classification rates reported to date on these benchmarks.},
+	booktitle = {Proceedings of the 2017 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays},
+	pages = {65-74},
+	numpages = {10},
+	keywords = {reconfigurable logic, neural networks, hardware acceleration, binary neural network, binarized neural network, FPGA},
+	location = {Monterey, California, USA},
+	series = {FPGA '17}
+}
 
+Vitis AI white paper
+@techreport{vitis_paper,
+	author = {{XILINX}},
+	institution = {{AMD, XILINX}},
+	title = {AI Engines and Their Applications},
+	year = {2022},
+	type = {White Paper},
+	number = {WP506},
+	url = {https://semiengineering.com/xilinx-ai-engines-and-their-applications/}
+}
+
+Vitis AI support ticket
+@misc{vitis_1_4_support,
+	author = {AMD},
+	howpublished = {\url{https://adaptivesupport.amd.com/s/article/76742?language=en_US}},
+	title = {76742 - Vitis AI: Support for Zynq-7000 devices},
+	year = {2021},
+	note = "AMD Vitis AI and AI Support page. Accessed: 19/11/26"
+}
+
+Vitis AI GitHub
+@misc{vitis_1_4_git,
+	author = {XILINX},
+	howpublished = {\url{https://github.com/Xilinx/Vitis-AI/releases/tag/v1.4}},
+	title = {Vitis AI 1.4 Release},
+	year = {2021},
+	note = "GitHub repository. Accessed: 19/11/26"
+}
 
 ========== Datasets ===========
 HAM10000 source page

@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{8}
+\begin{thebibliography}{12}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -39,6 +39,16 @@
 \@ifundefined{NAT@parse@date}{}{\let\NAT@parse@date@orig\NAT@parse@date}
 \@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
 \makeatother
+
+\bibitem[AMD(2021)]%
+        {vitis_1_4_support}
+\bibfield{author}{\bibinfo{person}{AMD}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{76742 - Vitis AI: Support for Zynq-7000 devices}.
+\newblock \bibinfo{howpublished}{\url{https://adaptivesupport.amd.com/s/article/76742?language=en_US}}.
+\newblock
+\newblock
+\shownote{AMD Vitis AI and AI Support page. Accessed: 19/11/26}.
+
 
 \bibitem[Debelee(2023)]%
         {survey_2023}
@@ -115,6 +125,15 @@
 \href{https://doi.org/10.7910/DVN/DBW86T}{doi:\nolinkurl{10.7910/DVN/DBW86T}}
 
 
+\bibitem[Umuroglu et~al\mbox{.}(2017)]%
+        {finn_paper}
+\bibfield{author}{\bibinfo{person}{Yaman Umuroglu}, \bibinfo{person}{Nicholas~J. Fraser}, \bibinfo{person}{Giulio Gambardella}, \bibinfo{person}{Michaela Blott}, \bibinfo{person}{Philip Leong}, \bibinfo{person}{Magnus Jahre}, {and} \bibinfo{person}{Kees Vissers}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{FINN: A Framework for Fast, Scalable Binarized Neural Network Inference}. In \bibinfo{booktitle}{\emph{Proceedings of the 2017 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays}} (Monterey, California, USA) \emph{(\bibinfo{series}{FPGA '17})}. \bibinfo{publisher}{Association for Computing Machinery}, \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{65--74}.
+\newblock
+\showISBNx{9781450343541}
+\href{https://doi.org/10.1145/3020078.3021744}{doi:\nolinkurl{10.1145/3020078.3021744}}
+
+
 \bibitem[Watt et~al\mbox{.}(2024)]%
         {tess_pi}
 \bibfield{author}{\bibinfo{person}{Tess Watt}, \bibinfo{person}{Christos Chrysoulas}, \bibinfo{person}{Peter~J. Barclay}, \bibinfo{person}{Brahim El~Boudani}, {and} \bibinfo{person}{Grigorios Kalliatakis}.} \bibinfo{year}{2024}\natexlab{}.
@@ -123,6 +142,28 @@
 \newblock
 \showISSN{2076-3417}
 \href{https://doi.org/10.3390/app142411474}{doi:\nolinkurl{10.3390/app142411474}}
+
+
+\bibitem[XILINX(2021)]%
+        {vitis_1_4_git}
+\bibfield{author}{\bibinfo{person}{XILINX}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{Vitis AI 1.4 Release}.
+\newblock \bibinfo{howpublished}{\url{https://github.com/Xilinx/Vitis-AI/releases/tag/v1.4}}.
+\newblock
+\newblock
+\shownote{GitHub repository. Accessed: 19/11/26}.
+
+
+\bibitem[{XILINX}(2022)]%
+        {vitis_paper}
+\bibfield{author}{\bibinfo{person}{{XILINX}}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{AI Engines and Their Applications}}.
+\newblock \bibinfo{type}{White Paper} WP506. \bibinfo{institution}{{AMD, XILINX}}.
+\newblock
+\urldef\tempurl%
+\url{https://semiengineering.com/xilinx-ai-engines-and-their-applications/}
+\showURL{%
+\tempurl}
 
 
 \end{thebibliography}
