@@ -60,6 +60,14 @@
 	ref=[NR\arabic*] % appearance when referencing
 }
 
+% custom \cref which surrounds link with square brackets (% below is necessary to stop extra spaces appearing)
+% name being bcref because VSCode ref syntax looks for -ref command
+% s - if added * to end to not create hyperlink
+% m - mandatory label inside {}
+\NewDocumentCommand{\bcref}{s m}{%
+	[\IfBooleanTF{#1}{\cref*{#2}}{\cref{#2}}]%
+}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,7 +136,7 @@ Summary of project motivation \& context
 % 4. compression techniques (assuming model too big at baseline)
 \newpage
 \section{Literature Review} \label{sec:lit_rev}
-This section covers my research for the areas of this project. First finding generally what a skin lesion classification model is, then looking into recent models (\cref{lit:models}). Then how I chose an FPGA as my target hardware (\cref{lit:hardware}). What methods exist for running a ML model on an FPGA (\cref{lit:fpga_pipelines}). Recent image classifier compression techniques so the model running on the FPGA has an accuracy closer to the baseline model (\cref{lit:compression}). The methods I used for finding papers are in \cref{lit:search_methods}.
+This section covers my research for the areas of this project. First finding generally what a skin lesion classification model is, then looking into recent models \bcref{lit:models}. Then how I chose an FPGA as my target hardware \bcref{lit:hardware}. What methods exist for running a ML model on an FPGA \bcref{lit:fpga_pipelines}. Recent image classifier compression techniques so the model running on the FPGA has an accuracy closer to the baseline model \bcref{lit:compression}. The methods I used for finding papers are in \bcref{lit:search_methods}.
 
 	% \subsection{Acknowledgements}
 	% Sources for literature/statements
@@ -139,7 +147,7 @@ This section covers my research for the areas of this project. First finding gen
 
 	% How I searched for papers, what tools did I use and how did I verify my sources
 	\subsection{Search Methods} \label{lit:search_methods}
-	I used a combination of Gemini 3.8 Flash on High thinking mode and Google Scholar to do keyword searches for relevant papers. For all papers I started with reading the abstract but only went to other sections if I required more information.
+	I used a combination of Google Gemini and Google Scholar to do keyword searches for relevant papers. For all papers I started with reading the abstract then went to other sections if I required more information.
 
 	% Checklist
 	% - minimum 5 papers unrelated to FPGAs on skin lesions
@@ -177,20 +185,17 @@ This section covers my research for the areas of this project. First finding gen
 		\end{itemize}
 
 	% Looking into hardware options (RPi, mobile, FPGA)
-	\subsection{Mobile Machine Learning Hardware Acceleration} \label{lit:hardware}
-	Many options for portable hardware exist such as RPi, mobile, embedded FPGAs, Nvidia accelerators. Scope and timeframe of this project only allows for focusing on one target hardware.
+	\subsection{Mobile Hardware for Machine Learning Acceleration} \label{lit:hardware}
+	Many options for portable hardware exist such as mobile, Nvidia AI accelerators, RPi, embedded FPGAs. This section covers a few popular options including the PYNQ-Z1 I will be using.
+	
+	\subsubsection{Raspberry Pi 3}
+	RPi boards are designed as an embedded System on Chip (SoC) architecture however possess no specialised acceleration hardware beyond what is expected of a modern CPU. I am already familiar with the Raspberry Pi 3 \cite{pi3_product_page}. A cheap (around £30 at time of research) hardware package often used for running lightweight servers and connecting to a vast array of peripherals via a custom Linux operating system. Not known for high performance but has low power usage of only 1.5-4W according to \cite[Section 6]{tess_pi}.
 
-	I am familiar with using a RPi but unfamiliar with FPGAs.
-	I am familiar with the Raspberry Pi 3. It is a board with an embedded System on Chip (SoC) that runs a custom Linux operating system. A cheap (around £30 at time research) hardware package often used for running lightweight servers and connecting to a vast array of peripherals. Not known for high performance but only uses a few Watts of power.
+	\subsubsection{Mobile}
+	Modern mobile phones have various sensors, cameras and processors designed for general purpose use. For this project only the phone's processor and any AI accelerators would be used so many of the features would be unutilised. This amounts to a larger cost to have access to processors that exist on cheaper and simpler embedded SoC boards.
 
-	A Field Programmable Gate Array (FPGA) requires either specialist equipment to use or is integrated into an embedded system. The PYNQ-Z1 is similar to a RPi as an embedded SoC board, part of a series of boards by Xilinx (now owned by AMD) designed to make running neural networks on FPGAs more easily accessible.
-	
-	Looking into FPGAs shows clear advantage of specialised hardware that can run machine learning models at higher speeds than most accelerators while requiring only a few Watts and having quite limited hardware resources. An embedded FPGA like PYNQ-Z1 board has several advantages. It can be setup to run a linux bootloader which makes the ARM CPU and programmable hardware as easy to access as a RPi. The FPGA requires physical logic designing which is beyond the scope of this project so instead a compilation software can be used instead as covered in (\cref{lit:fpga_pipelines}).
-	
-	RPi boards are similarly designed as an embedded SoC architecture however possess no specialised acceleration hardware beyond what is expected of a modern CPU.
-	A RPi-3 has been used for skin lesion classification already \cite{tess_pi}.
-	
-	Mobile is a full system including various sensors, cameras, processors. Designed to juggle many user tasks and programs running at once so may prove difficult to take full advance of hardware.
+	\subsubsection{PYNQ-Z1}
+	The PYNQ-Z1 is part of a series of boards by Xilinx (now owned by AMD) designed to make running neural networks on FPGAs more easily accessible \cite{pynq_z1_man}. It is an embedded SoC architecture that has an ARM CPU which can run a Linux bootloader similar to a RPi and an embedded Field Programmable Gate Array (FPGA) chip which can be used to create specialised accelerator hardware. Both chips share system resources including RAM \cite[Section 2]{pynq_z1_man}. An FPGA can achieve higher speeds than most accelerators while being programmable, only requiring a few Watts and having limited hardware resources. The PYNQ-Z1 provides a base framework to allow using the FPGA without having to design physical logic circuits. Many frameworks exist to generate efficient and optimised logic circuits which is explored in \bcref{lit:fpga_pipelines}.
 
 	% Papers more generally on methodology for putting ML models on FPGA
 	\subsection{Machine Learning Models on FPGA} \label{lit:fpga_pipelines}

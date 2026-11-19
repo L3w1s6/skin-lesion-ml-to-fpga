@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{6}
+\begin{thebibliography}{8}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -50,6 +50,19 @@
 \href{https://doi.org/10.3390/diagnostics13193147}{doi:\nolinkurl{10.3390/diagnostics13193147}}
 
 
+\bibitem[{Diligent, Inc.}(0000)]%
+        {pynq_z1_man}
+\bibfield{author}{\bibinfo{person}{{Diligent, Inc.}}} \bibinfo{year}{[n.\,d.]}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{PYNQ-Z1} Reference Manual}}.
+\newblock
+\urldef\tempurl%
+\url{https://digilent.com/reference/programmable-logic/pynq-z1/reference-manual}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 20/10/2026}.
+
+
 \bibitem[FINN(0000)]%
         {finn_project}
 \bibfield{author}{\bibinfo{person}{FINN}.} \bibinfo{year}{[n.\,d.]}\natexlab{}.
@@ -82,6 +95,16 @@
 \newblock
 \showISSN{1558-4615}
 \href{https://doi.org/10.1109/EMBC.2013.6610779}{doi:\nolinkurl{10.1109/EMBC.2013.6610779}}
+
+
+\bibitem[Pi(2016)]%
+        {pi3_product_page}
+\bibfield{author}{\bibinfo{person}{Raspberry Pi}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \bibinfo{title}{Raspberry Pi 3 Model B}.
+\newblock \bibinfo{howpublished}{\url{https://www.raspberrypi.com/products/raspberry-pi-3-model-b/}}.
+\newblock
+\newblock
+\shownote{Accessed: 19/11/26}.
 
 
 \bibitem[Tschandl(2018)]%
