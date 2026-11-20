@@ -160,8 +160,8 @@ This section covers my research for the areas of this project. First finding gen
 		\subsubsection{Popular Datasets}
 		As I have learned from my university courses a surprising amount of a machine learning model's performance comes from proper analysis and handling of the training, validation and testing datasets. There are currently nearly 30 public skin lesions datasets available although not all are downloadable without requesting access (paid and free) \cite{survey_datasets_2021, survey_2023}. The most popular datasets I found were Ham10000 \cite{ham_paper, ham_src} and from the International Skin Imaging Collaboration (ISIC) Archive \cite{isic_site}. ISIC  have a large collection of quality controlled datasets and host various ongoing competitions to allow researchers to test performance of their algorithms \cite{isic_site_challenge, isic_site}. Ham10000 served as a training dataset for the ISIC 2018 Challenge \cite{isic_2018_challenge} and has continued to be used to train machine learning models in many papers \cite{survey_2023, survey_general_2023}.
 
-		\subsubsection{Specific Machine Learning Models}
-		There are too many different skin lesion classification model types to review here so I have provided a table of a select few that achieve high accuracy.
+		\subsubsection{Machine Learning Models}
+		There are many different skin lesion model papers which all use unique techniques and model architectures. Not all frameworks support all types of models so this subsection focuses on models that are compatible with the frameworks in \bcref{lit:fpga_pipelines}.
 
 		\begin{table}[h] \label{tab:models} \caption{Table of skin lesion classification models properties}
 			\centering
@@ -198,12 +198,24 @@ This section covers my research for the areas of this project. First finding gen
 		FINN is a framework specifically for running machine learning models on an FPGA rather than code. It implements a neural network as a series of interconnected streaming layers. A streaming component doesn't run a list of operations like a CPU but instead runs more like a single complex operation. This means that the runtime is not based on a clock speed but instead on the throughput speed (speed at which signals can be sent through the circuit) with a sub-microsecond latency \cite{finn_project, finn_paper}. Almost all machine learning models use too much memory to directly fit on the limited on-chip memory of an FPGA which is why the FINN framework also includes the FINN compiler. The FINN compiler is similar in principle to lossy image compression where through various tuneable compression techniques it reduces the size of a machine learning model while aiming to cause as small of a model performance loss as possible \cite{finn_paper}. In \cite[Getting Started > Supported FPGA Hardware]{finn_docs} the PYNQ-Z1 is listed as retired in favour of larger FPGA boards. Although no longer officially supported the docs explain how it can be re-enabled through a config file and should still work.
 
 		\subsubsection{HLS 4 ML}
-		Come back to this framework if time allows
+		The widely used name for this framework is hls4ml, I capitalised it to work as an appropriate title for this subsection. hls4ml is a translation framework that sits in the middle of the FPGA ML development pipeline. It accepts a compressed machine learning model file and generates High Level Synthesis (HLS) code \cite{hls4ml_docs}. The outputted HLS code can then be used by most FPGA deployment software (including Vivado HLS and Vitis HLS which can be used for PYNQ-Z1) to create the final logic design for the FPGA \cite{hls4ml_paper, hls4ml_docs}. Vitis HLS is one of the softwares included in the Vitis software platform from \cite{vitis_paper}. Vivado HLS (cite vivado).
+
+		\subsubsection{Vivado}
+		AMD Vivado is not a full FPGA framework but warrants a section because it is the core software used by the above frameworks to implement designs onto the PYNQ-Z1 FPGA. It is a single vendor design suite that can both be used to create end-to-end FPGA designs itself and also be used to implement HLS from other frameworks \cite{vivado_paper, vivado_paper_2012}.
 		
 	% compression methods that best retain baseline model performance and best utilise FPGA
 	% PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
 	\subsection{Compressing Machine Learning Models to FPGA} \label{lit:compression}
 	Papers here on useful compression techniques for certain model types if time allows
+	\\
+	
+	hls4ml supports keras, pytorch or onnx models
+	\\
+	Compressing a model requires pruning and either:
+	\begin{itemize}
+		\item Quantise-aware training via QKeras/HGQ (for Keras)
+		\item Brevitas (for PyTorch)
+	\end{itemize}
 
 	\subsection{Further Research Recommendations}
 	The gap I've identified is that some of the recent skin lesion classification models have not been tried to run on the PYNQ-Z1 FPGA hardware. I want to find out if it is possible to take a particular skin lesion classification model unrelated to FPGAs and run it on PYNQ-Z1 FPGA hardware without significant accuracy loss?

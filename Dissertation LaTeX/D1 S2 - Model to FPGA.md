@@ -69,7 +69,7 @@
 
 
 
-## Xilinx AI Engines and Their Applications
+## (white paper) Xilinx AI Engines and Their Applications
 - https://semiengineering.com/xilinx-ai-engines-and-their-applications/
 - Dec 16, 2022
 - Abstract, AI Engine Development Environment
@@ -86,8 +86,44 @@
 
 
 ## hls4ml
-- 
-- 
+### Paper
+- https://iopscience.iop.org/article/10.1088/1748-0221/13/07/P07027
+- Jul 27, 2018
+- Abstract, Building neural networks with hls4ml
+
+- hls4ml is a Python package
+- Translates compatible neural networks (e.g PyTorch model) to High Level Synthesis (HLS) code. (HLS should be able to be fed to Vidado)
+### Docs
+- https://fastmachinelearning.org/hls4ml/
+- accessed: 20/11/26
+- Status and Features, Backends
+
+- List of supported ML frameworks (calls them frontends), HLS backends, neural network architectures:
+    - Frontend: Several versions of Keras, PyTorch, ONNX or QONNX
+    - HLS backends: Vivado HLS, Intel HLS (depreciated), Vitis HLS, Catapult HLS, Altera, XLS (experimental)
+    - Neural network architectures: fully connected NN (multilayer perceptron, MLP), convolutional NN (1D and 2D), recurrent NN (RNN, LSTM, GRU), GarNet, Einsum and EinsumDense, Multi-head attention (MHA) (experimental)
+
+
+
+## Vivado (not a full FPGA framework but is used to convert HLS to circuit design for PYNQ-Z1)
+### (white paper) Paper: Maximizing Design Success with AMD Vivado Design Suite
+- https://docs.amd.com/v/u/en-US/wp559-succeed-w-vivado
+- Nov 21, 2024
+- Accessed 20/11/26
+- Abstract, Introduction, AMD Unified Design Flow
+
+- AMD Vivado Design Suite is the single (only) streamlined tool suite for AMD FPGAs
+- Used to implement designs onto an AMD FPGA
+- Also contains more than just a place and route tool, also includes an API for a wide range of applications and an end-to-end FPGA design suite built for developers
+- Single vendor provides benefit of shortened learning curve because unified design suite
+
+- Older white paper introducing Vivado (2012): https://docs.amd.com/v/u/en-US/wp416-Vivado-Design-Suite
+### Website
+- https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html
+
+- Current latest version is 2026.2 (changed licensing to tiers since 2026.1)
+### Docs
+- https://docs.amd.com/r/en-US/ug949-vivado-design-methodology/Vivado-Design-Suite-User-and-Reference-Guides
 
 
 

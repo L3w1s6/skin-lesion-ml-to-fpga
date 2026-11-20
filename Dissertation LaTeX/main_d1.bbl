@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{17}
+\begin{thebibliography}{21}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -48,6 +48,20 @@
 \newblock
 \newblock
 \shownote{AMD Vitis AI and AI Support page. Accessed: 19/11/26}.
+
+
+\bibitem[AMD(2025)]%
+        {vivado_paper}
+\bibfield{author}{\bibinfo{person}{AMD}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Maximizing Design Success with AMD Vivado Design Suite}}.
+\newblock \bibinfo{type}{White Paper} WP559. \bibinfo{institution}{AMD}.
+\newblock
+\urldef\tempurl%
+\url{https://docs.amd.com/v/u/en-US/wp559-succeed-w-vivado}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{v1.0.1}.
 
 
 \bibitem[Codella et~al\mbox{.}(2019)]%
@@ -111,6 +125,29 @@
 \shownote{Accessed: 20/10/2026}.
 
 
+\bibitem[Duarte et~al\mbox{.}(2018)]%
+        {hls4ml_paper}
+\bibfield{author}{\bibinfo{person}{J. Duarte}, \bibinfo{person}{S. Han}, \bibinfo{person}{P. Harris}, \bibinfo{person}{S. Jindariani}, \bibinfo{person}{E. Kreinar}, \bibinfo{person}{B. Kreis}, \bibinfo{person}{J. Ngadiuba}, \bibinfo{person}{M. Pierini}, \bibinfo{person}{R. Rivera}, \bibinfo{person}{N. Tran}, {and} \bibinfo{person}{Z. Wu}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Fast inference of deep neural networks in FPGAs for particle physics}.
+\newblock \bibinfo{journal}{\emph{Journal of Instrumentation}} \bibinfo{volume}{13}, \bibinfo{number}{07} (\bibinfo{date}{jul} \bibinfo{year}{2018}), \bibinfo{pages}{P07027}.
+\newblock
+\href{https://doi.org/10.1088/1748-0221/13/07/P07027}{doi:\nolinkurl{10.1088/1748-0221/13/07/P07027}}
+
+
+\bibitem[Feist(2012)]%
+        {vivado_paper_2012}
+\bibfield{author}{\bibinfo{person}{Tom Feist}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Vivado Design Suite}}.
+\newblock \bibinfo{type}{White Paper} WP416. \bibinfo{institution}{Xilinx}.
+\newblock
+\urldef\tempurl%
+\url{https://docs.amd.com/v/u/en-US/wp416-Vivado-Design-Suite}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{v1.1}.
+
+
 \bibitem[FINN(nda)]%
         {finn_project}
 \bibfield{author}{\bibinfo{person}{FINN}.} \bibinfo{year}{[n.d]}\natexlab{a}.
@@ -127,7 +164,7 @@
 \bibitem[FINN(ndb)]%
         {finn_docs}
 \bibfield{author}{\bibinfo{person}{FINN}.} \bibinfo{year}{[n.d]}\natexlab{b}.
-\newblock \bibinfo{booktitle}{\emph{FINN Read the Docs}}.
+\newblock \bibinfo{booktitle}{\emph{Read the Docs: FINN}}.
 \newblock
 \urldef\tempurl%
 \url{https://finn.readthedocs.io/en/latest/index.html}
@@ -135,6 +172,19 @@
 \tempurl}
 \newblock
 \shownote{Accessed: 9/11/26}.
+
+
+\bibitem[hls4ml(nd)]%
+        {hls4ml_docs}
+\bibfield{author}{\bibinfo{person}{hls4ml}.} \bibinfo{year}{[n.d]}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Read the Docs: hls4ml}}.
+\newblock
+\urldef\tempurl%
+\url{https://fastmachinelearning.org/hls4ml/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 20/11/26}.
 
 
 \bibitem[Noronha et~al\mbox{.}(2023)]%
@@ -222,6 +272,8 @@
 \url{https://semiengineering.com/xilinx-ai-engines-and-their-applications/}
 \showURL{%
 \tempurl}
+\newblock
+\shownote{v1.2}.
 
 
 \end{thebibliography}
