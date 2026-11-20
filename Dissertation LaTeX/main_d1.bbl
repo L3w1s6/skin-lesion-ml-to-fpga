@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{12}
+\begin{thebibliography}{17}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -50,9 +50,21 @@
 \shownote{AMD Vitis AI and AI Support page. Accessed: 19/11/26}.
 
 
-\bibitem[Collaboration(nd)]%
-        {isic_website}
-\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{[n.d]}\natexlab{}.
+\bibitem[Codella et~al\mbox{.}(2019)]%
+        {isic_2018_challenge}
+\bibfield{author}{\bibinfo{person}{Noel Codella}, \bibinfo{person}{Veronica Rotemberg}, \bibinfo{person}{Philipp Tschandl}, \bibinfo{person}{M.~Emre Celebi}, \bibinfo{person}{Stephen Dusza}, \bibinfo{person}{David Gutman}, \bibinfo{person}{Brian Helba}, \bibinfo{person}{Aadi Kalloo}, \bibinfo{person}{Konstantinos Liopyris}, \bibinfo{person}{Michael Marchetti}, \bibinfo{person}{Harald Kittler}, {and} \bibinfo{person}{Allan Halpern}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \bibinfo{title}{Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)}.
+\newblock
+\showeprint[arxiv]{1902.03368}~[cs.CV]
+\urldef\tempurl%
+\url{https://arxiv.org/abs/1902.03368}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Collaboration(nda)]%
+        {isic_site}
+\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{[n.d]}\natexlab{a}.
 \newblock \bibinfo{title}{ISIC Archive: International Skin Imaging Collaboration}.
 \newblock
 \urldef\tempurl%
@@ -61,6 +73,29 @@
 \tempurl}
 \newblock
 \shownote{Accessed: 19/11/26}.
+
+
+\bibitem[Collaboration(ndb)]%
+        {isic_site_challenge}
+\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{[n.d.]}\natexlab{b}.
+\newblock \bibinfo{title}{Welcome to the ISIC Challenge}.
+\newblock
+\urldef\tempurl%
+\url{https://challenge.isic-archive.com}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 20/11/26}.
+
+
+\bibitem[Debelee(2023)]%
+        {survey_2023}
+\bibfield{author}{\bibinfo{person}{Taye~Girma Debelee}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review}.
+\newblock \bibinfo{journal}{\emph{Diagnostics}} \bibinfo{volume}{13}, \bibinfo{number}{19} (\bibinfo{year}{2023}).
+\newblock
+\showISSN{2075-4418}
+\href{https://doi.org/10.3390/diagnostics13193147}{doi:\nolinkurl{10.3390/diagnostics13193147}}
 
 
 \bibitem[{Diligent, Inc.}(nd)]%
@@ -102,6 +137,15 @@
 \shownote{Accessed: 9/11/26}.
 
 
+\bibitem[Noronha et~al\mbox{.}(2023)]%
+        {survey_general_2023}
+\bibfield{author}{\bibinfo{person}{Stephanie~S. Noronha}, \bibinfo{person}{Mayuri~A. Mehta}, \bibinfo{person}{Dweepna Garg}, \bibinfo{person}{Ketan Kotecha}, {and} \bibinfo{person}{Ajith Abraham}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Deep Learning-Based Dermatological Condition Detection: A Systematic Review With Recent Methods, Datasets, Challenges, and Future Directions}.
+\newblock \bibinfo{journal}{\emph{IEEE Access}}  \bibinfo{volume}{11} (\bibinfo{year}{2023}), \bibinfo{pages}{140348--140381}.
+\newblock
+\href{https://doi.org/10.1109/ACCESS.2023.3339635}{doi:\nolinkurl{10.1109/ACCESS.2023.3339635}}
+
+
 \bibitem[Pi(2016)]%
         {pi3_product_page}
 \bibfield{author}{\bibinfo{person}{Raspberry Pi}.} \bibinfo{year}{2016}\natexlab{}.
@@ -110,6 +154,14 @@
 \newblock
 \newblock
 \shownote{Accessed: 19/11/26}.
+
+
+\bibitem[Tschandl(2018)]%
+        {ham_src}
+\bibfield{author}{\bibinfo{person}{Philipp Tschandl}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \bibinfo{title}{The {HAM10000} dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions}.
+\newblock
+\href{https://doi.org/10.7910/DVN/DBW86T}{doi:\nolinkurl{10.7910/DVN/DBW86T}}
 
 
 \bibitem[Tschandl et~al\mbox{.}(2018)]%
