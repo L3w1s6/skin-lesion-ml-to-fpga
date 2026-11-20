@@ -4,9 +4,12 @@
 \input{hwu_template/acm_settings}
 \input{hwu_template/packages}
 
-\usepackage{enumitem} % requirements list
-% \usepackage{tabularx} % for requirements table
-% \usepackage{booktabs}
+% requirements list
+\usepackage{enumitem}
+
+% skin lesion models table
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
 
 % document details
 % replace those with your details
@@ -18,10 +21,8 @@
 \newcommand{\docSupervisorOne}{Dr. Rob Stewart}
 \newcommand{\docSupervisorTwo}{Ms. Tess Watt}
 \newcommand{\docSupervisor}{% stacked names for title page
-	\\
-	\docSupervisorOne
-	\\
-	\docSupervisorTwo
+	\\\docSupervisorOne
+	\\\docSupervisorTwo
 }
 
 \def\docDegree{BSc (Hons) Computer Science}
@@ -68,6 +69,16 @@
 	[\IfBooleanTF{#1}{\cref*{#2}}{\cref{#2}}]%
 }
 
+% custom table for skin lesion models
+\NewTblrEnviron{models_table}
+\SetTblrInner[models_table]{
+	hlines = {0.05em, dashed}, % horizontal lines between every row
+	hline{1, Z} = {0.1em}, % top and bottom lines (of entire table)
+	hline{2} = {0.1em}, % midrule line (below header)
+	column{1} = {font=\bfseries}, % bold column 1
+	row{1} = {font=\bfseries} % bold headings
+}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,21 +115,21 @@ Abstract text.
 Summary of project motivation \& context
 
 	\subsection{Background and Motivation} \label{sec:intro_motiv}
-	\textbullet~ Using papers (mainly) from literature review to provide background context\\
-	\textbullet~ Motivations for doing this project\\
-	\textbullet~ Identifying problems to be solved to achieve objectives
+	Some background here on what skin lesions are and why use machine learning to classify them.
 
 	\subsection{Aim and Objectives} \label{sec:intro_aim}
-	State project aims\\
+	Stating project aims as a table below:
+	
+	\medskip
+	\noindent
 	Table of objectives with IDs to reference later
-
 	\begin{objs}
-		\item\label{obj:train} Train/download a skin lesion model
-		\item\label{obj:compress} Compress skin lesion model successfully for FPGA
-		\item\label{obj:run} Run compressed model on FPGA successfully
+		\item\label{obj:train} Train a skin lesion model
+		\item\label{obj:compile} Compile model to run on an FPGA
+		\item\label{obj:run} Run model on FPGA
+		\item these will be expanded plus a few more...
 	\end{objs}
-
-	Testing referring to O - \ref{obj:run}
+	% Testing referring to O - \ref{obj:run}
 
 % Plan of the document.
 
@@ -138,58 +149,28 @@ Summary of project motivation \& context
 \section{Literature Review} \label{sec:lit_rev}
 This section covers my research for the areas of this project. First finding generally what a skin lesion classification model is, then looking into recent models \bcref{lit:models}. Then how I chose an FPGA as my target hardware \bcref{lit:hardware}. What methods exist for running a ML model on an FPGA \bcref{lit:fpga_pipelines}. Recent image classifier compression techniques so the model running on the FPGA has an accuracy closer to the baseline model \bcref{lit:compression}. The methods I used for finding papers are in \bcref{lit:search_methods}.
 
-	% \subsection{Acknowledgements}
-	% Sources for literature/statements
-	% \\
-	% Continuing idea by supervisor Tess Watt in her paper but deployed to FPGA instead of RPi \cite{tess_pi}
-	% \\
-	% Survey of recent methods for skin lesion classification between 2017 and 2023 \cite{survey_2023}
-
-	% How I searched for papers, what tools did I use and how did I verify my sources
+	% How I searched for papers, what tools did I use and how I verified my sources
 	\subsection{Search Methods} \label{lit:search_methods}
 	I used a combination of Google Gemini and Google Scholar to do keyword searches for relevant papers. For all papers I started with reading the abstract then went to other sections if I required more information.
-
-	% Checklist
-	% - minimum 5 papers unrelated to FPGAs on skin lesions
-	% - paragraph summary on each paper/topic
-	% - paragraphs cross reference each other
-	% 	
-	% Papers on recent skin classification models
-	% \subsection{Skin Lesion Classification Models} \label{lit:models}
-	% Recent classification models use a variety of datasets that each have varying types of identified skin lesions (cite a few papers that use different datasets). This subsection covers commonly used datasets and looks at some recent models with high accuracy.
-
-	% 	\subsubsection{Datasets}
-	% 	There are a few popular datasets used to train these models.
-	% 	\\
-	% 	Ham10000 contains 10,015 dermoscopic images intended for academic machine learning use. It has 7 different categories of skin lesions which is a "representative collection of all important diagnostic categories in the realm of pigmented lesions" \cite{ham_src}.
-	% 	\medskip
-
-	% 	The ISIC Archive has several versions and challenge datasets available. The ISIC 2020 version contains 23,385 images with 8 classes of identified skin lesions and 1 class for unknown lesions.
-	% 	\medskip
-
-	% 	Other datasets exist such as PH2 \cite{ph2_paper} which are designed to identify a specific type of lesion but these datasets tend to be much smaller and can't effectively be used for generalised classification.
-
-	% 	\subsubsection{Recent Models Performance}
-	% 	They use however different methods and techniques with varying performance. Performance is typically measured by model accuracy for the dataset it was trained on.
-	% 	\\
-	% 	Results of models are typically compared in terms of classification accuracy on a test dataset unseen to the models \cite{survey_2023} (cite both years surveys). A model is typically considered better if the accuracy is as close to 100\% as possible without the model overfitting. An overfitting model would appear to have high accuracy during testing but then have lower accuracy on unseen data (cite overfitting definition).
-
-	% 	\subsubsection{Model Architectures}
-	% 	Recent model architectures can achieve accuracies of 9X\% (cite models) which is a XX\% uplift from earlier fundamental papers such as MobileNet from 2017 \cite{mobilenet_2017}.
-	% 	\\
-	% 	There is no single model architecture, however I found a few of best performing ones from the last few years to compare:
-	% 	\begin{itemize}
-	% 		\item architecture 1 with benefits
-	% 		\item architecture 2 with benefits
-	% 		\item ...
-	% 	\end{itemize}
 	
 	% Revised skin lesion models section
 	\subsection{Skin Lesion Classification Models} \label{lit:models}
-	As a baseline a skin lesion classification model is a type of image classifier machine learning model trained on a skin lesions images dataset to identify the different types of skin lesions present in the dataset. The field of skin lesion classification has been greatly boosted by this century developments in machine learning. From my research the best and most recent techniques all use machine learning. There is however no one model architecture or dataset being utilised. This section covers some of the popular and successful recent model architectures and datasets.
+	As a baseline a skin lesion classification model is a type of image classifier machine learning model trained on a skin lesions images dataset to identify the different types of skin lesions present in the dataset. The field of automated skin lesion classification has been greatly boosted this century by developments in machine learning. No single model or method is clearly superior so this section covers some recent popular and successful datasets and model architectures.
 
 		\subsubsection{Popular Datasets}
 		As I have learned from my university courses a surprising amount of a machine learning model's performance comes from proper analysis and handling of the training, validation and testing datasets. There are currently nearly 30 public skin lesions datasets available although not all are downloadable without requesting access (paid and free) \cite{survey_datasets_2021, survey_2023}. The most popular datasets I found were Ham10000 \cite{ham_paper, ham_src} and from the International Skin Imaging Collaboration (ISIC) Archive \cite{isic_site}. ISIC  have a large collection of quality controlled datasets and host various ongoing competitions to allow researchers to test performance of their algorithms \cite{isic_site_challenge, isic_site}. Ham10000 served as a training dataset for the ISIC 2018 Challenge \cite{isic_2018_challenge} and has continued to be used to train machine learning models in many papers \cite{survey_2023, survey_general_2023}.
+
+		\subsubsection{Specific Machine Learning Models}
+		There are too many different skin lesion classification model types to review here so I have provided a table of a select few that achieve high accuracy.
+
+		\begin{table}[h] \label{tab:models} \caption{Table of skin lesion classification models properties}
+			\centering
+			% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
+			\begin{models_table}{colspec = {| p{17.5em} | X | l |}}
+				Model Architecture & Results & Paper \\
+				Deep learning-based skin lesion classification network called DSCC\_Net & Results here benchmarked using ISIC2020, Ham10000, DermIS & (cite) \\
+			\end{models_table}
+		\end{table}
 
 	% Looking into hardware options (RPi, mobile, FPGA)
 	\subsection{Mobile Hardware for Machine Learning Acceleration} \label{lit:hardware}
@@ -220,63 +201,79 @@ This section covers my research for the areas of this project. First finding gen
 		Come back to this framework if time allows
 		
 	% compression methods that best retain baseline model performance and best utilise FPGA
-	\subsection{Compressing Machine Learning Models to FPGA} \label{lit:compression}
-	Papers on useful compression techniques for certain model types
 	% PAPERS ON COMPRESSION TECHNIQUES FOR ABOVE ARCHITECTURES
+	\subsection{Compressing Machine Learning Models to FPGA} \label{lit:compression}
+	Papers here on useful compression techniques for certain model types if time allows
 
 	\subsection{Further Research Recommendations}
-	Identify gaps, need to repeat any research
-
-	Gap I want to address: is it possible to take a skin lesion classification model unrelated to FPGAs and fit it entirely within PYNQ-Z1 FPGA hardware without significant accuracy loss.
+	The gap I've identified is that some of the recent skin lesion classification models have not been tried to run on the PYNQ-Z1 FPGA hardware. I want to find out if it is possible to take a particular skin lesion classification model unrelated to FPGAs and run it on PYNQ-Z1 FPGA hardware without significant accuracy loss?
+	\\
+	Most skin lesion model papers don't provide a source for downloading the model so I will have to repeat their methods to recreate the model myself.
 
 \section{Methodology} \label{sec:method}
 Detailed description of necessary methods, requirements, research questions that will be employed/
 needed to complete the project
 
 	\subsection{Plan for Execution}
-	Explain how I plan to use experiments to fulfil all the requirements \& objectives
+	Explain in detail here how I plan to use certain experiments in a certain order to fulfil all the requirements and objectives
 
 	\subsection{Experiment Planning}
-	How I plan to conduct experiment(s) and what research question does it address/answer (detailed)
+	How I plan to conduct experiment(s) and what research question does it address/answer (detailed). I will create plans here for the experiments: dataset processing, baseline model training, evaluating results from applying the at most single compression technique I pick, preparing model for FINN, evaluating results from using FINN on model, comparing model performance on PYNQ-Z1 compared to PC.
 
 	% MOSCOW, enumerate so can be referenced later
 	\subsection{Requirements}
-	Quick explanation of functional requirements
-	
-	\begin{reqs}
-		\item\label{req:model} Something about the skin lesion model
-		\item\label{req:compress} Something about the compression
-		\item\label{req:fpga} Something about the FPGA
-	\end{reqs}
-	
-	Testing referring to FR - \ref{req:model}
-	\\
-	Quick explanation of non-function requirements
 
-	\begin{reqsn}
-		\item\label{reqn:speed} Something about running speed
-		\item\label{reqn:compile_speed} Something about time taken to compile
-	\end{reqsn}
+		\subsubsection{Functional}
+		The functional requirements for this project using the MOSCOW ranking system.
 
-	Testing referring to NR - \ref{reqn:compile_speed}
+		\begin{reqs}
+			\item SPECIFIC dataset must be downloaded
+			\item SPECIFIC dataset should be pre-processed
+			\item The machine learning model must be successfully trained
+			\item Baseline model should have close accuracy to reference paper
+			\item etc.
+			% \item\label{req:model} Dummy: Something about the skin lesion model
+			% \item\label{req:compress} Dummy: Something about the compression
+			% \item\label{req:fpga} Dummy: Something about the FPGA
+		\end{reqs}
+		% Testing referring to FR - \ref{req:model}
+	
+		\subsubsection{Non-Functional}
+		The non-functional requirements for this project using the MOSCOW ranking system.
+		\medskip
+
+		Non-functional requirements table here covering: speed, efficiency, compile time, baseline and final model having high accuracy
+
+		\begin{reqsn}
+			\item Model compilation done in less than 24 hours
+			\item Written code is readable
+			\item Written code has reasonable error prevention
+			\item Written code is modular to be easy to expand upon
+			\item etc.
+			% \item\label{reqn:speed} Something about running speed
+			% \item\label{reqn:compile_speed} Something about time taken to compile
+		\end{reqsn}
+		% Testing referring to NR - \ref{reqn:compile_speed}
 
 \section{Feasibility} \label{sec:feasiblity}
 
 	\subsection{Preliminary Work}
 	Summary of work carried out to prepare for this project to validate feasibility.
+	
+	\medskip\noindent
+	I have set up PYNQ-Z1 to be easily interacted with over Wifi via SSH. Looked at examples for similar model types being compiled for FPGA.
 
 	\subsection{Evaluation Strategy}
-	Identify for the project:
-	\\
-		\textbullet~ What needs evaluating
-		\\
-		\textbullet~ Why it should be evaluated
-		\\
-		\textbullet~ How it should be evaluated
-		\\
+	For all experiment plans above:
+	
+	\begin{itemize}
+		\item What needs evaluating separately e.g. measuring performance and statistics
+		\item Why it should be evaluated
+		\item How it should be evaluated
+	\end{itemize}
 
 \section{Conclusions}
-Short summary of this doc
+Short summary of this doc. Summarise what I have researched and what I hope to achieve by end of this project.
 
 % Rest of the document...
 %%%%%%%%%%%%%%%%%%%%
@@ -292,15 +289,16 @@ Short summary of this doc
 \section{Project Management}
 
 	\subsection{Gantt Chart}
-	Plan of activities to be carried out in semester 1, then future plan for semester 2
+	Should I include a retroactive statement of activities done in semester 1?
+	\\
+	Then future plan for semester 2 writing code and report.
 
 	\subsection{Analysis of Risks}
-	Including mitigation plans
-
-	% Risk - PYNQ-Z1 is unsupported by FINN so not guaranteed to work
+	This will have a table of risks (with a severity rating) and an accompanying table of mitigation plans.
 	
-	% Risk - Using personal PC for model training, fallback to uni machine
-	% Risk - Personal PC doesn't have enough storage, buy storage or fallback on solution involving uni
+	\medskip
+	\noindent
+	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni
 
 	\subsection{PLES}
 	A well-researched consideration of any Professional, Legal, Ethical, and Social Issues
@@ -308,9 +306,9 @@ Short summary of this doc
 	computer law, ethical decision making, intellectual property, social aspects, copyright,
 	data protection, and so on).
 
-% Summarising use of GenAI in project/deliverables
-\section{Gen AI Summary} \label{sec:genai}
-Searching for research papers I used Google Gemini 3.8 Flash on thinking mode High (October 2026 version) to source the most recent academic papers on a particular topic. I would ask it to create a table consisting of the papers: title, year, summary, DOI or similar URL. This allowed me to leverage the LLM's speed for searching the internet like a more powerful keyword search.
+	\medskip
+	\noindent
+	Most of this I can get from ethics form, checking licences to use methods and data, state potential social uses considering using AI, etc.
 
 % Appendices
 \newpage

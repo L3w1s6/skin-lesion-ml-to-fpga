@@ -1,4 +1,4 @@
-# Research Papers Notes - Surveys of Skin Lesion Classification Models
+# Research Papers Notes - Skin Lesion Classification Models Surveys
 
 ## Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review
 - https://doi.org/10.3390/diagnostics13193147
