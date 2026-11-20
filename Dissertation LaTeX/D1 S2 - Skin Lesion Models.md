@@ -1,14 +1,20 @@
 # Research Papers Notes - Surveys of Skin Lesion Classification Models
 
 ## Skin Lesion Classification and Detection Using Machine Learning Techniques: A Systematic Review
-- https://www.mdpi.com/2075-4418/13/19/3147
+- https://doi.org/10.3390/diagnostics13193147
 - Aug 30, 2023
 - Abstract, Skin Datasets
-
+### Coverage
 - Reviews recent methods for skin lesion classification, segmentation & detection
 - Examines other papers methods
 - Highlights notable datasets, benchmark challenges, evaluation metrics relevant to skin lesion analysis
 - Contains summary of major trends, challenges, potential future directions
+### Datasets
+- Section 4 tables 4-7 have a variety of details on datasets:
+    - ISIC2020 - 2020, multiple versions with varying properties: 1884 - 11,108 images, 2 - 8 categories
+    - Ham10000 - 2018, 10,015 images, 8 categories
+    - BCN20000 - 2019, 19,424 images, 9 categories
+    - MSK 1-5 - 2015 & 2017, 3,918 images, 15 categories
 
 
 
@@ -17,6 +23,7 @@
 - Dec 5, 2023
 - Abstract, Datasets Table, Conclusion
 
+- More generally on detecting all dermatological conditions
 - Dermatological conditions includes: "various skin issues such as rashes, moles, acne, blisters, hives, nodules, cysts, macules, and papules"
 - Study of 22 methods for detecting dermatological conditions from dermoscopic images
 - Reviews clinical diagnostic methods and need for computer-aided diagnostics for dermatological conditions
@@ -39,7 +46,27 @@
 - Oct 23, 2026
 - Abstract
 
+- Focuses on a wide range of topics ranging from image preprocessing to sophisticated model architectures
+- Major open problems include (copy-pasted): class imbalance, data bias, domain shift, limited representation of diverse skin tones, inadequate external validation, computational requirements, and limited explainability of efficient models
 - 
+
+
+
+## Characteristics of publicly available skin cancer image datasets: a systematic review
+- https://doi.org/10.1016/S2589-7500(21)00252-1
+- Nov 9, 2021
+- Abstract, Methods, Results
+
+- Analyses in depth characteristics of many datasets available as of 2021
+### Quantities of Datasets
+- 22 datasets excluded for being subsets of other datasets
+- 29 individual datasets and 20 individual atlases remaining after removing duplicates
+- 21 open access datasets, 17 open access atlases included images that could be downloaded without barriers
+### Specific Datasets
+- Multiple ISIC versions included
+- Ham10000
+- BCN20000
+- etc.
 
 
 

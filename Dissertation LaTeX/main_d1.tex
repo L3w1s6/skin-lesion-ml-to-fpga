@@ -155,34 +155,41 @@ This section covers my research for the areas of this project. First finding gen
 	% - paragraphs cross reference each other
 	% 	
 	% Papers on recent skin classification models
+	% \subsection{Skin Lesion Classification Models} \label{lit:models}
+	% Recent classification models use a variety of datasets that each have varying types of identified skin lesions (cite a few papers that use different datasets). This subsection covers commonly used datasets and looks at some recent models with high accuracy.
+
+	% 	\subsubsection{Datasets}
+	% 	There are a few popular datasets used to train these models.
+	% 	\\
+	% 	Ham10000 contains 10,015 dermoscopic images intended for academic machine learning use. It has 7 different categories of skin lesions which is a "representative collection of all important diagnostic categories in the realm of pigmented lesions" \cite{ham_src}.
+	% 	\medskip
+
+	% 	The ISIC Archive has several versions and challenge datasets available. The ISIC 2020 version contains 23,385 images with 8 classes of identified skin lesions and 1 class for unknown lesions.
+	% 	\medskip
+
+	% 	Other datasets exist such as PH2 \cite{ph2_paper} which are designed to identify a specific type of lesion but these datasets tend to be much smaller and can't effectively be used for generalised classification.
+
+	% 	\subsubsection{Recent Models Performance}
+	% 	They use however different methods and techniques with varying performance. Performance is typically measured by model accuracy for the dataset it was trained on.
+	% 	\\
+	% 	Results of models are typically compared in terms of classification accuracy on a test dataset unseen to the models \cite{survey_2023} (cite both years surveys). A model is typically considered better if the accuracy is as close to 100\% as possible without the model overfitting. An overfitting model would appear to have high accuracy during testing but then have lower accuracy on unseen data (cite overfitting definition).
+
+	% 	\subsubsection{Model Architectures}
+	% 	Recent model architectures can achieve accuracies of 9X\% (cite models) which is a XX\% uplift from earlier fundamental papers such as MobileNet from 2017 \cite{mobilenet_2017}.
+	% 	\\
+	% 	There is no single model architecture, however I found a few of best performing ones from the last few years to compare:
+	% 	\begin{itemize}
+	% 		\item architecture 1 with benefits
+	% 		\item architecture 2 with benefits
+	% 		\item ...
+	% 	\end{itemize}
+	
+	% Revised skin lesion models section
 	\subsection{Skin Lesion Classification Models} \label{lit:models}
-	Recent classification models use a variety of datasets that each have varying types of identified skin lesions (cite a few papers that use different datasets). This subsection covers commonly used datasets and looks at some recent models with high accuracy.
+	As a baseline a skin lesion classification model is a type of image classifier machine learning model trained on a skin lesions images dataset to identify the different types of skin lesions present in the dataset. The field of skin lesion classification has been greatly boosted by this century developments in machine learning. From my research the best and most recent techniques all use machine learning. There is however no one model architecture or dataset being utilised. This section covers some of the popular and successful recent model architectures and datasets.
 
-		\subsubsection{Datasets}
-		There are a few popular datasets used to train these models.
-		\\
-		Ham10000 contains 10,015 dermoscopic images intended for academic machine learning use. It has 7 different categories of skin lesions which is a "representative collection of all important diagnostic categories in the realm of pigmented lesions" \cite{ham_src}.
-		\medskip
-
-		The ISIC Archive has several versions and challenge datasets available. The ISIC 2020 version contains 23,385 images with 8 classes of identified skin lesions and 1 class for unknown lesions.
-		\medskip
-
-		Other datasets exist such as PH2 \cite{ph2_paper} which are designed to identify a specific type of lesion but these datasets tend to be much smaller and can't effectively be used for generalised classification.
-
-		\subsubsection{Recent Models Performance}
-		They use however different methods and techniques with varying performance. Performance is typically measured by model accuracy for the dataset it was trained on.
-		\\
-		Results of models are typically compared in terms of classification accuracy on a test dataset unseen to the models \cite{survey_2023} (cite both years surveys). A model is typically considered better if the accuracy is as close to 100\% as possible without the model overfitting. An overfitting model would appear to have high accuracy during testing but then have lower accuracy on unseen data (cite overfitting definition).
-
-		\subsubsection{Model Architectures}
-		Recent model architectures can achieve accuracies of 9X\% (cite models) which is a XX\% uplift from earlier fundamental papers such as MobileNet from 2017 \cite{mobilenet_2017}.
-		\\
-		There is no single model architecture, however I found a few of best performing ones from the last few years to compare:
-		\begin{itemize}
-			\item architecture 1 with benefits
-			\item architecture 2 with benefits
-			\item ...
-		\end{itemize}
+		\subsubsection{Popular Datasets}
+		As I have learned from my university courses a surprising amount of a machine learning model's performance is attributed to proper analysis and handling of the training, validation and testing datasets. There are currently nearly 30 public datasets available although not all are downloadable without requesting access (paid and free) \cite{survey_datasets_2021}. The International Skin Imaging Collaboration (ISIC) Archive is a large set of widely used datasets centred around improving skin cancer diagnosis \cite{isic_website}. Another popular dataset which is used in most papers I found is Ham10000 \cite{ham_paper}.
 
 	% Looking into hardware options (RPi, mobile, FPGA)
 	\subsection{Mobile Hardware for Machine Learning Acceleration} \label{lit:hardware}
@@ -290,7 +297,10 @@ Short summary of this doc
 	\subsection{Analysis of Risks}
 	Including mitigation plans
 
-	% Risk 1 - PYNQ-Z1 is unsupported by FINN so not guaranteed to work
+	% Risk - PYNQ-Z1 is unsupported by FINN so not guaranteed to work
+	
+	% Risk - Using personal PC for model training, fallback to uni machine
+	% Risk - Personal PC doesn't have enough storage, buy storage or fallback on solution involving uni
 
 	\subsection{PLES}
 	A well-researched consideration of any Professional, Legal, Ethical, and Social Issues

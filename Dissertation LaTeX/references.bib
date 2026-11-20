@@ -46,6 +46,7 @@ incollection{turing_computing_2009,
 	pages = {23--65},
 }
 
+
 ============ Other ============
 RPi 3 product page
 @misc{pi3_product_page,
@@ -64,6 +65,7 @@ PYNQ manual
 	url = {https://digilent.com/reference/programmable-logic/pynq-z1/reference-manual},
 	note = "Accessed: 20/10/2026"
 }
+
 
 ========= Frameworks ==========
 FINN project site (different from docs site)
@@ -132,16 +134,32 @@ Vitis AI GitHub
 	note = "GitHub repository. Accessed: 19/11/26"
 }
 
+
 ========== Datasets ===========
-HAM10000 source page
+Ham10000 dataset source page
 @misc{ham_src,
 	author = {Tschandl, Philipp},
 	title = {The {HAM10000} dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions},
 	year = {2018},
 	publisher = {Harvard Dataverse},
 	version = {V4},
-	url = {https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T},
-	doi = {10.7910/DVN/DBW86T}
+	doi = {10.7910/DVN/DBW86T},
+	url = {https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T}
+}
+
+Ham10000 paper
+@article{ham_paper,
+	author = {Tschandl, Philipp and Rosendahl, Cliff and Kittler, Harald},
+	title = {The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions},
+	journal = {Scientific Data},
+	volume = {5},
+	number = {1},
+	pages = {180161},
+	year = {2018},
+	issn = {2052-4463},
+	abstract = {Training of neural networks for automated diagnosis of pigmented skin lesions is hampered by the small size and lack of diversity of available datasets of dermatoscopic images. We tackle this problem by releasing the HAM10000 (“Human Against Machine with 10000 training images”) dataset. We collected dermatoscopic images from different populations acquired and stored by different modalities. Given this diversity we had to apply different acquisition and cleaning methods and developed semi-automatic workflows utilizing specifically trained neural networks. The final dataset consists of 10015 dermatoscopic images which are released as a training set for academic machine learning purposes and are publicly available through the ISIC archive. This benchmark dataset can be used for machine learning and for comparisons with human experts. Cases include a representative collection of all important diagnostic categories in the realm of pigmented lesions. More than 50% of lesions have been confirmed by pathology, while the ground truth for the rest of the cases was either follow-up, expert consensus, or confirmation by in-vivo confocal microscopy.},
+	doi = {10.1038/sdata.2018.161},
+	url = {https://doi.org/10.1038/sdata.2018.161}
 }
 
 PH2
@@ -162,13 +180,21 @@ PH2
 	month={July},
 }
 
+ISIC main website
+@misc{isic_website,
+	author = {International Skin Imaging Collaboration},
+	title = {ISIC Archive: International Skin Imaging Collaboration},
+	year = {[n.d]},
+	url = {https://www.isic-archive.com},
+	note = "Accessed: 19/11/26"
+}
+
 
 ============ PAPERS ============
-
 Skin lesion classification models
 
 Design and Implementation of a Real-Time Embedded System for Early Skin Cancer Detection
-@article{jesmdt_2025,
+article{jesmdt_2025,
 	author = {Mao, Zhihao and Han, Jin and Shi, Mingzhu},
 	title = {Design and Implementation of a Real-Time Embedded System for Early Skin Cancer Detection},
 	journal = {Journal of Engineering and Science in Medical Diagnostics and Therapy},
@@ -193,16 +219,29 @@ Skin Lesion Classification and Detection Using Machine Learning Techniques: A Sy
 	YEAR = {2023},
 	NUMBER = {19},
 	ARTICLE-NUMBER = {3147},
-	URL = {https://www.mdpi.com/2075-4418/13/19/3147},
+	URL = {https://doi.org/10.3390/diagnostics13193147},
 	PubMedID = {37835889},
 	ISSN = {2075-4418},
 	ABSTRACT = {Skin lesions are essential for the early detection and management of a number of dermatological disorders. Learning-based methods for skin lesion analysis have drawn much attention lately because of improvements in computer vision and machine learning techniques. A review of the most-recent methods for skin lesion classification, segmentation, and detection is presented in this survey paper. The significance of skin lesion analysis in healthcare and the difficulties of physical inspection are discussed in this survey paper. The review of state-of-the-art papers targeting skin lesion classification is then covered in depth with the goal of correctly identifying the type of skin lesion from dermoscopic, macroscopic, and other lesion image formats. The contribution and limitations of various techniques used in the selected study papers, including deep learning architectures and conventional machine learning methods, are examined. The survey then looks into study papers focused on skin lesion segmentation and detection techniques that aimed to identify the precise borders of skin lesions and classify them accordingly. These techniques make it easier to conduct subsequent analyses and allow for precise measurements and quantitative evaluations. The survey paper discusses well-known segmentation algorithms, including deep-learning-based, graph-based, and region-based ones. The difficulties, datasets, and evaluation metrics particular to skin lesion segmentation are also discussed. Throughout the survey, notable datasets, benchmark challenges, and evaluation metrics relevant to skin lesion analysis are highlighted, providing a comprehensive overview of the field. The paper concludes with a summary of the major trends, challenges, and potential future directions in skin lesion classification, segmentation, and detection, aiming to inspire further advancements in this critical domain of dermatological research.},
 	DOI = {10.3390/diagnostics13193147}
 }
 
+In depth datasets survey paper
+@article{survey_datasets_2021,
+	author = {Wen, David and Khan, Saad M and Ji Xu, Antonio and Ibrahim, Hussein and Smith, Luke and Caballero, Jose and Zepeda, Luis and de Blas Perez, Carlos and Denniston, Alastair K and Liu, Xiaoxuan and Matin, Rubeta N},
+	title = {Characteristics of publicly available skin cancer image datasets: a systematic review},
+	journal = {The Lancet Digital Health},
+	year = {2021},
+	volume = {4},
+	pages = {e64--e74},
+	abstract = {Publicly available skin image datasets are increasingly used to develop machine learning algorithms for skin cancer diagnosis. However, the total number of datasets and their respective content is currently unclear. This systematic review aimed to identify and evaluate all publicly available skin image datasets used for skin cancer diagnosis by exploring their characteristics, data access requirements, and associated image metadata. A combined MEDLINE, Google, and Google Dataset search identified 21 open access datasets containing 106 950 skin lesion images, 17 open access atlases, eight regulated access datasets, and three regulated access atlases. Images and accompanying data from open access datasets were evaluated by two independent reviewers. Among the 14 datasets that reported country of origin, most (11 [79%]) originated from Europe, North America, and Oceania exclusively. Most dataset (19 [91%]) contained dermoscopic images or macroscopic photographs only. Clinical information was available regarding age for 81 662 images (76·4%), sex for 82 848 (77·5%), and body site for 79 561 (74·4%). Subject ethnicity data were available for 1415 images (1·3%), and Fitzpatrick skin type data for 2236 (2·1%). There was limited and variable reporting of characteristics and metadata among datasets, with substantial under-representation of darker skin types. This is the first systematic review to characterise publicly available skin image datasets, highlighting limited applicability to real-life clinical settings and restricted population representation, precluding generalisability. Quality standards for characteristics and metadata reporting for skin image datasets are needed.},
+	doi = {10.1016/S2589-7500(21)00252-1},
+	url = {https://doi.org/10.1016/S2589-7500(21)00252-1}
+}
+
 Machine learning models on FPGA
 
-@misc{mobilenet_2017,
+misc{mobilenet_2017,
 	title={MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications}, 
 	author={Andrew G. Howard and Menglong Zhu and Bo Chen and Dmitry Kalenichenko and Weijun Wang and Tobias Weyand and Marco Andreetto and Hartwig Adam},
 	year={2017},
