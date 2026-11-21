@@ -117,32 +117,41 @@
 ## SkinLesNet: Classification of Skin Lesions and Detection of Melanoma Cancer Using a Novel Multi-Layer Deep Convolutional Neural Network
 - https://doi.org/10.3390/cancers16010108
 - Dec 24, 2023
-- Simple Summary, Abstract
+- Abstract, Conclusions, Results
 
-- Uses Ham10000 dataset
+- Proposes SkinLesNet model
+- Compared to VGG16 and ResNet50
+- Uses dataset extracted from PAD-UFES-20 called PAD-UFES-20-Modified to train and test SkinLesNet (3 classes of skin lesions)
+
+- SkinLesNet generally outperformed ResNet50 and VGG16 in all metrics
+- Accuracy of 96% with PAD-UFES-20-Modified
+- Accuracy of 90% with Ham10000
+- Accuracy of 92% with ISIC2017
 
 
 
 ## Multiclass Skin Lesion Classification Using a Novel Lightweight Deep Learning Framework for Smart Healthcare
 - https://doi.org/10.3390/app12052677
 - Mar 4, 2022
-- Abstract
+- Abstract, Conclusions, Experiment
 
 - Designed to be lightweight and suitable for use on small system like mobile healthcare systems
 - Evaluated using Ham10000 and ISIC2019
+- Contains table on class distribution in Ham10000
 
-- CONTINUE HERE GOING UP
+- Evaluated with metrics: precision, sensitivity, specificity, F1 - score, accuracy
+- Proposed method accuracy over 3 experiments: 84.8% (Ham1000, 80% train and 20% test), 86.33% (Ham10000, 90% train and 10% test), 82.56% (ISIC2019, 90% train and 10% test)
 
 
 
 ## SCDNet: A Deep Learning-Based Framework for the Multiclassification of Skin Cancer Using Dermoscopy Images
 - https://doi.org/10.3390/s22155652
 - Jul 28, 2022
-- Abstract, Conclusions
+- Abstract, Conclusions, Methodology
 
 - Creates new model called SCDNet
 - Combines several models: Vgg16 + specialised CNNs for different types of skin cancer
-- Performance evaluated using ISIC 2019 dataset
+- Trained and tested using ISIC 2019 dataset
 - Accuracy compared with 4 existing classifiers (pre-trained): Resnet 50, Inception v3, AlexNet and Vgg19
 
 - Accuracy of 96.91%
@@ -152,13 +161,23 @@
 ## Gabor wavelet-based deep learning for skin lesion classification
 - https://doi.org/10.1016/j.compbiomed.2019.103423
 - Sep 4, 2019
-- Abstract, Conclusion
+- Abstract, Conclusion, Method
 
+- Paper from more biology and medicine perspective (seems less clear about certain details)
 - 8 parallel CNNs (looks like 1 per class)
 - Model fuses Gabor wavelet-based model with an image-based CNN model
+- Training used ISIC2017
+### Method
+- Extracts spatial frequencies from dataset into 7 directional frequencies (using Gabor filtering) to train 7 CNNs which output probabilities
+    - Use pre-trained networks like ResNet architecture
+    - Trained independently
+- Additional CNN uses original images to generate probabilities (retaining global colour, lesion pigmentation, macroscopic spatial geometry)
+- All final output probabilities fused together to get final diagnosis
 
+- Prevents dominant colour patterns overshadowing delicate directional texture cues (improving classification accuracy)
+### Results
 - Paper doesn't explicitly state final accuracy
-- Max accuracy of model used in paper is 96%
+- Max accuracy of model used in paper is 83% (max AUC is 96%)
 
 
 
@@ -167,7 +186,10 @@
 - Feb 7, 2025
 - Abstract, Conclusion, Results
 
-- Uses 3 pre-trained networks as classifiers THEN 3 pre-trained networks as feature extractors along with 4 ML classifiers THEN uses a combination of those.
-- Experimental performance measured on ISIC 2018 dataset
+- Investigates 3 classifying approaches:
+    - 3 pre-trained networks as classifiers
+    - 3 pre-trained networks as feature extractors along with 4 ML classifiers
+    - Combination of networks from above approaches
+- Used ISIC2018 dataset
 
-- Highest hybrid model accuracy of 92.87%
+- Best hybrid model accuracy of 92.87% from combining ResNet-18 and MobileNet pre-trained networks

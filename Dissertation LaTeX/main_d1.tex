@@ -120,8 +120,7 @@ Summary of project motivation \& context
 	\subsection{Aim and Objectives} \label{sec:intro_aim}
 	Stating project aims as a table below:
 	
-	\medskip
-	\noindent
+	\medskip\noindent
 	Table of objectives with IDs to reference later
 	\begin{objs}
 		\item\label{obj:train} Train a skin lesion model
@@ -160,17 +159,30 @@ This section covers my research for the areas of this project. First finding gen
 		\subsubsection{Popular Datasets}
 		As I have learned from my university courses a surprising amount of a machine learning model's performance comes from proper analysis and handling of the training, validation and testing datasets. There are currently nearly 30 public skin lesions datasets available although not all are downloadable without requesting access (paid and free) \cite{survey_datasets_2021, survey_2023}. The most popular datasets I found were Ham10000 \cite{ham_paper, ham_src} and from the International Skin Imaging Collaboration (ISIC) Archive \cite{isic_site}. ISIC  have a large collection of quality controlled datasets and host various ongoing competitions to allow researchers to test performance of their algorithms \cite{isic_site_challenge, isic_site}. Ham10000 served as a training dataset for the ISIC 2018 Challenge \cite{isic_2018_challenge} and has continued to be used to train machine learning models in many papers \cite{survey_2023, survey_general_2023}.
 
-		\subsubsection{Machine Learning Models}
-		There are many different skin lesion model papers which all use unique techniques and model architectures. Not all frameworks support all types of models so this subsection focuses on models that are compatible with the frameworks in \bcref{lit:fpga_pipelines}.
+		\subsubsection{Recent Models}
+		There are many papers on different skin lesion classification models which use unique techniques and model architectures. Not every model architecture is supported by the FPGA frameworks in \bcref{lit:fpga_pipelines} so the following models were verified to have at least closely supported architectures.
+		
+		\medskip\noindent
+		Some papers have achieved higher overall model accuracy by combining multiple specialised machine learning models. A paper by \citet{gabor_2019} in 2019 uses Gabor filtering to split each image from the ISIC 2017 dataset (cite) into 7 frequency images for training 7 separate CNNs. An 8th CNN is trained on the original images to retain lesion colour and geometry. All the CNNs output probabilities which are fused together to produce the final diagnosis. The best performing individual model is I-GR0235 with a classification accuracy of 83\%. Another approach by \citet{hybrid_2025} in 2025...
+		
+		% Gabor paper 2019 - old method where each class has tailored CNN, best accuracy of 96\% (ISIC 2017)
+		% \\
+		% Multiclass paper 2022 - single model, designed to be lightweight for potential constricted deployment use, best accuracy of 86.33\% (ISIC 2019)
+		% \\
+		% SCDNet paper 2022 - single model combining several specialised CNNs with VGG16 model, strong comparison against 4 existing models, accuracy of 96.91\% (Ham10000 + others)
+		% \\
+		% SKinLesNet paper 2023 - single model that outperforms comparison models, best accuracy of 96\% (custom dataset)
+		% \\
+		% Many small models paper 2025 - 10 total models
 
-		\begin{table}[h] \label{tab:models} \caption{Table of skin lesion classification models properties}
-			\centering
-			% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
-			\begin{models_table}{colspec = {| p{17.5em} | X | c |}}
-				Model Architecture & Results & Paper \\
-				SkinLesNet... paper & 98.3\% training and 96.7\% testing accuracies using Ham10000 & (cite) \\
-			\end{models_table}
-		\end{table}
+		% \begin{table}[h] \label{tab:models} \caption{Table of skin lesion classification models properties}
+		% 	\centering
+		% 	% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
+		% 	\begin{models_table}{colspec = {| p{17.5em} | X | c |}}
+		% 		Model Architecture & Results & Paper \\
+		% 		SkinLesNet... paper & 98.3\% training and 96.7\% testing accuracies using Ham10000 & (cite) \\
+		% 	\end{models_table}
+		% \end{table}
 
 	% Looking into hardware options (RPi, mobile, FPGA)
 	\subsection{Mobile Hardware for Machine Learning Acceleration} \label{lit:hardware}
@@ -215,14 +227,18 @@ This section covers my research for the areas of this project. First finding gen
 	This section covers what compression techniques/software is supported by the FINN and hls4ml frameworks. The Vitis AI framework dropped support for PYNQ-Z1 in 2021 so is likely to be obsolete compared to the other more up-to-date frameworks, therefore I am excluding it as an option.
 
 		\subsubsection{Compression Compatible with FINN}
-		Quantisation - Brevitas (PyTorch, 1-8 bit)\\
-		Pruning - Torch-Pruning (DepGraph) or PyTorch structured channel pruning\\
-		Should output as QONNX \cite{qonnx_paper}
+		\begin{itemize}
+			\item Quantisation - Brevitas (PyTorch, 1-8 bit)
+			\item Pruning - Torch-Pruning (DepGraph) or PyTorch structured channel pruning
+			\item Should output as QONNX \cite{qonnx_paper}
+		\end{itemize}
 
 		\subsubsection{Compression Compatible with hls4ml}
-		Quantisation - QKeras/AutoQKeras (TensorFlow/Keras), HGQ (Keras), Brevitas (via QONNX)
-		Pruning - TFMOT (unstructured), hls4ml Optimisation API (DSP-aware structured), HGQ (auto bit-width pruning)
-		Should output as Keras/PyTorch FX/QONNX \cite{qonnx_paper}
+		\begin{itemize}
+			\item Quantisation - QKeras/AutoQKeras (TensorFlow/Keras), HGQ (Keras), Brevitas (via QONNX)
+			\item Pruning - TFMOT (unstructured), hls4ml Optimisation API (DSP-aware structured), HGQ (auto bit-width pruning)
+			\item Should output as Keras/PyTorch FX/QONNX \cite{qonnx_paper}
+		\end{itemize}
 
 	\subsection{Further Research Recommendations}
 	The gap I've identified is that some of the recent skin lesion classification models have not been tried to run on the PYNQ-Z1 FPGA hardware. I want to find out if it is possible to take a particular skin lesion classification model unrelated to FPGAs and run it on PYNQ-Z1 FPGA hardware without significant accuracy loss?
@@ -259,8 +275,8 @@ needed to complete the project
 	
 		\subsubsection{Non-Functional}
 		The non-functional requirements for this project using the MOSCOW ranking system.
-		\medskip
-
+		
+		\medskip\noindent
 		Non-functional requirements table here covering: speed, efficiency, compile time, baseline and final model having high accuracy
 
 		\begin{reqsn}
@@ -315,8 +331,7 @@ Short summary of this doc. Summarise what I have researched and what I hope to a
 	\subsection{Analysis of Risks}
 	This will have a table of risks (with a severity rating) and an accompanying table of mitigation plans.
 	
-	\medskip
-	\noindent
+	\medskip\noindent
 	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni
 
 	\subsection{PLES}
@@ -325,8 +340,7 @@ Short summary of this doc. Summarise what I have researched and what I hope to a
 	computer law, ethical decision making, intellectual property, social aspects, copyright,
 	data protection, and so on).
 
-	\medskip
-	\noindent
+	\medskip\noindent
 	Most of this I can get from ethics form, checking licences to use methods and data, state potential social uses considering using AI, etc.
 
 % Appendices
