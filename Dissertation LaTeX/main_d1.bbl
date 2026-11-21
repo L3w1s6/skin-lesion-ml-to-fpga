@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -194,6 +194,15 @@
 \newblock \bibinfo{journal}{\emph{IEEE Access}}  \bibinfo{volume}{11} (\bibinfo{year}{2023}), \bibinfo{pages}{140348--140381}.
 \newblock
 \href{https://doi.org/10.1109/ACCESS.2023.3339635}{doi:\nolinkurl{10.1109/ACCESS.2023.3339635}}
+
+
+\bibitem[Pappalardo et~al\mbox{.}(2022)]%
+        {qonnx_paper}
+\bibfield{author}{\bibinfo{person}{Alessandro Pappalardo}, \bibinfo{person}{Yaman Umuroglu}, \bibinfo{person}{Michaela Blott}, \bibinfo{person}{Jovan Mitrevski}, \bibinfo{person}{Ben Hawks}, \bibinfo{person}{Nhan Tran}, \bibinfo{person}{Vladimir Loncar}, \bibinfo{person}{Sioni Summers}, \bibinfo{person}{Hendrik Borras}, \bibinfo{person}{Jules Muhizi}, \bibinfo{person}{Matthew Trahms}, \bibinfo{person}{Shih-Chieh Hsu}, \bibinfo{person}{Scott Hauck}, {and} \bibinfo{person}{Javier Duarte}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \bibinfo{title}{QONNX: Representing Arbitrary-Precision Quantized Neural Networks}.
+\newblock
+\showeprint[arxiv]{2206.07527}~[cs.LG]
+\href{https://doi.org/10.48550/arXiv.2206.07527}{doi:\nolinkurl{10.48550/arXiv.2206.07527}}
 
 
 \bibitem[Pi(2016)]%

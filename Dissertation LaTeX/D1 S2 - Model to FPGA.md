@@ -85,6 +85,20 @@
 
 
 
+## A Compiler-Aware Framework for Partitioned Neural Network Inference on FPGA DPUs
+- https://doi.org/10.64552/wipiec.v12i2.144
+- Aug 25, 2026
+- Abstract
+
+- Builds on Vitis AI
+- Models with many parameters can be split into separately compilable parts for more flexible deployment
+- Vitis AI toolchain unable to properly optimise for models split into smaller compilable parts
+- Split models using Vitis AI significantly lose performance
+- Proposes a XIR-level splitting framework that can create separate compilable fragments while preserving context required for DPU mapping
+- Framework keeps workflow high-level without needing advanced hardware design knowledge or low-level design changes
+
+
+
 ## hls4ml
 ### Paper
 - https://iopscience.iop.org/article/10.1088/1748-0221/13/07/P07027
@@ -127,14 +141,36 @@
 
 
 
-## A Compiler-Aware Framework for Partitioned Neural Network Inference on FPGA DPUs
-- https://doi.org/10.64552/wipiec.v12i2.144
-- Aug 25, 2026
-- Abstract
+# Quantisation Compatible with FINN and hls4ml
+- [QONNX paper](https://doi.org/10.48550/arXiv.2206.07527) contains examples of using with FINN and hls4ml
 
-- Builds on Vitis AI
-- Models with many parameters can be split into separately compilable parts for more flexible deployment
-- Vitis AI toolchain unable to properly optimise for models split into smaller compilable parts
-- Split models using Vitis AI significantly lose performance
-- Proposes a XIR-level splitting framework that can create separate compilable fragments while preserving context required for DPU mapping
-- Framework keeps workflow high-level without needing advanced hardware design knowledge or low-level design changes
+## Compatible with Both
+### Brevitas
+- 
+
+- Exports models as QONNX files: natively supported in some way by both
+
+
+
+## FINN Compatible
+
+
+
+## hls4ml Compatible
+### QKeras
+### AutoQKeras
+### HGQ (Keras)
+
+
+
+# Pruning Compatible with FINN and hls4ml
+
+## FINN Compatible
+### Torch-Pruning (DepGraph)
+
+
+
+## hls4ml Compatible
+### hls4ml Optimisation API
+### HGQ (auto bit-width pruning feature)
+### TFMOT
