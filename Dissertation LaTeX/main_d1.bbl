@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{24}
+\begin{thebibliography}{27}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -62,6 +62,16 @@
 \tempurl}
 \newblock
 \shownote{v1.0.1}.
+
+
+\bibitem[Azeem et~al\mbox{.}(2023)]%
+        {skinlesnet_2023}
+\bibfield{author}{\bibinfo{person}{Muhammad Azeem}, \bibinfo{person}{Kaveh Kiani}, \bibinfo{person}{Taha Mansouri}, {and} \bibinfo{person}{Nathan Topping}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{SkinLesNet: Classification of Skin Lesions and Detection of Melanoma Cancer Using a Novel Multi-Layer Deep Convolutional Neural Network}.
+\newblock \bibinfo{journal}{\emph{Cancers}} \bibinfo{volume}{16}, \bibinfo{number}{1} (\bibinfo{year}{2023}).
+\newblock
+\showISSN{2072-6694}
+\href{https://doi.org/10.3390/cancers16010108}{doi:\nolinkurl{10.3390/cancers16010108}}
 
 
 \bibitem[Codella et~al\mbox{.}(2019)]%
@@ -185,6 +195,26 @@
 \tempurl}
 \newblock
 \shownote{Accessed: 20/11/26}.
+
+
+\bibitem[Hoang et~al\mbox{.}(2022)]%
+        {wide_shufflenet_2022}
+\bibfield{author}{\bibinfo{person}{Long Hoang}, \bibinfo{person}{Suk-Hwan Lee}, \bibinfo{person}{Eung-Joo Lee}, {and} \bibinfo{person}{Ki-Ryong Kwon}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Multiclass Skin Lesion Classification Using a Novel Lightweight Deep Learning Framework for Smart Healthcare}.
+\newblock \bibinfo{journal}{\emph{Applied Sciences}} \bibinfo{volume}{12}, \bibinfo{number}{5} (\bibinfo{year}{2022}).
+\newblock
+\showISSN{2076-3417}
+\href{https://doi.org/10.3390/app12052677}{doi:\nolinkurl{10.3390/app12052677}}
+
+
+\bibitem[Naeem et~al\mbox{.}(2022)]%
+        {scdnet_2022}
+\bibfield{author}{\bibinfo{person}{Ahmad Naeem}, \bibinfo{person}{Tayyaba Anees}, \bibinfo{person}{Makhmoor Fiza}, \bibinfo{person}{Rizwan~Ali Naqvi}, {and} \bibinfo{person}{Seung-Won Lee}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{SCDNet: A Deep Learning-Based Framework for the Multiclassification of Skin Cancer Using Dermoscopy Images}.
+\newblock \bibinfo{journal}{\emph{Sensors}} \bibinfo{volume}{22}, \bibinfo{number}{15} (\bibinfo{year}{2022}).
+\newblock
+\showISSN{1424-8220}
+\href{https://doi.org/10.3390/s22155652}{doi:\nolinkurl{10.3390/s22155652}}
 
 
 \bibitem[Noronha et~al\mbox{.}(2023)]%

@@ -177,6 +177,7 @@
 - Prevents dominant colour patterns overshadowing delicate directional texture cues (improving classification accuracy)
 ### Results
 - Paper doesn't explicitly state final accuracy
+- Best performing model is I-GR0235 with M-ACC of 0.83, M-AUC of 0.96
 - Max accuracy of model used in paper is 83% (max AUC is 96%)
 
 
@@ -186,10 +187,12 @@
 - Feb 7, 2025
 - Abstract, Conclusion, Results
 
+### Method
 - Investigates 3 classifying approaches:
     - 3 pre-trained networks as classifiers
     - 3 pre-trained networks as feature extractors along with 4 ML classifiers
-    - Combination of networks from above approaches
+    - Find best combination of networks from above approaches
 - Used ISIC2018 dataset
-
-- Best hybrid model accuracy of 92.87% from combining ResNet-18 and MobileNet pre-trained networks
+- Models combined using concatenation with a (Support Vector Machine) SVM classifier
+### Results
+- Best merged model accuracy of 92.87% from combining ResNet-18 and MobileNet pre-trained networks

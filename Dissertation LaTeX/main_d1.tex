@@ -163,26 +163,20 @@ This section covers my research for the areas of this project. First finding gen
 		There are many papers on different skin lesion classification models which use unique techniques and model architectures. Not every model architecture is supported by the FPGA frameworks in \bcref{lit:fpga_pipelines} so the following models were verified to have at least closely supported architectures.
 		
 		\medskip\noindent
-		Some papers have achieved higher overall model accuracy by combining multiple specialised machine learning models. A paper by \citet{gabor_2019} in 2019 uses Gabor filtering to split each image from the ISIC 2017 dataset (cite) into 7 frequency images for training 7 separate CNNs. An 8th CNN is trained on the original images to retain lesion colour and geometry. All the CNNs output probabilities which are fused together to produce the final diagnosis. The best performing individual model is I-GR0235 with a classification accuracy of 83\%. Another approach by \citet{hybrid_2025} in 2025...
+		Some papers have achieved higher overall model accuracy by combining multiple specialised machine learning models. A paper by \citet{gabor_2019} in 2019 uses Gabor filtering to split each image from the ISIC 2017 dataset (cite) into 7 frequency images for training 7 separate CNNs. An 8th CNN is trained on the original images to retain lesion colour and geometry. All the CNNs output probabilities which are fused together to produce the final diagnosis. The best performing individual model is I-GR0235 with a classification accuracy of 83\% \cite{gabor_2019}. Another approach by \citet{hybrid_2025} in 2025 compared several combinations of merged pre-trained networks to find the best merged model accuracy. The networks were evaluated using the ISIC 2018 dataset (cite) and the best model had an accuracy of 92.87\% from combining a ResNet-18 and MobileNet models \cite{hybrid_2025}. Continue with this paper \cite{scdnet_2022}?
 		
-		% Gabor paper 2019 - old method where each class has tailored CNN, best accuracy of 96\% (ISIC 2017)
+		\medskip\noindent
+		The other papers focus on improving the performance of a single larger model. This paper \cite{wide_shufflenet_2022}? Then this paper \cite{skinlesnet_2023}?
+		
+		%DONE Gabor paper 2019 - old method where each class has tailored CNN, best accuracy of 96\% (ISIC 2017)
 		% \\
-		% Multiclass paper 2022 - single model, designed to be lightweight for potential constricted deployment use, best accuracy of 86.33\% (ISIC 2019)
+		% Multiclass paper (wide_shufflenet) 2022 - single model, designed to be lightweight for potential constricted deployment use, best accuracy of 86.33\% (ISIC 2019)
 		% \\
 		% SCDNet paper 2022 - single model combining several specialised CNNs with VGG16 model, strong comparison against 4 existing models, accuracy of 96.91\% (Ham10000 + others)
 		% \\
-		% SKinLesNet paper 2023 - single model that outperforms comparison models, best accuracy of 96\% (custom dataset)
+		% SkinLesNet paper 2023 - single model that outperforms comparison models, best accuracy of 96\% (custom dataset)
 		% \\
-		% Many small models paper 2025 - 10 total models
-
-		% \begin{table}[h] \label{tab:models} \caption{Table of skin lesion classification models properties}
-		% 	\centering
-		% 	% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
-		% 	\begin{models_table}{colspec = {| p{17.5em} | X | c |}}
-		% 		Model Architecture & Results & Paper \\
-		% 		SkinLesNet... paper & 98.3\% training and 96.7\% testing accuracies using Ham10000 & (cite) \\
-		% 	\end{models_table}
-		% \end{table}
+		%DONE Many small models paper 2025 - 10 total models
 
 	% Looking into hardware options (RPi, mobile, FPGA)
 	\subsection{Mobile Hardware for Machine Learning Acceleration} \label{lit:hardware}
