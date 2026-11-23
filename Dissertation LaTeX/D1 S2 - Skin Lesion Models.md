@@ -136,8 +136,10 @@
 - Abstract, Conclusions, Experiment
 
 - Designed to be lightweight and suitable for use on small system like mobile healthcare systems
-- Evaluated using Ham10000 and ISIC2019
-- Contains table on class distribution in Ham10000
+- Developed EW-FCM segmentation algorithm to remove background artifacts without computational overhead of heavy segmentation networks
+- Segmented images then passed to CNN called wide-ShuffleNet, lightweight, multi-type classification
+- Trained using Ham10000 and ISIC2019
+- Contains potentially useful table on class distribution in Ham10000
 
 - Evaluated with metrics: precision, sensitivity, specificity, F1 - score, accuracy
 - Proposed method accuracy over 3 experiments: 84.8% (Ham1000, 80% train and 20% test), 86.33% (Ham10000, 90% train and 10% test), 82.56% (ISIC2019, 90% train and 10% test)
@@ -149,10 +151,11 @@
 - Jul 28, 2022
 - Abstract, Conclusions, Methodology
 
-- Creates new model called SCDNet
-- Combines several models: Vgg16 + specialised CNNs for different types of skin cancer
+- Creates new model called SCDNet (based on pre-trained Vgg16 model)
 - Trained and tested using ISIC 2019 dataset
-- Accuracy compared with 4 existing classifiers (pre-trained): Resnet 50, Inception v3, AlexNet and Vgg19
+- Minimal dataset pre-processing to for better generalisation
+- SCDNet uses specialised layers to filter and identify features in the images.
+- Accuracy compared with 4 existing pre-trained classifiers: Resnet 50, Inception v3, AlexNet and Vgg19
 
 - Accuracy of 96.91%
 
@@ -177,8 +180,7 @@
 - Prevents dominant colour patterns overshadowing delicate directional texture cues (improving classification accuracy)
 ### Results
 - Paper doesn't explicitly state final accuracy
-- Best performing model is I-GR0235 with M-ACC of 0.83, M-AUC of 0.96
-- Max accuracy of model used in paper is 83% (max AUC is 96%)
+- Best performing model config is I-GR0235 with M-ACC (accuracy) of 0.83, M-AUC (Area Under Curve, how well model separates positive from negative, 1 is perfect separation, 0 is no better than random guessing) of 0.96
 
 
 
