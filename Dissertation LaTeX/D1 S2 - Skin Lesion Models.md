@@ -118,11 +118,12 @@
 - (skinlesnet_2023)
 - https://doi.org/10.3390/cancers16010108
 - Dec 24, 2023
-- Abstract, Conclusions, Results
+- Abstract, Conclusions, Results, Methodology
 
-- Proposes SkinLesNet model
-- Compared to VGG16 and ResNet50
+- Proposes SkinLesNet model (custom 4-layer CNN)
+- Compared to pre-trained VGG16 and ResNet50
 - Uses dataset extracted from PAD-UFES-20 called PAD-UFES-20-Modified to train and test SkinLesNet (3 classes of skin lesions)
+- PAD-UFES-20 contains real-world smartphone photos rather than dermoscopic images.
 
 - SkinLesNet generally outperformed ResNet50 and VGG16 in all metrics
 - Accuracy of 96% with PAD-UFES-20-Modified
@@ -138,13 +139,14 @@
 - Abstract, Conclusions, Experiment
 
 - Designed to be lightweight and suitable for use on small system like mobile healthcare systems
-- Developed EW-FCM segmentation algorithm to remove background artifacts without computational overhead of heavy segmentation networks
+- Developed EW-FCM segmentation (mathematical) algorithm to remove background artifacts without computational overhead of heavy segmentation networks
 - Segmented images then passed to CNN called wide-ShuffleNet, lightweight, multi-type classification
-- Trained using Ham10000 and ISIC2019
+- Trained using Ham10000 (7 classes) and ISIC2019 (8 classes)
+
 - Contains potentially useful table on class distribution in Ham10000
 
 - Evaluated with metrics: precision, sensitivity, specificity, F1 - score, accuracy
-- Proposed method accuracy over 3 experiments: 84.8% (Ham1000, 80% train and 20% test), 86.33% (Ham10000, 90% train and 10% test), 82.56% (ISIC2019, 90% train and 10% test)
+- Proposed method accuracy over 3 experiments: 84.8% (Ham10000, 80% train and 20% test), 86.33% (Ham10000, 90% train and 10% test), 82.56% (ISIC2019, 90% train and 10% test)
 
 
 

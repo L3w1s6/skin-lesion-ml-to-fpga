@@ -110,9 +110,13 @@ Abstract text.
 	% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
 	\begin{models_table}{colspec = {| l | l |}}
 		Abbreviation & Meaning \\
+		ML & Machine Learning \\
+		NN & Neural Network \\
+		CNN & Convolutional Neural Network \\
 		FPGA & Field Programmable Gate Array \\
 		PYNQ-Z1 & Xilinx PYNQ-Z1 FPGA board \\
 		ISIC & International Skin Imaging Collaboration \\
+		Spatial image data & Information that identifies shape and location of objects in an image \\
 	\end{models_table}
 \end{table}
 	
@@ -177,21 +181,11 @@ This section covers the research for key aspects of this project. First finding 
 		\subsubsection{Recent High Performance Models}
 		There are many papers on different skin lesion classification models which use unique techniques and model architectures. Not every model architecture is supported by the FPGA frameworks in \bcref{lit:fpga_pipelines} so the following models architectures were checked to have at least closely supported architectures. The objective of most papers is to achieve a higher model classification accuracy than existing solutions.
 		\\
-		Some papers have achieved higher overall model accuracy by combining multiple specialised machine learning models. A paper by \citet{gabor_2019} in 2019 uses Gabor filtering to split each image from the ISIC 2017 dataset (cite) into 7 frequency images for training 7 separate CNNs. An 8th CNN is trained on the original images to retain lesion colour and geometry. All the CNN's output probabilities are fused together to produce the final diagnosis. The best configuration I-GR0235 was chosen for a superior positive/negative response (AUC) of 96\% while still having good classification accuracy of 83\% \cite{gabor_2019}. Another approach by \citet{hybrid_2025} in 2025 compared several combinations of merges of pre-trained networks to find the best merged model accuracy. The networks were evaluated using the ISIC 2018 dataset (cite) and the best model had an accuracy of 92.87\% from combining a ResNet-18 and MobileNet models \cite{hybrid_2025}. \citet{scdnet_2022} in 2022 proposed a model based on a pre-trained VGG16 model called SCDNet which was trained and tested on the ISIC 2019 dataset (cite). The paper takes focus on specialising model layers for image filtering and identifying features in the images. The model achieves an accuracy of 96.91\%.
+		Some papers have achieved higher overall model accuracy by combining multiple specialised machine learning models. A paper by \citet{gabor_2019} in 2019 uses Gabor filtering to split each image from the ISIC 2017 dataset (cite) into 7 frequency images for training 7 separate CNNs. An 8th CNN is trained on the original images to retain lesion colour and geometry. All the CNN's output probabilities are fused together to produce the final diagnosis. The best configuration I-GR0235 was chosen for a superior positive/negative response (AUC) of 96\% while still having good classification accuracy of 83\% \cite{gabor_2019}. Another approach by \citet{hybrid_2025} in 2025 compared several combinations of merges of pre-trained networks to find the best merged model accuracy. The networks were evaluated using the ISIC 2018 dataset (cite) and the best model had an accuracy of 92.87\% from combining a ResNet-18 and MobileNet models \cite{hybrid_2025}. \citet{scdnet_2022} in 2022 proposed a model based on a pre-trained VGG16 model called SCDNet which was trained and tested on the ISIC 2019 dataset (cite). The paper focuses on specialising model layers for image filtering and identifying features in the images. The model achieves an accuracy of 96.91\%.
 		
-		\medskip
+		\smallskip
 		\noindent
-		Other papers focus on improving a single general model. This paper \cite{wide_shufflenet_2022}? Then this paper \cite{skinlesnet_2023}?
-		
-		%DONE Gabor paper (gabor_2019) 2019 - old method where each class has tailored CNN, best accuracy of 96\% (ISIC 2017)
-		% \\
-		% Multiclass paper (wide_shufflenet) 2022 - single model, designed to be lightweight for potential constricted deployment use, best accuracy of 86.33\% (ISIC 2019)
-		% \\
-		%DONE SCDNet paper (scdnet_2022) 2022 - single model combining several specialised CNNs with VGG16 model, strong comparison against 4 existing models, accuracy of 96.91\% (Ham10000 + others)
-		% \\
-		% SkinLesNet paper (skinlesnet_2023) 2023 - single model that outperforms comparison models, best accuracy of 96\% (custom dataset)
-		% \\
-		%DONE Many small models paper (hybrid_2025) 2025 - concatenated models
+		Other papers focus on improving a single general model. The method proposed by \citet{wide_shufflenet_2022} in 2022 creates a mathematical algorithm EW-FCM to more heavily pre-process the datasets. Either Ham10000 or ISIC 2019 datasets \cite{ham_paper} (+ cite ISIC 2019) were used across 3 experiments. It uses less computation overhead than other NN based methods to remove background artifacts and crop to the region of interest. The images are then fed to their CNN model wide-ShuffleNet to classify 7 or 8 skin lesion types (Ham10000 has 7 while ISIC 2019 has 8). The wide-ShuffleNet model is designed to be lightweight and efficient so it could run on a mobile system and is proved to have higher accuracy and efficiency than larger models it was compared with \cite{wide_shufflenet_2022}. The best accuracy was 86.33\% in experiment 2 using the Ham10000 dataset (90\% training, 10\% testing). A paper by \citet{skinlesnet_2023} in 2023 uses a modified version of the PAD-UFES-20 dataset called PAD-UFES-20-Modified that contains smartphone photos rather dermoscopic images. The PAD-UFES-20 dataset has less than 1000 images (10 times smaller than Ham10000), 3 skin lesion classes and required more pre-processing than most datasets but means the proposed model is more suitably trained for clinical use. The model is a bespoke 4-layer CNN called SkinLesNet that learns a hierarchy of spatial features. SkinLesNet is compared against pre-trained VGG16 and ResNet50 models, benchmarked using the Ham10000 and ISIC 2017 \cite{ham_paper} (+ cite ISIC 2017) datasets. The model achieves its highest accuracy of 96\% using PAD-UFES-20-Modified.
 
 	% Looking into hardware options (RPi, mobile, FPGA)
 	\subsection{Mobile Hardware for Machine Learning Acceleration} \label{lit:hardware}
@@ -210,16 +204,16 @@ This section covers the research for key aspects of this project. First finding 
 	\subsection{Machine Learning Models to FPGA Frameworks} \label{lit:fpga_pipelines}
 	This section describes a few of the options for frameworks that could be used to run a skin lesion classification machine learning model on an FPGA.
 
+		% Mentioned as an option but only an old version supports PYNQ-Z1
+		\subsubsection{Vitis AI}
+		Vitis is a software platform used for digital signal processing and machine learning. The Vitis AI framework is part of the platform and is designed for AI acceleration of CNN models \cite[Page 16, AI Engine Development Environment]{vitis_paper}. A variety of tools and optimisations are included for designing programmable logic focusing on better area compute density and reducing power consumption compared to traditional implementations. It abstracts the programming to C/C++ languages level to allow for easier porting between specific hardware. The current version of Vitis AI is 5.0. The Zynq-7000 family (includes PYNQ-Z1) lost support as of version 1.4 because they were considered to not have enough resources for acceptable performance. Using this framework may still be possible but would be unlikely to have the same latest features as frameworks since 2021 \cite[AMD Support Page, GitHub Vitis 1.4 Release]{vitis_1_4_support, vitis_1_4_git}.
+
 		% Kinda supported for PYNQ-Z1
 		\subsubsection{FINN}
 		FINN is a framework specifically for running machine learning models on an FPGA rather than code. It implements a neural network as a series of interconnected streaming layers. A streaming component doesn't run a list of operations like a CPU but instead runs more like a single complex operation. This means that the runtime is not based on a clock speed but instead on the throughput speed (speed at which signals can be sent through the circuit) with a sub-microsecond latency \cite{finn_project, finn_paper}. Almost all machine learning models use too much memory to directly fit on the limited on-chip memory of an FPGA which is why the FINN framework also includes the FINN compiler. The FINN compiler is similar in principle to lossy image compression where through various tuneable compression techniques it reduces the size of a machine learning model while aiming to cause as small of a model performance loss as possible \cite{finn_paper}. In \cite[Getting Started > Supported FPGA Hardware]{finn_docs} the PYNQ-Z1 is listed as retired in favour of larger FPGA boards. Although no longer officially supported the docs explain how it can be re-enabled through a config file and should still work.
 
 		\subsubsection{HLS-4-ML}
-		The normal name for this framework is hls4ml, it is a translation framework that sits in the middle of the FPGA ML development pipeline. It accepts a compressed machine learning model file and generates High Level Synthesis (HLS) code \cite{hls4ml_docs}. The outputted HLS code can then be used by most FPGA deployment software (including Vivado HLS and Vitis HLS which can be used for PYNQ-Z1) to create the final logic design for the FPGA \cite{hls4ml_paper, hls4ml_docs}. Vitis HLS is one of the softwares included in the Vitis software platform from \cite{vitis_paper}. Vivado HLS (cite vivado).
-		
-		% Mentioned as an option but only an old version supports PYNQ-Z1
-		\subsubsection{Vitis AI}
-		Vitis is a software platform used for digital signal processing and machine learning. The Vitis AI framework is part of the platform and is designed for AI acceleration of CNN models \cite[Page 16, AI Engine Development Environment]{vitis_paper}. A variety of tools and optimisations are included for designing programmable logic focusing on better area compute density and reducing power consumption compared to traditional implementations. It abstracts the programming to C/C++ languages level to allow for easier porting between specific hardware. The current version of Vitis AI is 5.0. The Zynq-7000 family (includes PYNQ-Z1) lost support as of version 1.4 because they were considered to not have enough resources for acceptable performance. Using this framework may still be possible but would be unlikely to have the same latest features as frameworks since 2021 \cite[AMD Support Page, GitHub Vitis 1.4 Release]{vitis_1_4_support, vitis_1_4_git}.
+		The normal name for this framework is hls4ml, it is a translation framework that sits in the middle of the FPGA ML development pipeline. It accepts a compressed machine learning model file and generates High Level Synthesis (HLS) code \cite{hls4ml_docs}. The outputted HLS code can then be used by most FPGA deployment software (including Vivado HLS and Vitis HLS which can be used for PYNQ-Z1) to create the final logic design for the FPGA \cite{hls4ml_paper, hls4ml_docs}. Vitis HLS is included in the Vitis software platform from \cite{vitis_paper}.
 
 		\subsubsection{Vivado}
 		AMD Vivado is not the same kind of framework as above but warrants a section because it is the core software used by the above frameworks to implement designs onto the PYNQ-Z1 FPGA. It is a single vendor design suite that can both be used to create end-to-end FPGA designs itself and also be used to implement HLS from other frameworks \cite{vivado_paper, vivado_paper_2012}.
@@ -305,7 +299,7 @@ needed to complete the project
 	Summary of work carried out to prepare for this project to validate feasibility.
 	
 	\medskip\noindent
-	The PYNQ-Z1 was setup to be easily interacted with over Wifi via SSH.
+	The PYNQ-Z1 was set up to be easily interacted with over Wifi via SSH.
 	\\
 	Looked at examples for similar model types being compiled for FPGA.
 
