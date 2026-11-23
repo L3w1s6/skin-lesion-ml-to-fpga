@@ -1,0 +1,10 @@
+# D1 Document Todo List
+- DONE - Acknowledgements
+- DONE - Frameworks section
+- NOT  - Finish acting on friend's feedback
+- NOT  - Add citations for all mentioned ISIC datasets
+- NOT  - Finish recent models research section
+- NOT  - Complete model compression section (shouldn't need much)
+- NOT  - Fill further research (create in that section research questions and specify what needs to be reproduced)
+- NOT  - Methodology section (use past diss papers to understand structure: explain setup, dataset(s), method reproducing, experiments, eval strategy)
+- NOT  - Intro motivations and background (what is skin lesion, explain research field)
