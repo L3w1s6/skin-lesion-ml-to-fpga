@@ -115,6 +115,7 @@
 # Skin Lesion Classification Papers that Should Be Work on PYNQ-Z1
 
 ## SkinLesNet: Classification of Skin Lesions and Detection of Melanoma Cancer Using a Novel Multi-Layer Deep Convolutional Neural Network
+- (skinlesnet_2023)
 - https://doi.org/10.3390/cancers16010108
 - Dec 24, 2023
 - Abstract, Conclusions, Results
@@ -131,6 +132,7 @@
 
 
 ## Multiclass Skin Lesion Classification Using a Novel Lightweight Deep Learning Framework for Smart Healthcare
+- (wide_shufflenet_2022)
 - https://doi.org/10.3390/app12052677
 - Mar 4, 2022
 - Abstract, Conclusions, Experiment
@@ -147,6 +149,7 @@
 
 
 ## SCDNet: A Deep Learning-Based Framework for the Multiclassification of Skin Cancer Using Dermoscopy Images
+- (scdnet_2022)
 - https://doi.org/10.3390/s22155652
 - Jul 28, 2022
 - Abstract, Conclusions, Methodology
@@ -162,6 +165,7 @@
 
 
 ## Gabor wavelet-based deep learning for skin lesion classification
+- (gabor_2019)
 - https://doi.org/10.1016/j.compbiomed.2019.103423
 - Sep 4, 2019
 - Abstract, Conclusion, Method
@@ -185,6 +189,7 @@
 
 
 ## A comprehensive analysis of deep learning and transfer learning techniques for skin cancer classification
+- (hybrid_2025)
 - https://doi.org/10.1038/s41598-024-82241-w
 - Feb 7, 2025
 - Abstract, Conclusion, Results

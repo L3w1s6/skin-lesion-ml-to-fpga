@@ -176,12 +176,12 @@ This section covers the research for key aspects of this project. First finding 
 
 		\subsubsection{Recent High Performance Models}
 		There are many papers on different skin lesion classification models which use unique techniques and model architectures. Not every model architecture is supported by the FPGA frameworks in \bcref{lit:fpga_pipelines} so the following models architectures were checked to have at least closely supported architectures. The objective of most papers is to achieve a higher model classification accuracy than existing solutions.
-		
-		\medskip\noindent
+		\\
 		Some papers have achieved higher overall model accuracy by combining multiple specialised machine learning models. A paper by \citet{gabor_2019} in 2019 uses Gabor filtering to split each image from the ISIC 2017 dataset (cite) into 7 frequency images for training 7 separate CNNs. An 8th CNN is trained on the original images to retain lesion colour and geometry. All the CNN's output probabilities are fused together to produce the final diagnosis. The best configuration I-GR0235 was chosen for a superior positive/negative response (AUC) of 96\% while still having good classification accuracy of 83\% \cite{gabor_2019}. Another approach by \citet{hybrid_2025} in 2025 compared several combinations of merges of pre-trained networks to find the best merged model accuracy. The networks were evaluated using the ISIC 2018 dataset (cite) and the best model had an accuracy of 92.87\% from combining a ResNet-18 and MobileNet models \cite{hybrid_2025}. \citet{scdnet_2022} in 2022 proposed a model based on a pre-trained VGG16 model called SCDNet which was trained and tested on the ISIC 2019 dataset (cite). The paper takes focus on specialising model layers for image filtering and identifying features in the images. The model achieves an accuracy of 96.91\%.
 		
+		\medskip
 		\noindent
-		The other papers focus on improving a single general model. This paper \cite{wide_shufflenet_2022}? Then this paper \cite{skinlesnet_2023}?
+		Other papers focus on improving a single general model. This paper \cite{wide_shufflenet_2022}? Then this paper \cite{skinlesnet_2023}?
 		
 		%DONE Gabor paper (gabor_2019) 2019 - old method where each class has tailored CNN, best accuracy of 96\% (ISIC 2017)
 		% \\
