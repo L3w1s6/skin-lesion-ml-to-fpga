@@ -146,16 +146,26 @@
 
 # Compression Tools Compatible with FINN and hls4ml
 ### QONNX
-- [QONNX paper](https://doi.org/10.48550/arXiv.2206.07527) contains examples of using with FINN and hls4ml
+- [Paper](https://doi.org/10.48550/arXiv.2206.07527)
+- Interchange file format for quantised ML models
+- Contains examples of using with FINN and hls4ml
 ### PyTorch
-- [PyTorch]()
+- [Core Paper](https://doi.org/10.48550/arxiv.1912.01703)
+- [Website](https://pytorch.org)
+- [Docs](https://docs.pytorch.org/docs/2.15/index.html)
+- "optimised tensor library for deep learning using GPUs and CPUs"
+- PyTorch is a computing library for taking advantage of GPUs and other accelerators, also automatic differentiation library useful to implement NN
 ### Keras
 - [Website](https://keras.io)
 - [Docs](https://keras.io/api/)
 - A high-level API for building, training, shipping ML models on backends: JAX, PyTorch, MLX, etc.
-- QKeras
-### TensorFlow
-- [TensorFlow]()
+- Has quantisation features: QAT via QKeras, custom bit widths per layer via HGQ (High-Granularity Quantisation)/AutoQ
+### TFMOT (TensorFlow Model Optimsation Toolkit)
+- [Paper](https://doi.org/10.1109/CVPR.2018.00286)
+- Open-source suite of libraries from Google and TensorFlow to compress and optimise machine learning models for deployment on resource-constrained environments
+- Integrates natively with Keras and TensorFlow APIs
+- 4 primary optimisations: QAT, weight pruning, weight clustering, collaborative optimisation (combining previous optimisations together)
+- Easy to implement - only requires a couple lines of code to wrap Keras layers/models
 
 ## Quantisation
 ### Brevitas (both)
@@ -181,6 +191,6 @@
 ### TFMOT (hls4ml)
 - Unstructured
 ### hls4ml Optimisation API (hls4ml)
-- DSP-aware structured
+- PTQ via internal numeric profiler can automatically optimise bit-widths per layer
 ### HGQ (hls4ml)
 - Auto bit-width pruning
