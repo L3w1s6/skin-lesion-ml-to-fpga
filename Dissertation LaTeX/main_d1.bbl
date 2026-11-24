@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{27}
+\begin{thebibliography}{31}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -74,6 +74,19 @@
 \href{https://doi.org/10.3390/cancers16010108}{doi:\nolinkurl{10.3390/cancers16010108}}
 
 
+\bibitem[Chollet et~al\mbox{.}(2015)]%
+        {keras_site}
+\bibfield{author}{\bibinfo{person}{Fran\c{c}ois Chollet} {et~al\mbox{.}}} \bibinfo{year}{2015}\natexlab{}.
+\newblock \bibinfo{title}{Keras}.
+\newblock
+\urldef\tempurl%
+\url{https://keras.io}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 24/11/26}.
+
+
 \bibitem[Codella et~al\mbox{.}(2019)]%
         {isic_2018_challenge}
 \bibfield{author}{\bibinfo{person}{Noel Codella}, \bibinfo{person}{Veronica Rotemberg}, \bibinfo{person}{Philipp Tschandl}, \bibinfo{person}{M.~Emre Celebi}, \bibinfo{person}{Stephen Dusza}, \bibinfo{person}{David Gutman}, \bibinfo{person}{Brian Helba}, \bibinfo{person}{Aadi Kalloo}, \bibinfo{person}{Konstantinos Liopyris}, \bibinfo{person}{Michael Marchetti}, \bibinfo{person}{Harald Kittler}, {and} \bibinfo{person}{Allan Halpern}.} \bibinfo{year}{2019}\natexlab{}.
@@ -110,6 +123,19 @@
 \tempurl}
 \newblock
 \shownote{Accessed: 20/11/26}.
+
+
+\bibitem[Consortium(2014)]%
+        {moscow_paper}
+\bibfield{author}{\bibinfo{person}{Agile~Business Consortium}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \bibinfo{title}{What is MoSCoW Prioritization?}
+\newblock
+\urldef\tempurl%
+\url{https://www.agilebusiness.org/resource/what-is-moscow-prioritization/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 24/11/26}.
 
 
 \bibitem[Debelee(2023)]%
@@ -184,6 +210,14 @@
 \shownote{Accessed: 9/11/26}.
 
 
+\bibitem[Franco et~al\mbox{.}(2026)]%
+        {brevitas_src}
+\bibfield{author}{\bibinfo{person}{Giuseppe Franco}, \bibinfo{person}{Pablo Monteagudo-Lago}, \bibinfo{person}{Ian Colbert}, \bibinfo{person}{Alessandro Pappalardo}, {and} \bibinfo{person}{Nicholas~J Fraser}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \bibinfo{title}{Xilinx/brevitas: Release v0.13.2}.
+\newblock
+\href{https://doi.org/10.5281/zenodo.3333552}{doi:\nolinkurl{10.5281/zenodo.3333552}}
+
+
 \bibitem[hls4ml(nd)]%
         {hls4ml_docs}
 \bibfield{author}{\bibinfo{person}{hls4ml}.} \bibinfo{year}{[n.d]}\natexlab{}.
@@ -207,6 +241,14 @@
 \href{https://doi.org/10.3390/app12052677}{doi:\nolinkurl{10.3390/app12052677}}
 
 
+\bibitem[Jacob et~al\mbox{.}(2018)]%
+        {tfmot_paper}
+\bibfield{author}{\bibinfo{person}{Benoit Jacob}, \bibinfo{person}{Skirmantas Kligys}, \bibinfo{person}{Bo Chen}, \bibinfo{person}{Menglong Zhu}, \bibinfo{person}{Matthew Tang}, \bibinfo{person}{Andrew Howard}, \bibinfo{person}{Hartwig Adam}, {and} \bibinfo{person}{Dmitry Kalenichenko}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference}. In \bibinfo{booktitle}{\emph{2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition}}. \bibinfo{pages}{2704--2713}.
+\newblock
+\href{https://doi.org/10.1109/CVPR.2018.00286}{doi:\nolinkurl{10.1109/CVPR.2018.00286}}
+
+
 \bibitem[Naeem et~al\mbox{.}(2022)]%
         {scdnet_2022}
 \bibfield{author}{\bibinfo{person}{Ahmad Naeem}, \bibinfo{person}{Tayyaba Anees}, \bibinfo{person}{Makhmoor Fiza}, \bibinfo{person}{Rizwan~Ali Naqvi}, {and} \bibinfo{person}{Seung-Won Lee}.} \bibinfo{year}{2022}\natexlab{}.
@@ -226,13 +268,13 @@
 \href{https://doi.org/10.1109/ACCESS.2023.3339635}{doi:\nolinkurl{10.1109/ACCESS.2023.3339635}}
 
 
-\bibitem[Pappalardo et~al\mbox{.}(2022)]%
-        {qonnx_paper}
-\bibfield{author}{\bibinfo{person}{Alessandro Pappalardo}, \bibinfo{person}{Yaman Umuroglu}, \bibinfo{person}{Michaela Blott}, \bibinfo{person}{Jovan Mitrevski}, \bibinfo{person}{Ben Hawks}, \bibinfo{person}{Nhan Tran}, \bibinfo{person}{Vladimir Loncar}, \bibinfo{person}{Sioni Summers}, \bibinfo{person}{Hendrik Borras}, \bibinfo{person}{Jules Muhizi}, \bibinfo{person}{Matthew Trahms}, \bibinfo{person}{Shih-Chieh Hsu}, \bibinfo{person}{Scott Hauck}, {and} \bibinfo{person}{Javier Duarte}.} \bibinfo{year}{2022}\natexlab{}.
-\newblock \bibinfo{title}{QONNX: Representing Arbitrary-Precision Quantized Neural Networks}.
+\bibitem[Paszke et~al\mbox{.}(2019)]%
+        {pytorch_paper}
+\bibfield{author}{\bibinfo{person}{Adam Paszke}, \bibinfo{person}{Sam Gross}, \bibinfo{person}{Francisco Massa}, \bibinfo{person}{Adam Lerer}, \bibinfo{person}{James Bradbury}, \bibinfo{person}{Gregory Chanan}, \bibinfo{person}{Trevor Killeen}, \bibinfo{person}{Zeming Lin}, \bibinfo{person}{Natalia Gimelshein}, \bibinfo{person}{Luca Antiga}, \bibinfo{person}{Alban Desmaison}, \bibinfo{person}{Andreas Köpf}, \bibinfo{person}{Edward Yang}, \bibinfo{person}{Zach DeVito}, \bibinfo{person}{Martin Raison}, \bibinfo{person}{Alykhan Tejani}, \bibinfo{person}{Sasank Chilamkurthy}, \bibinfo{person}{Benoit Steiner}, \bibinfo{person}{Lu Fang}, \bibinfo{person}{Junjie Bai}, {and} \bibinfo{person}{Soumith Chintala}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{PyTorch: An Imperative Style, High-Performance Deep Learning Library}.
+\newblock \bibinfo{journal}{\emph{arXiv}} (\bibinfo{year}{2019}).
 \newblock
-\showeprint[arxiv]{2206.07527}~[cs.LG]
-\href{https://doi.org/10.48550/arXiv.2206.07527}{doi:\nolinkurl{10.48550/arXiv.2206.07527}}
+\href{https://doi.org/10.48550/arxiv.1912.01703}{doi:\nolinkurl{10.48550/arxiv.1912.01703}}
 
 
 \bibitem[Pi(2016)]%

@@ -72,7 +72,7 @@
 % custom table for skin lesion models
 \NewTblrEnviron{models_table}
 \SetTblrInner[models_table]{
-	hlines = {0.05em, dashed}, % horizontal lines between every row
+	hlines = {0.05em}, % horizontal lines between every row
 	hline{1, Z} = {0.1em}, % top and bottom lines (of entire table)
 	hline{2} = {0.1em}, % midrule line (below header)
 	column{1} = {font=\bfseries}, % bold column 1
@@ -108,7 +108,7 @@ Abstract text.
 \begin{table}[h] \label{tab:models} \caption{Table of word abbreviations}
 	\centering
 	% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
-	\begin{models_table}{colspec = {| l | l |}}
+	\begin{models_table}{colspec = {| l | p{0.65\textwidth} |}}
 		Abbreviation & Meaning \\
 		ML & Machine Learning \\
 		NN & Neural Network \\
@@ -117,6 +117,10 @@ Abstract text.
 		PYNQ-Z1 & Xilinx PYNQ-Z1 FPGA board \\
 		ISIC & International Skin Imaging Collaboration \\
 		Spatial image data & Information that identifies shape and location of objects in an image \\
+		Quantisation & In context of ML, scaling and rounding high-precision numbers like 64-bit or 32-bit into lower-precision numbers like 8-bit or 4-bit.\\
+		QAT & Quantise-Aware Training \\
+		PTQ & Post-Training Quantisation \\
+		Pruning & Removing redundant or low-impact parts of a machine learning model. \\
 	\end{models_table}
 \end{table}
 	
@@ -135,17 +139,13 @@ Summary of project motivation \& context
 	Some background here on what skin lesions are and why use machine learning to classify them.
 
 	\subsection{Aim and Objectives} \label{sec:intro_aim}
-	Stating project aims as a table below:
-	
-	\medskip\noindent
-	Table of objectives with IDs to reference later
+	The aim of this project is to experiment with a new application of an existing skin lesion classification machine learning model onto the PYNQ-Z1 FPGA hardware. The objectives are stated below:
 	\begin{objs}
-		\item\label{obj:train} Train a skin lesion model
-		\item\label{obj:compile} Compile model to run on an FPGA
-		\item\label{obj:run} Run model on FPGA
-		\item these will be expanded plus a few more...
+		\item\label{obj:data_prep} Using the same dataset as the (cite specific paper) and reproducing the pre-processing steps.
+		\item\label{obj:train} The (citet specific paper) paper proposes a method for building and training a skin lesion classification machine learning model. This project aims to reproduce the model and its performance for use in later steps.
+		\item\label{obj:compress} Applying and experimenting with the use of existing ML model compression techniques to shrink the model to a size capable of fitting on the PYNQ-Z1 FPGA hardware.
+		\item\label{obj:deploy} Utilising the hls4ml (cite) with Vivado (cite) to deploy the machine learning model onto the PYNQ-Z1 FPGA hardware.
 	\end{objs}
-	% Testing referring to O - \ref{obj:run}
 
 % Plan of the document.
 
@@ -219,43 +219,16 @@ This section covers the research for key aspects of this project. First finding 
 		
 	% Had a brainwave - both FINN and hls4ml have standard ways of doing compression (will need to be aggressive)
 	\subsection{Compressing Machine Learning Models to FPGA} \label{lit:compression}
-	This section covers the compression techniques/tools that are supported by the models in \bcref{lit:models} and frameworks in \bcref{lit:fpga_pipelines}. The Vitis AI framework dropped support for PYNQ-Z1 in 2021 so is likely to be obsolete compared to the other more up-to-date frameworks, therefore it is being excluded as an option.
-
-	Python workflows are easy to use and have many available libraries.
-
-	PyTorch is Python library for building and training machine learning models?
-	Brevitas is PyTorch libary for quantising NN (quantise-aware training and post-training quantisation)
-	
-	QAT - FINN natively interfaces with PyTorch and Brevitas through intermediate file format QONNX
-	Pruning - Python libraries Torch-Pruning, DepGraph
-	PTQ - Python libaries QONNX/ONNXRuntime
-
-	Keras is an API for building, training and exporting machine learning models to multiple backends including PyTorch (cite).
-	TensorFlow is 
-
-	QAT - TensorFlow/Keras - QKeras (AutoQ/HGQ)
-	Pruning - TensorFlow Model Optimsation Toolkit (TFMOT)
-	PTQ - Included in hls4ml API
+	This section covers the compression techniques/tools that are supported by the models in \bcref{lit:models} and frameworks in \bcref{lit:fpga_pipelines}. The Vitis AI framework dropped support for PYNQ-Z1 in 2021 so is likely to be obsolete compared to the other more up-to-date frameworks, therefore it is being excluded as an option. A Python workflow is being explored for the easy high-level machine learning coding large quantity of available libraries. Two common compression techniques are Quantisation and Pruning. Quantisation is scaling high-precision numbers like 64-bit and 32-bit down to lower-precision numbers like 8-bit and 4-bit. This can significantly reduce storage and RAM resource requirements for the ML model. Applied either as QAT (Quantise-Aware Training) and/or as PTQ (Post-Training Quantisation). Pruning is removing redundant or low-impact parts of a machine learning model.
 		
 		\subsubsection{Compatible with Both FINN and hls4ml}
-
-		\begin{itemize}
-			\item Quantisation - Brevitas
-		\end{itemize}
+		PyTorch is a compute library that utilises accelerators like a GPU, including a library for building and training machine learning models \cite{pytorch_paper}. Brevitas is a library used with PyTorch that has features for quantising neural networks during training (QAT) and/or post training (PTQ) \cite{brevitas_src}. It can export the model as a QONNX file which is supported by both FINN and hls4ml.
 
 		\subsubsection{Compression Compatible with FINN}
-		\begin{itemize}
-			\item Quantisation - Brevitas (PyTorch, 1-8 bit)
-			\item Pruning - Torch-Pruning (DepGraph) or PyTorch structured channel pruning
-			\item Should output as QONNX \cite{qonnx_paper}
-		\end{itemize}
+		FINN provides functions to during compilation to prune parts of the model with thresholds to aid shrinking the model to fit on the FPGA.
 
 		\subsubsection{Compression Compatible with hls4ml}
-		\begin{itemize}
-			\item Quantisation - QKeras/AutoQKeras (TensorFlow/Keras), HGQ (Keras), Brevitas (via QONNX)
-			\item Pruning - TFMOT (unstructured), hls4ml Optimisation API (DSP-aware structured), HGQ (auto bit-width pruning)
-			\item Should output as Keras/PyTorch FX/QONNX \cite{qonnx_paper}
-		\end{itemize}
+		Keras is an API for building, training and exporting machine learning models to multiple backends \cite{keras_site}, including PyTorch. Not supported by FINN. Keras includes features for QAT and setting custom bit widths per layer. TFMOT (TensorFlow Model Optimisation Toolkit) is a suite of machine learning optimisation and quantisation features targeting resource-constrained environments \cite{tfmot_paper}, such as ones mentioned in \bcref{lit:hardware}.
 
 
 	\subsection{Further Research}
@@ -267,11 +240,11 @@ This section covers the research for key aspects of this project. First finding 
 Detailed description of necessary methods, requirements, research questions that will be employed/
 needed to complete the project
 
-	% MoSCoW, enumerate so can be referenced later
+	% MoSCoW - Must, Should, Could, Won't, enumerate so can be referenced later
 	\subsection{Requirements}
 
 		\subsubsection{Functional}
-		The functional requirements for this project using the MoSCoW ranking system.
+		The functional requirements for this project using the MoSCoW ranking system \cite{moscow_paper}.
 		Also include impact, risk of occurring, find a 5x5 risk grid
 
 		\begin{reqs}
@@ -287,7 +260,7 @@ needed to complete the project
 		% Testing referring to FR - \ref{req:model}
 
 		\subsubsection{Non-Functional}
-		The non-functional requirements for this project using the MoSCoW ranking system.
+		The non-functional requirements for this project using the MoSCoW ranking system \cite{moscow_paper}.
 		
 		\medskip\noindent
 		Non-functional requirements table here covering: speed, efficiency, compile time, baseline and final model having high accuracy
