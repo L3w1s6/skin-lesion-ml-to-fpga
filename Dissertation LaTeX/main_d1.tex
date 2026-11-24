@@ -47,8 +47,8 @@
 % functional requirements list formatting
 \newlist{reqs}{enumerate}{1}
 \setlist[reqs]{
-	label=\textbf{FR\arabic*}, % appearance in list
-	ref=[FR\arabic*], % appearance when referencing
+	label = \textbf{FR\arabic*}, % appearance in list
+	ref = [FR\arabic*], % appearance when referencing
 	% leftmargin=*,
 	% align=left
 }
@@ -57,8 +57,15 @@
 % non-function requirments list formatting
 \newlist{reqsn}{enumerate}{1}
 \setlist[reqsn]{
-	label=\textbf{NR\arabic*}, % appearance in list
-	ref=[NR\arabic*] % appearance when referencing
+	label = \textbf{NR\arabic*}, % appearance in list
+	ref = [NR\arabic*] % appearance when referencing
+}
+
+% research questions list formatting
+\newlist{researchqs}{enumerate}{1}
+\setlist[researchqs]{
+	label = \textbf{RQ\arabic*}, % appearance in list
+	ref = [RQ\arabic*] % appearance when referencing
 }
 
 % custom \cref which surrounds link with square brackets (% below is necessary to stop extra spaces appearing)
@@ -96,7 +103,7 @@
 I would like to thank both my supervisors Rob Steward and Tess Watt for providing vital support and guidance for this project. I would also like to thank my family and friends for supporting me throughout my university degree.
 }
 
-% Abstract
+% Abstract (talk about everything I'm going to do, anything outside this is out of scope)
 \abstract{
 Abstract text.
 }
@@ -231,10 +238,23 @@ This section covers the research for key aspects of this project. First finding 
 		Keras is an API for building, training and exporting machine learning models to multiple backends \cite{keras_site}, including PyTorch. Not supported by FINN. Keras includes features for QAT and setting custom bit widths per layer. TFMOT (TensorFlow Model Optimisation Toolkit) is a suite of machine learning optimisation and quantisation features targeting resource-constrained environments \cite{tfmot_paper}, such as ones mentioned in \bcref{lit:hardware}.
 
 
+	% identify gaps, come up with research questions
 	\subsection{Further Research}
-	The gap I've identified is that some of the recent skin lesion classification models have not been tried to run on the PYNQ-Z1 FPGA hardware. I want to find out if it is possible to take a particular skin lesion classification model unrelated to FPGAs and run it on PYNQ-Z1 FPGA hardware without significant accuracy loss?
-	\\
-	Most skin lesion model papers don't provide a source for downloading the model so I will have to repeat their methods to recreate the model myself.
+	The gaps identified from the above research and the research questions drawn from that are stated below.
+	
+	\noindent
+	Identified Gaps:
+	\begin{itemize}
+		\item The mentioned skin lesion classification models have not already been deployed to a PYNQ-Z1 board before.
+	\end{itemize}
+
+	\noindent
+	Research Questions:
+	\begin{researchqs}
+		\item\label{resq:model_reproducible} Is the method using (paper) to build and train (NAMED MODEL) reproducible?
+		\item\label{resq:possible_to_deploy} Is it possible to deploy a skin lesion classification model to the PYNQ-Z1 FPGA that was not designed for it?
+		\item\label{resq:retain_accuracy} Can (NAMED MODEL) be deployed to PYNQ-Z1 FPGA without causing significant accuracy loss?
+	\end{researchqs}
 
 \section{Methodology} \label{sec:method}
 Detailed description of necessary methods, requirements, research questions that will be employed/
@@ -275,9 +295,14 @@ needed to complete the project
 			% \item\label{reqn:compile_speed} Something about time taken to compile
 		\end{reqsn}
 		% Testing referring to NR - \ref{reqn:compile_speed}
+	
+	\subsection{Setup}
+	Explain here hardware and software setup for this project.
 
 	\subsection{Plan for Execution}
 	Explain in detail here how I plan to use certain experiments in a certain order to fulfil all the requirements and objectives
+
+	Most skin lesion model papers don't provide a source for downloading the model so I will have to repeat their methods to recreate the model myself.
 
 	\subsection{Experiment Planning}
 	How I plan to conduct experiment(s) and what research question does it address/answer (detailed). I will create plans here for the experiments: dataset processing, baseline model training, evaluating results from applying the at most single compression technique I pick, preparing model for FINN, evaluating results from using FINN on model, comparing model performance on PYNQ-Z1 compared to PC.
@@ -291,6 +316,8 @@ needed to complete the project
 	The PYNQ-Z1 was set up to be easily interacted with over Wifi via SSH.
 	\\
 	Looked at examples for similar model types being compiled for FPGA.
+	\\
+	Researched compatibility of tools.
 
 	\subsection{Evaluation Strategy}
 	For all experiment plans above:
