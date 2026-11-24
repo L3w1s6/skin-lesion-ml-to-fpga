@@ -50,6 +50,9 @@
 
 - Designed for running image classifiers
 - Custom resources allocation for individual layers
+
+- Natively interfaces with PyTorch + Brevitas or QONNX interchange format
+- Jupyter notebook file example in repo for importing Brevitas network into FINN using QONNX interchange file
 ### FINN: A Framework for Fast, Scalable Binarized Neural Network Inference
 - https://doi.org/10.1145/3020078.3021744
 - Feb 22, 2017
@@ -113,9 +116,9 @@
 - Status and Features, Backends
 
 - List of supported ML frameworks (calls them frontends), HLS backends, neural network architectures:
-    - Frontend: Several versions of Keras, PyTorch, ONNX or QONNX
-    - HLS backends: Vivado HLS, Intel HLS (depreciated), Vitis HLS, Catapult HLS, Altera, XLS (experimental)
-    - Neural network architectures: fully connected NN (multilayer perceptron, MLP), convolutional NN (1D and 2D), recurrent NN (RNN, LSTM, GRU), GarNet, Einsum and EinsumDense, Multi-head attention (MHA) (experimental)
+	- Frontend: Several versions of Keras, PyTorch, ONNX or QONNX
+	- HLS backends: Vivado HLS, Intel HLS (depreciated), Vitis HLS, Catapult HLS, Altera, XLS (experimental)
+	- Neural network architectures: fully connected NN (multilayer perceptron, MLP), convolutional NN (1D and 2D), recurrent NN (RNN, LSTM, GRU), GarNet, Einsum and EinsumDense, Multi-head attention (MHA) (experimental)
 
 
 
@@ -141,36 +144,43 @@
 
 
 
-# Quantisation Compatible with FINN and hls4ml
+# Compression Tools Compatible with FINN and hls4ml
+### QONNX
 - [QONNX paper](https://doi.org/10.48550/arXiv.2206.07527) contains examples of using with FINN and hls4ml
+### PyTorch
+- [PyTorch]()
+### Keras
+- [Website](https://keras.io)
+- [Docs](https://keras.io/api/)
+- A high-level API for building, training, shipping ML models on backends: JAX, PyTorch, MLX, etc.
+- QKeras
+### TensorFlow
+- [TensorFlow]()
 
-## Compatible with Both
-### Brevitas
-- 
+## Quantisation
+### Brevitas (both)
+- [GitHub repo](https://github.com/xilinx/brevitas)
+- [Docs](https://xilinx.github.io/brevitas/v0.13.4/)
 
-- Exports models as QONNX files: natively supported in some way by both
+- Python PyTorch library for neural network quantisation
+- Supports both Quantisation-Aware Training QAT and Post-Training Quantisation PTQ
+- Provides quantised implementations for most common PyTorch layers
+- Inference is slow by design, efficient quantised inference requires exporting trained quantised model to inference toolchain that supports that (like FINN or ONNXRuntime)
+- Good for compressing to 1-8 bit
+- Optional support for GPU training-time acceleration
 
+- Can export models as ONNX (Open Neural Network Exchange) files
+### Keras (hls4ml)
+- Features of Keras: QKeras/AutoQKeras, HGQ
 
-
-## FINN Compatible
-
-
-
-## hls4ml Compatible
-### QKeras
-### AutoQKeras
-### HGQ (Keras)
-
-
-
-# Pruning Compatible with FINN and hls4ml
-
-## FINN Compatible
-### Torch-Pruning (DepGraph)
-
-
-
-## hls4ml Compatible
-### hls4ml Optimisation API
-### HGQ (auto bit-width pruning feature)
-### TFMOT
+## Pruning
+### Torch-Pruning (FINN)
+- DepGraph
+### PyTorch - structured channel pruning (FINN)
+- Structured channel pruning
+### TFMOT (hls4ml)
+- Unstructured
+### hls4ml Optimisation API (hls4ml)
+- DSP-aware structured
+### HGQ (hls4ml)
+- Auto bit-width pruning

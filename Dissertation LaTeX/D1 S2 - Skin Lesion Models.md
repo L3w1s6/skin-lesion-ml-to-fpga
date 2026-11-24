@@ -11,10 +11,10 @@
 - Contains summary of major trends, challenges, potential future directions
 ### Datasets
 - Section 4 tables 4-7 have a variety of details on datasets:
-    - ISIC2020 - 2020, multiple versions with varying properties: 1884 - 11,108 images, 2 - 8 categories
-    - Ham10000 - 2018, 10,015 images, 8 categories
-    - BCN20000 - 2019, 19,424 images, 9 categories
-    - MSK 1-5 - 2015 & 2017, 3,918 images, 15 categories
+	- ISIC2020 - 2020, multiple versions with varying properties: 1884 - 11,108 images, 2 - 8 categories
+	- Ham10000 - 2018, 10,015 images, 8 categories
+	- BCN20000 - 2019, 19,424 images, 9 categories
+	- MSK 1-5 - 2015 & 2017, 3,918 images, 15 categories
 
 
 
@@ -103,8 +103,8 @@
 - Used Ham10000 dataset - applied a variety of preprocessing methods
 ### Method
 1. Creating customised CNN models:
-    1. Top layers of base model re-trained
-    2. Re-trained half layers of base models and additional layers added
+	1. Top layers of base model re-trained
+	2. Re-trained half layers of base models and additional layers added
 2. Merged customised models and tuned hyperparameters to enhance performance
 3. Model dependency for clinical applications improved using Grad-CAM
 ### Results
@@ -178,8 +178,8 @@
 - Training used ISIC2017
 ### Method
 - Extracts spatial frequencies from dataset into 7 directional frequencies (using Gabor filtering) to train 7 CNNs which output probabilities
-    - Use pre-trained networks like ResNet architecture
-    - Trained independently
+	- Use pre-trained networks like ResNet architecture
+	- Trained independently
 - Additional CNN uses original images to generate probabilities (retaining global colour, lesion pigmentation, macroscopic spatial geometry)
 - All final output probabilities fused together to get final diagnosis
 
@@ -198,9 +198,9 @@
 
 ### Method
 - Investigates 3 classifying approaches:
-    - 3 pre-trained networks as classifiers
-    - 3 pre-trained networks as feature extractors along with 4 ML classifiers
-    - Find best combination of networks from above approaches
+	- 3 pre-trained networks as classifiers
+	- 3 pre-trained networks as feature extractors along with 4 ML classifiers
+	- Find best combination of networks from above approaches
 - Used ISIC2018 dataset
 - Models combined using concatenation with a (Support Vector Machine) SVM classifier
 ### Results

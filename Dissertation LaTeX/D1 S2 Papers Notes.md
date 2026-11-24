@@ -62,5 +62,5 @@
 - PS has an ARM dual-core processor, connected to IO and PL via bus
 - PL can connect indirectly through same bus to everything PS can
 - Shorting specific pins sets up board modes:
-    - Running a Linux bootloader (from a few different storage options)
-    - Headless without OS overhead but requires connecting via physical pins
+	- Running a Linux bootloader (from a few different storage options)
+	- Headless without OS overhead but requires connecting via physical pins
