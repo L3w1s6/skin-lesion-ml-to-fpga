@@ -151,7 +151,7 @@ Summary of project motivation \& context
 		\item\label{obj:data_prep} Using the same dataset as the (cite specific paper) and reproducing the pre-processing steps.
 		\item\label{obj:train} The (citet specific paper) paper proposes a method for building and training a skin lesion classification machine learning model. This project aims to reproduce the model and its performance for use in later steps.
 		\item\label{obj:compress} Applying and experimenting with the use of existing ML model compression techniques to shrink the model to a size capable of fitting on the PYNQ-Z1 FPGA hardware.
-		\item\label{obj:deploy} Utilising the hls4ml (cite) with Vivado (cite) to deploy the machine learning model onto the PYNQ-Z1 FPGA hardware.
+		\item\label{obj:deploy} Utilising hls4ml (cite) with Vivado (cite) to deploy the machine learning model onto the PYNQ-Z1 FPGA hardware.
 	\end{objs}
 
 % Plan of the document.
@@ -188,10 +188,10 @@ This section covers the research for key aspects of this project. First finding 
 		\subsubsection{Recent High Performance Models}
 		There are many papers on different skin lesion classification models which use unique techniques and model architectures. Not every model architecture is supported by the FPGA frameworks in \bcref{lit:fpga_pipelines} so the following models architectures were checked to have at least closely supported architectures. The objective of most papers is to achieve a higher model classification accuracy than existing solutions.
 		\\
-		Some papers have achieved higher overall model accuracy by combining multiple specialised machine learning models. A paper by \citet{gabor_2019} in 2019 uses Gabor filtering to split each image from the ISIC 2017 dataset (cite) into 7 frequency images for training 7 separate CNNs. An 8th CNN is trained on the original images to retain lesion colour and geometry. All the CNN's output probabilities are fused together to produce the final diagnosis. The best configuration I-GR0235 was chosen for a superior positive/negative response (AUC) of 96\% while still having good classification accuracy of 83\% \cite{gabor_2019}. Another approach by \citet{hybrid_2025} in 2025 compared several combinations of merges of pre-trained networks to find the best merged model accuracy. The networks were evaluated using the ISIC 2018 dataset (cite) and the best model had an accuracy of 92.87\% from combining a ResNet-18 and MobileNet models \cite{hybrid_2025}. \citet{scdnet_2022} in 2022 proposed a model based on a pre-trained VGG16 model called SCDNet which was trained and tested on the ISIC 2019 dataset (cite). The paper focuses on specialising model layers for image filtering and identifying features in the images. The model achieves an accuracy of 96.91\%.
+		Some papers have achieved higher overall model accuracy by combining multiple specialised machine learning models. A paper by \citet{gabor_2019} in 2019 uses Gabor filtering to split each image from the ISIC 2017 dataset \cite{isic_2017} into 7 frequency images for training 7 separate CNNs. An 8th CNN is trained on the original images to retain lesion colour and geometry. All the CNN's output probabilities are fused together to produce the final diagnosis \cite{gabor_2019}. The best configuration called I-GR0235 was chosen for a superior positive/negative response (AUC) of 96\% while still having good classification accuracy of 83\%. Another approach by \citet{hybrid_2025} in 2025 compared several combinations of merges of pre-trained networks to find the best merged model accuracy \cite{hybrid_2025}. The networks were evaluated using the ISIC 2018 dataset \cite{isic_2018} and the best model had an accuracy of 92.87\% from combining pre-trained ResNet-18 and MobileNet models. \citet{scdnet_2022} in 2022 proposed a model based on a pre-trained VGG16 model called SCDNet which was trained and tested on the ISIC 2019 dataset \cite{isic_2019}. The paper focuses on specialising model layers for image filtering and identifying features in the images \cite{scdnet_2022}. An accuracy of 96.91\% was achieved by the model.
 		
 		\smallskip\noindent
-		Other papers focus on improving a single general model. The method proposed by \citet{wide_shufflenet_2022} in 2022 creates a mathematical algorithm EW-FCM to more heavily pre-process the datasets. Either Ham10000 or ISIC 2019 datasets \cite{ham_paper} (+ cite ISIC 2019) were used across 3 experiments. It uses less computation overhead than other NN based methods to remove background artifacts and crop to the region of interest. The images are then fed to their CNN model wide-ShuffleNet to classify 7 or 8 skin lesion types (Ham10000 has 7 while ISIC 2019 has 8). The wide-ShuffleNet model is designed to be lightweight and efficient so it could run on a mobile system and is proved to have higher accuracy and efficiency than larger models it was compared with \cite{wide_shufflenet_2022}. The best accuracy was 86.33\% in experiment 2 using the Ham10000 dataset (90\% training, 10\% testing). A paper by \citet{skinlesnet_2023} in 2023 uses a modified version of the PAD-UFES-20 dataset called PAD-UFES-20-Modified that contains smartphone photos rather dermoscopic images. The PAD-UFES-20 dataset has less than 1000 images (10 times smaller than Ham10000), 3 skin lesion classes and required more pre-processing than most datasets but means the proposed model is more suitably trained for clinical use. The model is a bespoke 4-layer CNN called SkinLesNet that learns a hierarchy of spatial features. SkinLesNet is compared against pre-trained VGG16 and ResNet50 models, benchmarked using the Ham10000 and ISIC 2017 \cite{ham_paper} (+ cite ISIC 2017) datasets. The model achieves its highest accuracy of 96\% using PAD-UFES-20-Modified.
+		Other papers focus on improving a single general model. The method proposed by \citet{wide_shufflenet_2022} in 2022 creates a mathematical algorithm EW-FCM to more heavily pre-process the datasets. Either the Ham10000 or ISIC 2019 datasets were used across 3 experiments. It uses less computation overhead than other NN based methods to remove background artifacts and crop to the region of interest. The images are then fed to their CNN model wide-ShuffleNet to classify 7 or 8 skin lesion types (Ham10000 has 7 while ISIC 2019 has 8) \cite{wide_shufflenet_2022}. The wide-ShuffleNet model is designed to be lightweight and efficient so it could run on a mobile system and is proved to have higher accuracy and efficiency than larger models it was compared with. The best accuracy was 86.33\% in experiment 2 using the Ham10000 dataset (90\% training, 10\% testing). A paper by \citet{skinlesnet_2023} in 2023 uses a modified version of the PAD-UFES-20 dataset \cite{padufes20} called PAD-UFES-20-Modified that contains smartphone photos rather dermoscopic images. The PAD-UFES-20 dataset has less than 1000 images (10 times smaller than Ham10000), 3 skin lesion classes and required more pre-processing than most datasets but means the proposed model is more suitably trained for clinical use. The model is a bespoke 4-layer CNN called SkinLesNet that learns a hierarchy of spatial features \cite{skinlesnet_2023}. The SkinLesNet model is compared against pre-trained VGG16 and ResNet50 models, benchmarked using the Ham10000 and ISIC 2017 datasets. The model achieves its highest accuracy of 96\% using PAD-UFES-20-Modified.
 
 	% Looking into hardware options (RPi, mobile, FPGA)
 	\subsection{Mobile Hardware for Machine Learning Acceleration} \label{lit:hardware}
@@ -345,9 +345,9 @@ Short summary of this doc. Summarise what I have researched and what I hope to a
 \section{Project Management}
 
 	\subsection{Gantt Chart}
-	Should I include a retroactive statement of activities done in semester 1 (Sep to Nov 2026)?
+	Retroactively make gantt chart plan using journal (say took longer than expected but started at decent time) of semester 1 Sep to Nov 2026
 	\\
-	Then future plan for semester 2 (Jan to Apr 2027) writing code and report.
+	Then gantt chart of future plan for semester 2 (Jan to Apr 2027) experimenting and report writing.
 
 	\subsection{Analysis of Risks}
 	This will have a table of risks (with a severity rating) and an accompanying table of mitigation plans.
@@ -360,6 +360,11 @@ Short summary of this doc. Summarise what I have researched and what I hope to a
 	pertinent to the project. (e.g. codes of conduct (BCS), codes of practice, standards,
 	computer law, ethical decision making, intellectual property, social aspects, copyright,
 	data protection, and so on).
+	\\
+	Professional - dataset will be handled professionally
+	Legal - dataset open-source or licence allows academic use, must also allow for use in training AI model
+	Ethical - creative licence of dataset which contains clinical magnified images of human skin
+	Social - none, using personal data ethically
 
 	\medskip\noindent
 	Most of this I can get from ethics form, checking licences to use methods and data, state potential social uses considering using AI, etc.

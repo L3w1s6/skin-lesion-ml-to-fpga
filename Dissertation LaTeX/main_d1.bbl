@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{31}
+\begin{thebibliography}{35}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -87,9 +87,9 @@
 \shownote{Accessed: 24/11/26}.
 
 
-\bibitem[Codella et~al\mbox{.}(2019)]%
+\bibitem[Codella et~al\mbox{.}(2019a)]%
         {isic_2018_challenge}
-\bibfield{author}{\bibinfo{person}{Noel Codella}, \bibinfo{person}{Veronica Rotemberg}, \bibinfo{person}{Philipp Tschandl}, \bibinfo{person}{M.~Emre Celebi}, \bibinfo{person}{Stephen Dusza}, \bibinfo{person}{David Gutman}, \bibinfo{person}{Brian Helba}, \bibinfo{person}{Aadi Kalloo}, \bibinfo{person}{Konstantinos Liopyris}, \bibinfo{person}{Michael Marchetti}, \bibinfo{person}{Harald Kittler}, {and} \bibinfo{person}{Allan Halpern}.} \bibinfo{year}{2019}\natexlab{}.
+\bibfield{author}{\bibinfo{person}{Noel Codella}, \bibinfo{person}{Veronica Rotemberg}, \bibinfo{person}{Philipp Tschandl}, \bibinfo{person}{M.~Emre Celebi}, \bibinfo{person}{Stephen Dusza}, \bibinfo{person}{David Gutman}, \bibinfo{person}{Brian Helba}, \bibinfo{person}{Aadi Kalloo}, \bibinfo{person}{Konstantinos Liopyris}, \bibinfo{person}{Michael Marchetti}, \bibinfo{person}{Harald Kittler}, {and} \bibinfo{person}{Allan Halpern}.} \bibinfo{year}{2019}\natexlab{a}.
 \newblock \bibinfo{title}{Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)}.
 \newblock
 \showeprint[arxiv]{1902.03368}~[cs.CV]
@@ -97,6 +97,37 @@
 \url{https://arxiv.org/abs/1902.03368}
 \showURL{%
 \tempurl}
+
+
+\bibitem[Codella et~al\mbox{.}(2019b)]%
+        {isic_2018}
+\bibfield{author}{\bibinfo{person}{Noel Codella}, \bibinfo{person}{Veronica Rotemberg}, \bibinfo{person}{Philipp Tschandl}, \bibinfo{person}{M.~Emre Celebi}, \bibinfo{person}{Stephen Dusza}, \bibinfo{person}{David Gutman}, \bibinfo{person}{Brian Helba}, \bibinfo{person}{Aadi Kalloo}, \bibinfo{person}{Konstantinos Liopyris}, \bibinfo{person}{Michael Marchetti}, \bibinfo{person}{Harald Kittler}, {and} \bibinfo{person}{Allan Halpern}.} \bibinfo{year}{2019}\natexlab{b}.
+\newblock \bibinfo{title}{Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)}.
+\newblock
+\showeprint[arxiv]{1902.03368}~[cs.CV]
+\href{https://doi.org/10.48550/arxiv.1902.03368}{doi:\nolinkurl{10.48550/arxiv.1902.03368}}
+
+
+\bibitem[Codella et~al\mbox{.}(2018)]%
+        {isic_2017}
+\bibfield{author}{\bibinfo{person}{Noel C.~F. Codella}, \bibinfo{person}{David Gutman}, \bibinfo{person}{M.~Emre Celebi}, \bibinfo{person}{Brian Helba}, \bibinfo{person}{Michael~A. Marchetti}, \bibinfo{person}{Stephen~W. Dusza}, \bibinfo{person}{Aadi Kalloo}, \bibinfo{person}{Konstantinos Liopyris}, \bibinfo{person}{Nabin Mishra}, \bibinfo{person}{Harald Kittler}, {and} \bibinfo{person}{Allan Halpern}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \bibinfo{title}{Skin Lesion Analysis Toward Melanoma Detection: A Challenge at the 2017 International Symposium on Biomedical Imaging (ISBI), Hosted by the International Skin Imaging Collaboration (ISIC)}.
+\newblock
+\showeprint[arxiv]{1710.05006}~[cs.CV]
+\href{https://doi.org/10.48550/arxiv.1710.05006}{doi:\nolinkurl{10.48550/arxiv.1710.05006}}
+
+
+\bibitem[Collaboration(2019)]%
+        {isic_2019}
+\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \bibinfo{title}{ISIC 2019: Skin Lesion Analysis Towards Melanoma Detection}.
+\newblock
+\urldef\tempurl%
+\url{https://challenge.isic-archive.com/landing/2019/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 24/11/26}.
 
 
 \bibitem[Collaboration(nda)]%
@@ -266,6 +297,15 @@
 \newblock \bibinfo{journal}{\emph{IEEE Access}}  \bibinfo{volume}{11} (\bibinfo{year}{2023}), \bibinfo{pages}{140348--140381}.
 \newblock
 \href{https://doi.org/10.1109/ACCESS.2023.3339635}{doi:\nolinkurl{10.1109/ACCESS.2023.3339635}}
+
+
+\bibitem[Pacheco et~al\mbox{.}(2020)]%
+        {padufes20}
+\bibfield{author}{\bibinfo{person}{Andre G.~C. Pacheco}, \bibinfo{person}{Gustavo~R. Lima}, \bibinfo{person}{Amanda~S. Salomão}, \bibinfo{person}{Breno~A. Krohling}, \bibinfo{person}{Igor~P. Biral}, \bibinfo{person}{Gabriel~G. de Angelo}, \bibinfo{person}{Fábio C. R.~Alves Jr}, \bibinfo{person}{José G.~M. Esgario}, \bibinfo{person}{Alana~C. Simora}, \bibinfo{person}{Pedro B.~C. Castro}, \bibinfo{person}{Felipe~B. Rodrigues}, \bibinfo{person}{Patricia H.~L. Frasson}, \bibinfo{person}{Renato~A. Krohling}, \bibinfo{person}{Helder Knidel}, \bibinfo{person}{Maria C.~S. Santos}, \bibinfo{person}{Rachel~B. do Espírito~Santo}, \bibinfo{person}{Telma L. S.~G. Macedo}, \bibinfo{person}{Tania R.~P. Canuto}, {and} \bibinfo{person}{Luíz F.~S. de Barros}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \bibinfo{title}{PAD-UFES-20: a skin lesion dataset composed of patient data and clinical images collected from smartphones}.
+\newblock
+\showeprint[arxiv]{2007.00478}~[eess.IV]
+\href{https://doi.org/10.48550/arXiv.2007.00478}{doi:\nolinkurl{10.48550/arXiv.2007.00478}}
 
 
 \bibitem[Paszke et~al\mbox{.}(2019)]%
