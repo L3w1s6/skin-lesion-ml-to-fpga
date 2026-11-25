@@ -434,15 +434,15 @@ This section contains a detailed description of the research questions, requirem
 	\subsection{Baseline Model Training}
 	The paper was trained for 50 epochs with a batch size of 20. It also used an SGD (stochastic gradient descent) optimiser to set the initial learning rate to 0.05 then reduce it by 0.1 after 10 epochs along with setting the momentum to 0.8. Keras contains an SGD optimiser class with input arguments for learning rate (including the decay) and momentum. A Keras optimiser is used when compiling the built model. Keras model training is the final step after building and compiling the model class. Only at Keras model training can the number of epochs be set. Batch size is set when using the TensorFlow data loader.
 
-	\subsection{Model Training Quantisation and Pruning}
+	\subsection{Model Training Using Quantisation and Pruning}
 	Applying QAT using either QKeras or TFMOT only requires minor changes to the Keras model building. QKeras swaps layer classes with quantised versions, TFMOT can wrap those layer classes to additionally apply weight pruning. Both QKeras and TFMOT will be adjusted per layer to maximise their effectiveness.
 
 	\subsection{Deploying Quantised Model to PYNQ-Z1}
-	
+	The quantised model will not directly run on the PYNQ-Z1 FPGA so will use hls4ml or FINN to deploy the model. The hls4ml framework is directly compatible to export a Keras model to. Using the FINN framework requires a workaround by exporting the Keras model first to QONNX before it can be imported to FINN. Will use hls4ml unless it is not possible to compress the model enough to fit on the PYNQ-Z1 FPGA so try using FINN instead.
 
 	\subsection{Experiment Planning}
 	How I plan to conduct experiment(s) and what research question does it address/answer (detailed). I will create plans here for the experiments: dataset processing, baseline model training, evaluating results from applying the at most single compression technique I pick, preparing model for FINN, evaluating results from using FINN on model, comparing model performance on PYNQ-Z1 compared to PC.
-
+	
 \section{Feasibility} \label{sec:feasiblity}
 
 	\subsection{Preliminary Work}
@@ -493,7 +493,7 @@ Short summary of this doc. Summarise what I have researched and what I hope to a
 	Include impact, risk of occurring, find a 5x5 risk grid
 	
 	\medskip\noindent
-	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with change compression methods, model layer shape incompatibility with check paper and find equivalent shape
+	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with change compression methods, model layer shape incompatibility with check paper and find equivalent shape, PYNQ-Z1 unsupported with trying small model end-to-end, SCDNet unreproducible with verify performance with baseline
 
 	\subsection{PLES}
 	A well-researched consideration of any Professional, Legal, Ethical, and Social Issues

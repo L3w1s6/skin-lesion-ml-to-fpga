@@ -47,7 +47,11 @@ Replicating model layers:
 
 - Both can be adjusted per layer to maximise effectiveness
 ### 4. Deploy - Put on PYNQ-Z1 FPGA via hls4ml (and/or FINN if time or can't shrink model enough)
-
+#### Using hls4ml
+- Directly export Keras model to hls4ml framework
+#### Using FINN
+- Export final model to QONNX
+- QONNX can be imported into either hls4ml or FINN (designed for that purpose)
 
 ## Eval metrics
 ### Model
@@ -55,6 +59,7 @@ Replicating model layers:
 - F1 score
 - Precision
 - Sensitivity
+- Model size (parameters, etc.)
 ### Model Compression
 - Per layer bit precision using QKeras
 - Per layer pruning tuning using TFMOT
