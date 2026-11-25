@@ -7,9 +7,9 @@
 - DONE - Complete model compression section (shouldn't need much)
 - DONE - Fill further research (create in that section research questions and specify what needs to be reproduced)
 - NOT  - Methodology section (use past diss papers to understand structure)
-	- NOT  - Setup
-	- NOT  - dataset - including any required pre-processing
-	- NOT  - Plan
+	- DONE - Setup
+	- DONE - Plan
+	- DONE - dataset - including any required pre-processing
 	- NOT  - Method
 	- NOT  - Is methodology comparing against itself or existing models to idea of how good model actually is?
 - NOT  - Feasibility section (includes evaluation plan)

@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{35}
+\begin{thebibliography}{37}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -39,6 +39,15 @@
 \@ifundefined{NAT@parse@date}{}{\let\NAT@parse@date@orig\NAT@parse@date}
 \@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
 \makeatother
+
+\bibitem[Abadi et~al\mbox{.}(2016)]%
+        {tensorflow_paper}
+\bibfield{author}{\bibinfo{person}{Martín Abadi}, \bibinfo{person}{Paul Barham}, \bibinfo{person}{Jianmin Chen}, \bibinfo{person}{Zhifeng Chen}, \bibinfo{person}{Andy Davis}, \bibinfo{person}{Jeffrey Dean}, \bibinfo{person}{Matthieu Devin}, \bibinfo{person}{Sanjay Ghemawat}, \bibinfo{person}{Geoffrey Irving}, \bibinfo{person}{Michael Isard}, \bibinfo{person}{Manjunath Kudlur}, \bibinfo{person}{Josh Levenberg}, \bibinfo{person}{Rajat Monga}, \bibinfo{person}{Sherry Moore}, \bibinfo{person}{Derek~G. Murray}, \bibinfo{person}{Benoit Steiner}, \bibinfo{person}{Paul Tucker}, \bibinfo{person}{Vijay Vasudevan}, \bibinfo{person}{Pete Warden}, \bibinfo{person}{Martin Wicke}, \bibinfo{person}{Yuan Yu}, {and} \bibinfo{person}{Xiaoqiang Zheng}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \bibinfo{title}{TensorFlow: A system for large-scale machine learning}.
+\newblock
+\showeprint[arxiv]{1605.08695}~[cs.DC]
+\href{https://doi.org/10.48550/arXiv.1605.08695}{doi:\nolinkurl{10.48550/arXiv.1605.08695}}
+
 
 \bibitem[AMD(2021)]%
         {vitis_1_4_support}
@@ -117,9 +126,9 @@
 \href{https://doi.org/10.48550/arxiv.1710.05006}{doi:\nolinkurl{10.48550/arxiv.1710.05006}}
 
 
-\bibitem[Collaboration(2019)]%
+\bibitem[Collaboration(2019a)]%
         {isic_2019}
-\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{2019}\natexlab{}.
+\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{2019}\natexlab{a}.
 \newblock \bibinfo{title}{ISIC 2019: Skin Lesion Analysis Towards Melanoma Detection}.
 \newblock
 \urldef\tempurl%
@@ -128,6 +137,19 @@
 \tempurl}
 \newblock
 \shownote{Accessed: 24/11/26}.
+
+
+\bibitem[Collaboration(2019b)]%
+        {isic_2019_download}
+\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{2019}\natexlab{b}.
+\newblock \bibinfo{title}{ISIC Challenge Datasets: 2019}.
+\newblock
+\urldef\tempurl%
+\url{https://challenge.isic-archive.com/data/#2019}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 25/11/26}.
 
 
 \bibitem[Collaboration(nda)]%
