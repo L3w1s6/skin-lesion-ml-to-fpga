@@ -13,7 +13,7 @@ Use scikit-learn to create splits
 - Ratio: 70% train, 20% test, 10% validate
 - Target classes - Melanoma (MEL), Melanocytic Nevi (NV), Benign Keratosis (BKL), Basal Cell Carcinoma (BCC)
 
-Use tensorflow (for Keras 3 workflow) to resize/normalise
+Use TensorFlow (for Keras 3 workflow) to resize/normalise
 - Downscale from 450x600 to 224x224x3 (RGB) to match VGG16
 - Pixel normalisation
 ### 2. ML model - Workflow to replicate SCDNet
@@ -33,15 +33,31 @@ Replicating model layers:
 
 #### Training
 - Run training for 50 epochs
-- 
+- Batch size 20
+- SGD (stochastic gradient descent) optimiser set initial learning rate to 0.05, learned rate decreased by 0.1 after 10 epochs to avoid overfitting, momentum set to 0.8
+
+- Training may need to be split into 2
+	- Freezing VGG16 layers to not disturb pre-trained ImageNet filters during main learning
+	- Fine tune VGG16 top block with learning rate 100 factors smaller (could help better identify lesion borders)
+
+- Epochs and batch size are specified at model.fit() (after building and compiling model)
 ### 3. Quantise - Changes/additions to ML workflow to shrink model
+- Primarily use QKeras - minimal changes to QConv2D and QDense etc.
+- Also use FTMOT pruning - can be used alongside, wraps each layer
+
+- Both can be adjusted per layer to maximise effectiveness
 ### 4. Deploy - Put on PYNQ-Z1 FPGA via hls4ml (and/or FINN if time or can't shrink model enough)
 
+
 ## Eval metrics
+### Model
 - Accuracy
 - F1 score
 - Precision
 - Sensitivity
+### Model Compression
+- Per layer bit precision using QKeras
+- Per layer pruning tuning using TFMOT
 
 ## Potential Experiments
 - ISIC2019 (4 classes) vs Ham10000 (7 classes)

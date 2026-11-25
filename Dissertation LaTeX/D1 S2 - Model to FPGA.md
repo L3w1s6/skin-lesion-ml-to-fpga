@@ -165,7 +165,7 @@
 - Open-source suite of libraries from Google and TensorFlow to compress and optimise machine learning models for deployment on resource-constrained environments
 - Integrates natively with Keras and TensorFlow APIs
 - 4 primary optimisations: QAT, weight pruning, weight clustering, collaborative optimisation (combining previous optimisations together)
-- Easy to implement - only requires a couple lines of code to wrap Keras layers/models
+- Easy to implement - only requires a couple lines of code to wrap Keras layers/models (including quantised-layers)
 
 ## Quantisation
 ### Brevitas (both)

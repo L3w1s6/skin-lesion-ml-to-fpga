@@ -11,8 +11,7 @@
 	- DONE - Plan
 	- DONE - dataset - including any required pre-processing
 	- DONE - Model architecture
-	- NOT  - Model training sections
-	- NOT  - Further compression before deployment
+	- DONE - Model training sections
 	- NOT  - Deployment
 - NOT  - Feasibility section (includes evaluation plan)
 - NOT  - Motivations and background (what is skin lesion, explain research field)
