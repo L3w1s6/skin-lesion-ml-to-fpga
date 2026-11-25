@@ -158,7 +158,7 @@
 
 - Creates new model called SCDNet (based on pre-trained Vgg16 model)
 - Trained and tested using ISIC 2019 dataset
-- Minimal dataset pre-processing to for better generalisation
+- Minimal dataset pre-processing for better generalisation
 - SCDNet uses specialised layers to filter and identify features in the images.
 - Accuracy compared with 4 existing pre-trained classifiers: Resnet 50, Inception v3, AlexNet and Vgg19
 

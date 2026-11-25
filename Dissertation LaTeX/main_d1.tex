@@ -10,6 +10,7 @@
 % skin lesion models table
 \usepackage{tabularray}
 \UseTblrLibrary{booktabs}
+\UseTblrLibrary{counter} % resets requirements table counter
 
 % document details
 % replace those with your details
@@ -53,6 +54,19 @@
 	% align=left
 }
 % \crefname{reqsi}{Requirement}{reqs} % ref link appearance of "Requirement [R?]"
+
+% Requirements table format
+% Counter with format
+\newcounter{reqcounter}
+\renewcommand{\thereqcounter}{FR\arabic{reqcounter}}
+% Puts [ ] around references
+\labelformat{reqcounter}{[#1]}
+% Macro to use per row
+\newcommand{\req}[1]{%
+	\refstepcounter{reqcounter}%
+	\thereqcounter%
+	\label{#1}%
+}
 
 % non-function requirments list formatting
 \newlist{reqsn}{enumerate}{1}
@@ -112,7 +126,7 @@ Abstract text.
 
 % subsection to try get around re-numbering all future sections?
 \subsection{Abbreviations} \label{cha:abbr}
-\begin{table}[h] \label{tab:models} \caption{Table of word abbreviations}
+\begin{table}[h] \caption{Table of word abbreviations} \label{tab:models}
 	\centering
 	% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
 	\begin{models_table}{colspec = {| l | p{0.65\textwidth} |}}
@@ -143,15 +157,18 @@ Abstract text.
 Summary of project motivation \& context
 
 	\subsection{Background and Motivation} \label{sec:intro_motiv}
-	Some background here on what skin lesions are and why use machine learning to classify them.
+	Background on skin lesions, classification.
+	% basically every paper I found has background on this
+
+	Motivations for doing this project: wanting to work with FPGA (unfamiliar beforehand) because streaming hardware is interesting, saw opportunity for unique tool combination
 
 	\subsection{Aim and Objectives} \label{sec:intro_aim}
 	The aim of this project is to experiment with a new application of an existing skin lesion classification machine learning model onto the PYNQ-Z1 FPGA hardware. The objectives are stated below:
 	\begin{objs}
-		\item\label{obj:data_prep} Using the same dataset as the (cite specific paper) and reproducing the pre-processing steps.
-		\item\label{obj:train} The (citet specific paper) paper proposes a method for building and training a skin lesion classification machine learning model. This project aims to reproduce the model and its performance for use in later steps.
-		\item\label{obj:compress} Applying and experimenting with the use of existing ML model compression techniques to shrink the model to a size capable of fitting on the PYNQ-Z1 FPGA hardware.
-		\item\label{obj:deploy} Utilising hls4ml (cite) with Vivado (cite) to deploy the machine learning model onto the PYNQ-Z1 FPGA hardware.
+		\item\label{obj:data_prep} Download and pre-process the same dataset as the SCDNet paper by \citet{scdnet_2022}.
+		\item\label{obj:train} Build and train a reproduced version of the SCDNet model.
+		\item\label{obj:compress} Apply common model quantisation and pruning methods to shrink the SCDNet model to a size capable of fitting on the PYNQ-Z1 FPGA hardware.
+		\item\label{obj:deploy} Deploy the compressed SCDNet model onto the PYNQ-Z1 FPGA and evaluate its performance.
 	\end{objs}
 
 % Plan of the document.
@@ -246,63 +263,118 @@ This section covers the research for key aspects of this project. First finding 
 	Identified Gaps:
 	\begin{itemize}
 		\item The mentioned skin lesion classification models have not already been deployed to a PYNQ-Z1 board before.
+		\item Most of the mentioned skin lesion datasets would not be suitable for training a machine learning model for real-world use.
 	\end{itemize}
 
 	\noindent
 	Research Questions:
 	\begin{researchqs}
-		\item\label{resq:model_reproducible} Is the method using (paper) to build and train (NAMED MODEL) reproducible?
+		\item\label{resq:dataset_reproducible} Can the dataset preparation from the paper by \citet{scdnet_2022} be replicated?
+		\item\label{resq:model_reproducible} Is the method by \citet{scdnet_2022} to build and train the SCDNet model reproducible?
 		\item\label{resq:possible_to_deploy} Is it possible to deploy a skin lesion classification model to the PYNQ-Z1 FPGA that was not designed for it?
-		\item\label{resq:retain_accuracy} Can (NAMED MODEL) be deployed to PYNQ-Z1 FPGA without causing significant accuracy loss?
+		\item\label{resq:retain_accuracy} Can the SCDNet model be deployed to PYNQ-Z1 FPGA without causing significant accuracy loss?
+		\item\label{resq:model_realworld} How well does the SCDNet model perform on real-world data?
 	\end{researchqs}
 
 \section{Methodology} \label{sec:method}
-Detailed description of necessary methods, requirements, research questions that will be employed/
-needed to complete the project
+This section contains a detailed description of the research questions, requirements, and necessary methods that will be employed to complete this project. The SCDNet model by \citet{scdnet_2022} was chosen for the proposed high accuracy of 96.91\% while not having an overly complex combination of model layers that would be easier to reproduce in the time available for this project. The methodology states the scope of the implementation and provides the planned steps to replicate the SCDNet model architecture and training then experiment with certain compression methods to deploy it onto the PYNQ-Z1 FPGA hardware. To set an achievable scope, this project focuses on only implementing one skin lesion classification model.
+
+	\subsection{Research Goals}
+	The goals for this project are stated below along with what research questions they address. Not every research question can be done in this project so some are left for future research.
+	\begin{itemize}
+		\item \ref{resq:dataset_reproducible}\ref{resq:model_reproducible} - Implement the SCDNet model from the reference paper on our hardware.
+		\item \ref{resq:possible_to_deploy}\ref{resq:retain_accuracy} - Experiment with combinations of tools and their parameters to best shrink the SCDNet model to fit within the resource constraints of the PYNQ-Z1 FPGA hardware.
+		\item \ref{resq:retain_accuracy} - Evaluate the compressed SCDNet model performance on the PYNQ-Z1 compared to the original model.
+	\end{itemize}
 
 	% MoSCoW - Must, Should, Could, Won't, enumerate so can be referenced later
 	\subsection{Requirements}
+	This table contains all the project requirements. The importance of each requirement is ranked via the MoSCoW method \cite{moscow_paper}. All the requirements ranked "must" or "should" are within the scope of this project, "could" is for if there is time at the end of implementation and "won't" is beyond the scope of this project but could be completed in potential future research.
 
-		\subsubsection{Functional}
-		The functional requirements for this project using the MoSCoW ranking system \cite{moscow_paper}.
-		Also include impact, risk of occurring, find a 5x5 risk grid
-
-		\begin{reqs}
-			\item SPECIFIC dataset must be downloaded
-			\item SPECIFIC dataset should be pre-processed
-			\item The machine learning model must be successfully trained
-			\item Baseline model should have close accuracy to reference paper
-			\item etc.
-			% \item\label{req:model} Dummy: Something about the skin lesion model
-			% \item\label{req:compress} Dummy: Something about the compression
-			% \item\label{req:fpga} Dummy: Something about the FPGA
-		\end{reqs}
-		% Testing referring to FR - \ref{req:model}
-
-		\subsubsection{Non-Functional}
-		The non-functional requirements for this project using the MoSCoW ranking system \cite{moscow_paper}.
-		
-		\medskip\noindent
-		Non-functional requirements table here covering: speed, efficiency, compile time, baseline and final model having high accuracy
-
-		\begin{reqsn}
-			\item Model compilation done in less than 24 hours
-			\item Written code is readable
-			\item Written code has reasonable error prevention
-			\item Written code is modular to be easy to expand upon
-			\item etc.
-			% \item\label{reqn:speed} Something about running speed
-			% \item\label{reqn:compile_speed} Something about time taken to compile
-		\end{reqsn}
-		% Testing referring to NR - \ref{reqn:compile_speed}
+	\begin{table}[h] \caption{Table of requirements using MoSCoW ranking system} \label{tab:requirements}
+		\centering
+		% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
+		\begin{models_table}{
+			width = \textwidth,
+			colspec = {| l | X[1,l] | l | l |}
+		}
+			ID & Description & MoSCoW & Objective \\
+			\req{req:dataset_available} & ISIC2019 dataset must be available to download. & Must & \ref{obj:data_prep} \\
+			\req{req:dataset_preprocessed} & ISIC2019 dataset should be pre-processed using the same methods as in the SCDNet paper \cite{scdnet_2022}. & Should & \ref{obj:data_prep} \\
+			\req{req:model_match_in_out} & Implementation of SCDNet model must have the same input and output parameters as proposed SCDNet model in \cite{scdnet_2022}. & Must & \ref{obj:train} \\
+			\req{req:model_match_layers} & Implemented SCDNet model layers should match proposed SCDNet model layers. & Should & \ref{obj:train} \\
+			\req{req:baseline_acc} & Implemented SCDNet model performance should match reference paper model performance. & Should & \ref{obj:train} \\
+			\req{req:model_outside_eval} & Implemented SCDNet model performance could be compared to same skin lesion classification models as reference paper. & Could & \\
+			\req{req:model_compressed} & Implemented SCDNet model must be quantised and pruned to shrink the model resource requirements. & Must & \ref{obj:compress} \\
+			\req{req:use_camera} & Deployed model won't use a camera for an input & Won't & \\
+			\req{req:output_interface} & Deployed model won't output to a user interface & Won't & \\
+			\req{req:modular_design} & Model should be implemented where possible in a modular way to allow for insertion and removal of pipeline tools. & Should & \ref{obj:train}\ref{obj:compress} \\
+		\end{models_table}
+	\end{table}
 	
 	\subsection{Setup}
-	Explain here hardware and software setup for this project.
+	This section covers the specs for the hardware that will be used to do this project. It also lists all versions of software that will be used.
+
+		\subsubsection{Hardware}
+		Primarily a \textbf{Windows 11 PC} will be used to do all significant compute and interact with PYNQ-Z1. This project will exclusively use the fastest primary storage drive. Here are the technical specs:
+		\begin{itemize}
+			\item Platform: Desktop
+			\item CPU: AMD Ryzen 5 5600x at 3.7GHz
+			\item GPU: Nvidia RTX 5060Ti with 16GB VRAM
+			\item RAM: DRR4 32GB at 3200MHz (4 sticks of 8GB)
+			\item OS: Windows 11 version 25H2
+			\item Storage: 1TB Samsung 980 Pro NVME SSD (Primary drive) with 200GB available space, 2 other 1TB SSDs (not used for this project)
+		\end{itemize}
+
+		\noindent
+		Secondary \textbf{Windows 11 Laptop} will be used for light tasks and interacting with the PYNQ-Z1. Technical specs:
+		\begin{itemize}
+			\item Platform: Laptop
+			\item CPU: Intel Core i5-8365U at 1.6GHz
+			\item GPU: Intel UHD Graphics 620
+			\item RAM: DRR4 16GB at 2,400M/T (2 sticks of 8GB)
+			\item OS: Windows 11 version 24H2
+			\item Storage: 240GB SK hynix SSD (Primary drive) with 40GB available space
+		\end{itemize}
+
+		\noindent
+		The target \textbf{PYNQ-Z1} technical specs relevant to this project:
+		\begin{itemize}
+			\item CPU: 650MHz dual-core Cortex-A9
+			\item FPGA: Zynq-7020 with 13,300 logic slices each with four 6-input LUTs and 8 flip-flops, 630 KB fast block RAM, 220 DSP slices
+			\item Memory: 512MB DDR3 at 525MHz, 16 MB Quad-SPI Flash
+			\item Storage: microSD slot (contains 64GB SD card)
+			\item Peripherals: Gigabit Ethernet PHY, 3 USB slots
+		\end{itemize}
+
+		\subsubsection{Software}
+		Listed below are all the software tools that will/could be used for this project:
+		\begin{itemize}
+			\item Keras - 
+			\item hls4ml - 
+			\item Vivado - 
+			\item FINN - 
+		\end{itemize}
+
+		\noindent
+		The list of software editor tools that will be used:
+		\begin{itemize}
+			\item VSCode - 
+			\item VSCode extensions:
+				\begin{itemize}
+					\item 1
+					\item 2
+					\item 3
+				\end{itemize}
+			\item something else
+		\end{itemize}
 
 	\subsection{Plan for Execution}
 	Explain in detail here how I plan to use certain experiments in a certain order to fulfil all the requirements and objectives
 
 	Most skin lesion model papers don't provide a source for downloading the model so I will have to repeat their methods to recreate the model myself.
+
+	Would be useful to include diagram of workflow.
 
 	\subsection{Experiment Planning}
 	How I plan to conduct experiment(s) and what research question does it address/answer (detailed). I will create plans here for the experiments: dataset processing, baseline model training, evaluating results from applying the at most single compression technique I pick, preparing model for FINN, evaluating results from using FINN on model, comparing model performance on PYNQ-Z1 compared to PC.
@@ -351,6 +423,8 @@ Short summary of this doc. Summarise what I have researched and what I hope to a
 
 	\subsection{Analysis of Risks}
 	This will have a table of risks (with a severity rating) and an accompanying table of mitigation plans.
+	\\
+	Include impact, risk of occurring, find a 5x5 risk grid
 	
 	\medskip\noindent
 	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with change compression methods
