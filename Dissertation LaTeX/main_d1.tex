@@ -373,24 +373,28 @@ This section contains a detailed description of the research questions, requirem
 
 	\subsection{Plan for Execution}
 	This section explains the workflow steps that will be used for this project. The paper uses the Keras library to implement their SCDNet model, unknown which version of Keras so we will use the latest version Keras 3. A baseline model will be trained without any quantisation that matches the SCDNet parameters, layers and layer shapes as closely as possible. Another model will be trained using quantisation and pruning techniques to shrink the model size as far as possible while retaining the highest accuracy possible. Neither the pre-processed ISIC 2019 dataset nor the SCDNet model are available to download from the paper \cite{scdnet_2022} so will have to be replicated based on the stated methodology.
-	
-	\noindent
-	Here is the general workflow for the baseline model:
-	\begin{enumerate}
-		\item Dataset - Download and replicate the minimal pre-processing from \cite[3.2. Data Normalization and Preprocessing]{scdnet_2022}.
-		\item Model building - Create a custom model in Keras which matches the SCDNet architecture from \cite[3.4. Proposed Architecture]{scdnet_2022}.
-		\item Model training - Use Keras to train the model.
-		\item Model evaluation - evaluate the model using the processed training and test datasets.
-	\end{enumerate}
 
-	\noindent
-	Here is the general workflow for the quantised model:
-	\begin{enumerate}
-		\item Dataset - Download and replicate the minimal pre-processing from \cite[3.2. Data Normalization and Preprocessing]{scdnet_2022}.
-		\item Model building - Create a custom model in Keras which matches the SCDNet architecture from \cite[3.4. Proposed Architecture]{scdnet_2022}.
-		\item Model training - Use Keras quantisation features during and post training.
-		\item Model evaluation - Evaluate the model using the processed training and test datasets.
-	\end{enumerate}
+	% How I plan to conduct experiment(s) and what research question does it address/answer (detailed). I will create plans here for the experiments: dataset processing, baseline model training, evaluating results from applying the at most single compression technique I pick, preparing model for FINN, evaluating results from using FINN on model, comparing model performance on PYNQ-Z1 compared to PC.
+	\subsection{Iterative Implementation}
+	Using an iterative approach to the implementation of this project. The following sections will be done in stages so that all aspects of the Keras workflow can be evaluated incrementally. Data from the evaluations will be stored in tables for use in the final document. This also applies to tuning parameters, first establishing the baseline model and aiming to closely or exactly reproduce performance metrics of SCDNet model, then using the second model to explore tuning parameters and layer structure. The quantisation and pruning stages are predicted to require the most tuning because it will require finding what parts of the model are sensitive to compression and mitigating any accuracy losses.
+	
+	% \noindent
+	% Here is the general workflow for the baseline model:
+	% \begin{enumerate}
+	% 	\item Dataset - Download and replicate the minimal pre-processing from \cite[3.2. Data Normalization and Preprocessing]{scdnet_2022}.
+	% 	\item Model building - Create a custom model in Keras which matches the SCDNet architecture from \cite[3.4. Proposed Architecture]{scdnet_2022}.
+	% 	\item Model training - Use Keras to train the model.
+	% 	\item Model evaluation - evaluate the model using the processed training and test datasets.
+	% \end{enumerate}
+
+	% \noindent
+	% Here is the general workflow for the quantised model:
+	% \begin{enumerate}
+	% 	\item Dataset - Download and replicate the minimal pre-processing from \cite[3.2. Data Normalization and Preprocessing]{scdnet_2022}.
+	% 	\item Model building - Create a custom model in Keras which matches the SCDNet architecture from \cite[3.4. Proposed Architecture]{scdnet_2022}.
+	% 	\item Model training - Use Keras quantisation features during and post training.
+	% 	\item Model evaluation - Evaluate the model using the processed training and test datasets.
+	% \end{enumerate}
 
 	\subsection{Dataset Pre-Processing}
 		\subsubsection{Dataset Description}
@@ -439,9 +443,6 @@ This section contains a detailed description of the research questions, requirem
 
 	\subsection{Deploying Quantised Model to PYNQ-Z1}
 	The quantised model will not directly run on the PYNQ-Z1 FPGA so will use hls4ml or FINN to deploy the model. The hls4ml framework is directly compatible to export a Keras model to. Using the FINN framework requires a workaround by exporting the Keras model first to QONNX before it can be imported to FINN. Will use hls4ml unless it is not possible to compress the model enough to fit on the PYNQ-Z1 FPGA so try using FINN instead.
-
-	\subsection{Experiment Planning}
-	How I plan to conduct experiment(s) and what research question does it address/answer (detailed). I will create plans here for the experiments: dataset processing, baseline model training, evaluating results from applying the at most single compression technique I pick, preparing model for FINN, evaluating results from using FINN on model, comparing model performance on PYNQ-Z1 compared to PC.
 	
 \section{Feasibility} \label{sec:feasiblity}
 
@@ -493,7 +494,7 @@ Short summary of this doc. Summarise what I have researched and what I hope to a
 	Include impact, risk of occurring, find a 5x5 risk grid
 	
 	\medskip\noindent
-	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with change compression methods, model layer shape incompatibility with check paper and find equivalent shape, PYNQ-Z1 unsupported with trying small model end-to-end, SCDNet unreproducible with verify performance with baseline
+	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with try a smaller model, model layer shape incompatibility with check paper and find equivalent shape, PYNQ-Z1 unsupported with trying small model end-to-end, SCDNet unreproducible with verify performance with baseline
 
 	\subsection{PLES}
 	A well-researched consideration of any Professional, Legal, Ethical, and Social Issues
