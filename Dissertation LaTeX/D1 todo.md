@@ -10,8 +10,10 @@
 	- DONE - Setup
 	- DONE - Plan
 	- DONE - dataset - including any required pre-processing
-	- NOT  - Method
-	- NOT  - Is methodology comparing against itself or existing models to idea of how good model actually is?
+	- DONE - Model architecture
+	- NOT  - Model training sections
+	- NOT  - Further compression before deployment
+	- NOT  - Deployment
 - NOT  - Feasibility section (includes evaluation plan)
 - NOT  - Motivations and background (what is skin lesion, explain research field)
 - NOT  - Objectives

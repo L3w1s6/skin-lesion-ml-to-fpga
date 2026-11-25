@@ -120,6 +120,8 @@ I would like to thank both my supervisors Rob Steward and Tess Watt for providin
 % Abstract (talk about everything I'm going to do, anything outside this is out of scope)
 \abstract{
 Abstract text.
+
+Training model to classify 4 classes of skin lesion: Melanoma (MEL), Melanocytic Nevi (NV), Benign Keratosis (BKL), Basal Cell Carcinoma (BCC)
 }
 
 \input{hwu_template/contents}
@@ -370,7 +372,7 @@ This section contains a detailed description of the research questions, requirem
 		\end{itemize}
 
 	\subsection{Plan for Execution}
-	This section explains the workflow steps that will be used for this project. A baseline model will be trained without any quantisation that matches the SCDNet parameters, layers and layer shapes as closely as possible. Another model will be trained using quantisation and pruning techniques to shrink the model size as far as possible while retaining the highest accuracy possible. Neither the pre-processed ISIC 2019 dataset nor the SCDNet model are available to download from the paper \cite{scdnet_2022} so will have to be replicated based on the stated methodology.
+	This section explains the workflow steps that will be used for this project. A Keras 3 Python workflow will be used. A baseline model will be trained without any quantisation that matches the SCDNet parameters, layers and layer shapes as closely as possible. Another model will be trained using quantisation and pruning techniques to shrink the model size as far as possible while retaining the highest accuracy possible. Neither the pre-processed ISIC 2019 dataset nor the SCDNet model are available to download from the paper \cite{scdnet_2022} so will have to be replicated based on the stated methodology.
 	
 	\noindent
 	Here is the general workflow for the baseline model:
@@ -395,11 +397,42 @@ This section contains a detailed description of the research questions, requirem
 		The ISIC 2019 dataset on the ISIC Archive website is split into separate downloads for training (25,331 images) and test (8,239 images) sets \cite[Data Archive]{isic_2019_download}. The SCDNet paper doesn't mention exactly which downloads they use but they describe the dataset as having exactly the same quantity of images as the training set and splitting that into their training, validation and test sets. Instead both the training and test sets will be downloaded, combined then apply the same ratio of 70\%, 20\%, 10\% for training, testing and validation as the SCDNet paper.
 
 		\subsubsection{Data Processing}
-		Following the SCDNet paper to only apply minimal pre-processing: resolution downscaling, pixel colour normalisation. Both these pre-processing steps will be executed using TensorFlow \cite{tensorflow_paper} to take advantage of GPU acceleration then results saved to SSD for reuse.
+		Following the SCDNet paper to only apply minimal pre-processing: resolution downscaling (400x600 to 224x224), pixel colour normalisation (to 0.0-1.0 float). Both these pre-processing steps will be executed using TensorFlow \cite{tensorflow_paper} to take advantage of GPU acceleration then results saved to SSD for reuse. The model focuses on the 4 target classes of Melanoma (MEL), Melanocytic Nevi (NV), Benign Keratosis (BKL), Basal Cell Carcinoma (BCC)
 
 	\subsection{Model Architecture}
+	Here is the diagram of SCDNet model layer architecture from the paper. It describes all the major details from the input to the output.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{images/scdnet_layers.png}
+		\caption{Diagram of SCDNet model architecture}
+		\label{fig:scdnet_architecture}
+		\Description{A diagram describing the layers of the SCDNet model proposed from the reference paper}
+	\end{figure}
+
+	\noindent
+	Replicating the layers in the SCDNet model. Aiming to have 264,708 total parameters and 2,359,808 training parameters. Paper tested with dropout values of 0.05, 0.2, 0.25 and found 0.2 to be most effective. The fully connected layer uses 512 neurons. The last layer uses another fully connected layer with 4 neurons for the 4 skin lesion classes.
+	\begin{table}[H] \caption{Table of proposed model layers} \label{tab:model_layers}
+		\centering
+		% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
+		\begin{models_table}{
+			width = \textwidth,
+			colspec = {| l | X |}
+		}
+			SCDNet Layer & Proposed Layer \\
+			Input & Image size of 224x224x3 \\
+			VGG16 & pre-trained Keras VGG16 class containing 5 blocks: 64 -> 128 -> 256 -> 512 -> 512 \\
+			CNN Layer 1 & Keras Conv2D + ReLU layer \\
+			CNN Layer 2 & Keras Conv2D + ReLU layer + Normalisation layer \\
+			Pooling and Flatten & Keras GlobalAveragePooling2D layer \\
+			Regularisation 1 & Keras Dropout layer \\
+			Hidden Dense layer & Keras Dense (512) layer with ReLU activation \\
+			Regularisation 2 & Keras Dropout layer \\
+			Output dense + softmax & Keras Dense (4) layer with softmax activation \\
+		\end{models_table}
+	\end{table}
 
 	\subsection{Baseline Model Training}
+	The paper was trained up to 50 epochs
 
 	\subsection{Quantised Model Training}
 
@@ -431,6 +464,8 @@ This section contains a detailed description of the research questions, requirem
 		\item How it should be evaluated
 	\end{itemize}
 
+	The trained machine learning models will be evaluated using standard metrics of accuracy, F1 score, precision, sensitivity.
+
 \section{Conclusions}
 Short summary of this doc. Summarise what I have researched and what I hope to achieve by end of this project.
 
@@ -458,7 +493,7 @@ Short summary of this doc. Summarise what I have researched and what I hope to a
 	Include impact, risk of occurring, find a 5x5 risk grid
 	
 	\medskip\noindent
-	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with change compression methods
+	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with change compression methods, model layer shape incompatibility with check paper and find equivalent shape
 
 	\subsection{PLES}
 	A well-researched consideration of any Professional, Legal, Ethical, and Social Issues
