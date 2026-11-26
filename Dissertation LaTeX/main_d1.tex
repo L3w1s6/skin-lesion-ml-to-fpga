@@ -484,9 +484,19 @@ I have researched into skin lesion classification, the use of machine learning m
 \section{Project Management}
 
 	\subsection{Gantt Chart}
-	Retroactively make gantt chart plan using journal (say took longer than expected but started at decent time) of semester 1 Sep to Nov 2026
-	\\
-	Then gantt chart of future plan for semester 2 (Jan to Apr 2027) experimenting and report writing.
+	% Retroactively make Gantt chart plan using journal (say took longer than expected but started at decent time) of semester 1 Sep to Nov 2026
+	Here is the Gantt chart describing the planned steps for semester 1 of this project. The research and D1 report writing took significantly longer to complete than expected.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{images/semester1_gantt.png}
+		\caption{Gantt chart for semester 1 plan}
+		\label{fig:semester_1_gantt}
+		\Description{A Gantt chart describing the planned steps for semester 1 of this project.}
+	\end{figure}
+
+	% Jan to Apr 2027
+	\noindent
+	Then the Gantt chart of the semester 2 plan experimenting and report writing.
 
 	% find a 5x5 risk grid?
 	\subsection{Analysis of Risks}
@@ -510,19 +520,20 @@ I have researched into skin lesion classification, the use of machine learning m
 		\end{risks_table}
 	\end{table}
 
-	\subsection{PLES}
-	A well-researched consideration of any Professional, Legal, Ethical, and Social Issues
-	pertinent to the project. (e.g. codes of conduct (BCS), codes of practice, standards,
-	computer law, ethical decision making, intellectual property, social aspects, copyright,
-	data protection, and so on).
-	\\
-	Professional - dataset will be handled professionally
-	Legal - dataset open-source or licence allows academic use, must also allow for use in training AI model
-	Ethical - creative licence of dataset which contains clinical magnified images of human skin
-	Social - none, using personal data ethically
+	% A well-researched consideration of any Professional, Legal, Ethical, and Social Issues
+	% pertinent to the project. (e.g. codes of conduct (BCS), codes of practice, standards,
+	% computer law, ethical decision making, intellectual property, social aspects, copyright,
+	% data protection, and so on).
 
-	\medskip\noindent
-	Most of this I can get from ethics form, checking licences to use methods and data, state potential social uses considering using AI, etc.
+	% Most of this I can get from ethics form, checking licences to use methods and data, state potential social uses considering using AI, etc.
+	\subsection{PLES}
+	Here is the consideration of any Professional, Legal, Ethical, and Social Issues for this project.
+	\begin{itemize}
+		\item Professional - The dataset will be handled professionally and only used for purposes described in this document.
+		\item Legal - The ISIC 2019 dataset is open-source and has a creative commons licence allowing academic use, the licence specifically allows for use in training AI models.
+		\item Ethical - No participant data collection in this project. ISIC 2019 contains clinical images of magnified areas of human skin which cannot be anonymised so counts as personal data.
+		\item Social - None.
+	\end{itemize}
 
 % Appendices
 \newpage
