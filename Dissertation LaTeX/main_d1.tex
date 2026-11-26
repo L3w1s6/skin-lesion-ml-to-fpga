@@ -445,30 +445,30 @@ This section contains a detailed description of the research questions, requirem
 	The quantised model will not directly run on the PYNQ-Z1 FPGA so will use hls4ml or FINN to deploy the model. The hls4ml framework is directly compatible to export a Keras model to. Using the FINN framework requires a workaround by exporting the Keras model first to QONNX before it can be imported to FINN. Will use hls4ml unless it is not possible to compress the model enough to fit on the PYNQ-Z1 FPGA so try using FINN instead.
 	
 \section{Feasibility} \label{sec:feasiblity}
-
+	% Summary of work carried out to prepare for this project to validate feasibility
 	\subsection{Preliminary Work}
-	Summary of work carried out to prepare for this project to validate feasibility.
-	
-	\medskip\noindent
-	The PYNQ-Z1 was set up to be easily interacted with over Wifi via SSH.
-	\\
-	Looked at examples for similar model types being compiled for FPGA.
-	\\
-	Researched compatibility of tools.
+	To prepare for this project there were several technologies and fields that required researching. Finding a wide range of recent skin lesion classification models to see the trends of common datasets and methods. Also finding several existing papers on deploying skin lesion classification models onto FPGAs to prove it is possible. Machine learning software had to be considered for its compatibility with FPGA deployment frameworks. Researching into the available methods for interacting with the PYNQ-Z1 board and utilising the components for running machine learning models. The PYNQ-Z1 board has already been configured to use a USB Wifi dongle so it can be connected to using SSH without requiring using an Ethernet cable as described in the PYNQ manual \cite{pynq_z1_man}. Instructions for how Wifi was set up is in the GitHub for this project \cite{this_git}.
 
 	\subsection{Evaluation Strategy}
-	For all experiment plans above:
+	Evaluation plans are necessary for several parts and stages of this project.
+
+		\subsubsection{Model Performance}
+		From the SCDNet paper \cite{scdnet_2022} and survey papers \cite{survey_2023,survey_general_2023} we will compare the following metrics of the proposed SCDNet model and our baseline model: accuracy, F1 score, precision, sensitivity.
+
+		\subsubsection{Compression Performance}
+		Applying quantisation and/or pruning to layers of the second model will require tuning to maximise how much it effectively shrinks the model while minimising the effects it has on the model accuracy.
+
+	% For all experiment plans above:
 	
-	\begin{itemize}
-		\item What needs evaluating separately e.g. measuring performance and statistics
-		\item Why it should be evaluated
-		\item How it should be evaluated
-	\end{itemize}
+	% \begin{itemize}
+	% 	\item What needs evaluating separately e.g. measuring performance and statistics
+	% 	\item Why it should be evaluated
+	% 	\item How it should be evaluated
+	% \end{itemize}
 
-	The trained machine learning models will be evaluated using standard metrics of accuracy, F1 score, precision, sensitivity.
-
+% Short summary of this doc. Summarise what I have researched and what I hope to achieve by end of this project.
 \section{Conclusions}
-Short summary of this doc. Summarise what I have researched and what I hope to achieve by end of this project.
+I have researched into skin lesion classification, the use of machine learning models for the task, how to deploy machine learning models to FPGAs and specifically for the PYNQ-Z1, the software tools required to end-to-end train and deploy a machine learning model.
 
 % Rest of the document...
 %%%%%%%%%%%%%%%%%%%%

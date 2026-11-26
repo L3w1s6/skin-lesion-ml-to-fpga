@@ -6,14 +6,14 @@
 - DONE - Finish recent models research section
 - DONE - Complete model compression section (shouldn't need much)
 - DONE - Fill further research (create in that section research questions and specify what needs to be reproduced)
-- NOT  - Methodology section (use past diss papers to understand structure)
+- DONE - Methodology section (use past diss papers to understand structure)
 	- DONE - Setup
 	- DONE - Plan
 	- DONE - dataset - including any required pre-processing
 	- DONE - Model architecture
 	- DONE - Model training sections
-	- NOT  - Deployment
-- NOT  - Feasibility section (includes evaluation plan)
+	- DONE - Deployment
+- DONE - Feasibility section (includes evaluation plan)
 - NOT  - Motivations and background (what is skin lesion, explain research field)
 - NOT  - Objectives
 - NOT  - Intro
