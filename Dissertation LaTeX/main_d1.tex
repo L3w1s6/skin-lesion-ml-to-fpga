@@ -164,17 +164,20 @@ Early identification of skin diseases and cancer can improve survival chances. M
 
 % Introduction
 %%%%%%%%%%%%%%%%%%%%
+% Summary of project motivation and context
 \section{Introduction} \label{cha:intro}
-Summary of project motivation \& context
+	% Background on skin lesions, classification (I have many papers to reference for this)
+	\subsection{Background} \label{sec:background}
+	Why skin lesion classification matters\\
+	Shift to using ML\\
+	Benchmark datasets and standard evaluation\\
+	Current method frontiers, challenges (class imbalance, bias, etc.)\\
 
-	\subsection{Background and Motivation} \label{sec:intro_motiv}
-	Background on skin lesions, classification.
-	% basically every paper I found has background on this
-
+	\subsection{Motivation} \label{sec:motivations}
 	Motivations for doing this project: wanting to work with FPGA (unfamiliar beforehand) because streaming hardware is interesting, saw opportunity for unique tool combination
 
 	\subsection{Aim and Objectives} \label{sec:intro_aim}
-	The aim of this project is to experiment with a new application of an existing skin lesion classification machine learning model onto the PYNQ-Z1 FPGA hardware. The objectives are stated below:
+	The aim of this project is to apply the existing SCDNet skin lesion classification machine learning model onto the PYNQ-Z1 FPGA hardware which has not been attempted before. The objectives are stated below:
 	\begin{objs}
 		\item\label{obj:data_prep} Download and pre-process the same dataset as the SCDNet paper by \citet{scdnet_2022}.
 		\item\label{obj:train} Build and train a reproduced version of the SCDNet model.
