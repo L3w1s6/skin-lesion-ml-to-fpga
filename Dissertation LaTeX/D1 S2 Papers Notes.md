@@ -64,3 +64,41 @@
 - Shorting specific pins sets up board modes:
 	- Running a Linux bootloader (from a few different storage options)
 	- Headless without OS overhead but requires connecting via physical pins
+
+
+
+# Intro Notes
+
+## Why skin lesion classification matters
+- https://www.skincancer.org/skin-cancer-information/skin-cancer-facts/
+- https://www.isic-archive.com/mission
+
+- Early cancer and disease detection - improves rate of survival
+- Irregular skin changes can lead to skin cancer
+- When detected early, the 5-year survival rate for melanoma is 99 percent
+- More people diagnosed with skin cancer than all other cancers combined
+
+## Shifting to using ML over manual classification
+- ML models just as good as people
+- Precise diagnosis is difficult, melanoma typically detected through visual inspection and even clinicians have difficulty distinguishing early-stage melanoma from benign skin lesions
+
+## Existing benchmark datasets and standarised evaluation
+- The creation of public datasets has made training and comparing models significantly easier
+- Ham10000 very popular
+
+- ISIC Archive exists to improve skin cancer diagnosis
+	- Promotes skin imaging standards
+	- Central collection for gathering and sharing dermatologic images
+	- Engaging with clinicians and ML researchers (like me)
+- Ham10000 is popular dataset from 2018 because well-balanced 7 classes with high validation standards
+- ISIC has datasets as results from yearly competitions from 2017 to 2019 (future challenges in different format)
+
+- General machine learning improvements can be applied and evaluated against common benchmarks
+
+## Interest in deploying
+- Gathering interest for compressing and deploying models to constrained devices
+- Exploring taking leading model not designed for constrained device, compressing and deploying it, evaluating impact on performance
+
+## Motivations
+- Making ML mobile and not have high compute requirement
+- Running models on low-power devices without requiring internet connection allows for more widespread and remote diagnosis

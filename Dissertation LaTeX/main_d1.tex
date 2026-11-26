@@ -140,7 +140,7 @@ Early identification of skin diseases and cancer can improve survival chances. M
 \begin{table}[h] \caption{Table of word abbreviations} \label{tab:models}
 	\centering
 	% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
-	\begin{models_table}{colspec = {| l | p{0.65\textwidth} |}}
+	\begin{models_table}{colspec = {| l | X |}}
 		Abbreviation & Meaning \\
 		ML & Machine Learning \\
 		NN & Neural Network \\
@@ -153,6 +153,8 @@ Early identification of skin diseases and cancer can improve survival chances. M
 		QAT & Quantise-Aware Training \\
 		PTQ & Post-Training Quantisation \\
 		Pruning & Removing redundant or low-impact parts of a machine learning model. \\
+		Dermoscopic & Describes something observed through dermoscopy - a painless non-invasive skin examination using a lighted magnifying tool. \\
+		ISIC & International Skin Imaging Collaboration \\
 	\end{models_table}
 \end{table}
 	
@@ -168,19 +170,29 @@ Early identification of skin diseases and cancer can improve survival chances. M
 \section{Introduction} \label{cha:intro}
 	% Background on skin lesions, classification (I have many papers to reference for this)
 	\subsection{Background} \label{sec:background}
-	Why skin lesion classification matters\\
-	Shift to using ML\\
-	Benchmark datasets and standard evaluation\\
-	Current method frontiers, challenges (class imbalance, bias, etc.)\\
+	% what are skin lesions, Why skin lesion classification matters\\
+	Irregular skin changes if left undiagnosed can lead to skin diseases and skin cancer. There are many different kinds of skin diseases and skin cancer which present as skin lesions. While different classes of skin lesions have specific characteristics, each area of skin is unique and therefore difficult to correctly diagnose the type of skin disease or cancer. Skin cancer is the most diagnosed form of cancer \cite{skin_cancer_foundation}. As explained by the Skin Cancer Foundation \cite{skin_cancer_foundation} there is great importance in early classification, the survival rate of melanoma is 99\% when detected early.
+
+	\medskip\noindent
+	% Shift to using ML\\
+	The field of using machine learning to classify skin lesions has grown over the past few decades, recent models have comparable accuracy to clinicians. Melanoma is the most common skin cancer and even clinicians struggle to visually distinguish between early-stage melanoma and benign skin lesions \cite{isic_site_mission}.
+	
+	\medskip\noindent
+	% Benchmark datasets and standard evaluation\\
+	The majority of collected dermoscopic images primarily focused on melanoma because of its commonality \cite{isic_site_mission}. With the introduction of datasets such as Ham10000 \cite{ham_paper} in 2018 that has 7 skin lesion classes, training a machine learning model to identify more types of skin lesions became possible. The ISIC Archive \cite{isic_site} contains the largest collection of skin lesion images. It provides a range of public benchmarks, datasets and challenges for the purposes of improving identification of skin cancer. Nearly every paper researched for this project uses a version of the ISIC challenge datasets or Ham10000 (which was created from the ISIC 2018 challenge \cite{isic_2018_challenge}).
+
+	\medskip\noindent
+	% Current method frontiers, challenges (class imbalance, bias, etc.)
+	Having the ISIC standard benchmarks and evaluations for models better introduces competition. It also provides a number of available statistics for improving models using new general machine learning improvements.
 
 	\subsection{Motivation} \label{sec:motivations}
-	Motivations for doing this project: wanting to work with FPGA (unfamiliar beforehand) because streaming hardware is interesting, saw opportunity for unique tool combination
+	There is further interest in taking the skin classification models and deploying them onto constrained devices such as Raspberry Pi or PYNQ-Z1 FPGA. The benefits being that these low-power devices can be used as handheld devices in both clinical settings and remote locations which don't have regular access to a clinician. The act of deploying a machine learning model onto a constrained device is not trivial, reducing the size of a model is similar to lossy image compression and requires fine-tuning to retain high model performance.
 
 	\subsection{Aim and Objectives} \label{sec:intro_aim}
-	The aim of this project is to apply the existing SCDNet skin lesion classification machine learning model onto the PYNQ-Z1 FPGA hardware which has not been attempted before. The objectives are stated below:
+	The aim of this project is to explore taking the SCDNet model \cite{scdnet_2022} which was not designed to be lightweight or deployed on a constrained device, then using common machine learning compression techniques deploy it to the PYNQ-Z1 FPGA and evaluate the differences in how the model performs. Deploying this model to the PYNQ-Z1 hardware has not been attempted before. The project objectives are stated below:
 	\begin{objs}
-		\item\label{obj:data_prep} Download and pre-process the same dataset as the SCDNet paper by \citet{scdnet_2022}.
-		\item\label{obj:train} Build and train a reproduced version of the SCDNet model.
+		\item\label{obj:data_prep} Download and pre-process the ISIC 2019 dataset as described in the SCDNet paper.
+		\item\label{obj:train} Build and train a replicated version of the SCDNet model.
 		\item\label{obj:compress} Apply common model quantisation and pruning methods to shrink the SCDNet model to a size capable of fitting on the PYNQ-Z1 FPGA hardware.
 		\item\label{obj:deploy} Deploy the compressed SCDNet model onto the PYNQ-Z1 FPGA and evaluate its performance.
 	\end{objs}

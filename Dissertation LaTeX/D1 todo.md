@@ -19,7 +19,8 @@
 	- DONE - Gantt charts
 	- DONE - Risks analysis
 	- DONE - PLES
-- NOT  - Motivations and background (what is skin lesion, explain research field)
-- NOT  - Objectives
-- NOT  - Intro
-- NOT  - Abstract
+- DONE - Introduction
+	- DONE - Background (what is skin lesion, explain research field)
+	- DONE - Motivations
+	- DONE - Aim & Objectives
+- DONE - Abstract

@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{38}
+\begin{thebibliography}{40}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -153,8 +153,21 @@
 
 
 \bibitem[Collaboration(nda)]%
+        {isic_site_mission}
+\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{[n.d.]}\natexlab{a}.
+\newblock \bibinfo{title}{About ISIC}.
+\newblock
+\urldef\tempurl%
+\url{https://www.isic-archive.com/mission}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 26/11/26}.
+
+
+\bibitem[Collaboration(ndb)]%
         {isic_site}
-\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{[n.d]}\natexlab{a}.
+\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{[n.d]}\natexlab{b}.
 \newblock \bibinfo{title}{ISIC Archive: International Skin Imaging Collaboration}.
 \newblock
 \urldef\tempurl%
@@ -165,9 +178,9 @@
 \shownote{Accessed: 19/11/26}.
 
 
-\bibitem[Collaboration(ndb)]%
+\bibitem[Collaboration(ndc)]%
         {isic_site_challenge}
-\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{[n.d.]}\natexlab{b}.
+\bibfield{author}{\bibinfo{person}{International Skin~Imaging Collaboration}.} \bibinfo{year}{[n.d.]}\natexlab{c}.
 \newblock \bibinfo{title}{Welcome to the ISIC Challenge}.
 \newblock
 \urldef\tempurl%
@@ -261,6 +274,19 @@
 \tempurl}
 \newblock
 \shownote{Accessed: 9/11/26}.
+
+
+\bibitem[Foundation(2026)]%
+        {skin_cancer_foundation}
+\bibfield{author}{\bibinfo{person}{Skin~Cancer Foundation}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \bibinfo{title}{Skin Cancer Facts \& Statistics}.
+\newblock
+\urldef\tempurl%
+\url{https://www.skincancer.org/skin-cancer-information/skin-cancer-facts/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed: 26/11/26}.
 
 
 \bibitem[Franco et~al\mbox{.}(2026)]%
