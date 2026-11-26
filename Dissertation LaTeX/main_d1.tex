@@ -496,6 +496,18 @@ I have researched into skin lesion classification, the use of machine learning m
 	\medskip\noindent
 	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with try a smaller model, model layer shape incompatibility with check paper and find equivalent shape, PYNQ-Z1 unsupported with trying small model end-to-end, SCDNet unreproducible with verify performance with baseline
 
+	\begin{table}[H] \caption{Table of identified risks} \label{tab:risks}
+		\centering
+		% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
+		\begin{models_table}{
+			width = \textwidth,
+			colspec = {| X | l | l |}
+		}
+			Risk & Impact & Likelihood \\
+			Model can't be compressed enough to fit on PYNQ-Z1 FPGA & 3 & 2 \\
+		\end{models_table}
+	\end{table}
+
 	\subsection{PLES}
 	A well-researched consideration of any Professional, Legal, Ethical, and Social Issues
 	pertinent to the project. (e.g. codes of conduct (BCS), codes of practice, standards,
