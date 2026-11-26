@@ -15,8 +15,8 @@
 	- DONE - Deployment
 - DONE - Feasibility section (includes evaluation plan)
 - DONE - Conclusion
-- NOT  - Project management
-	- NOT  - Gantt charts
+- DONE - Project management
+	- DONE - Gantt charts
 	- DONE - Risks analysis
 	- DONE - PLES
 - NOT  - Motivations and background (what is skin lesion, explain research field)
