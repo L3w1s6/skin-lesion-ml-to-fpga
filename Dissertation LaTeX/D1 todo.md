@@ -17,7 +17,7 @@
 - DONE - Conclusion
 - NOT  - Project management
 	- NOT  - Gantt charts
-	- NOT  - Risks analysis
+	- DONE - Risks analysis
 	- NOT  - PLES
 - NOT  - Motivations and background (what is skin lesion, explain research field)
 - NOT  - Objectives

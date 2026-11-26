@@ -100,6 +100,15 @@
 	row{1} = {font=\bfseries} % bold headings
 }
 
+% custom table for risks
+\NewTblrEnviron{risks_table}
+\SetTblrInner[risks_table]{
+	hlines = {0.05em}, % horizontal lines between every row
+	hline{1, Z} = {0.1em}, % top and bottom lines (of entire table)
+	hline{2} = {0.1em}, % midrule line (below header)
+	row{1} = {font=\bfseries} % bold headings
+}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -301,16 +310,16 @@ This section contains a detailed description of the research questions, requirem
 			colspec = {| l | X[1,l] | l | l |}
 		}
 			ID & Description & MoSCoW & Objective \\
-			\req{req:dataset_available} & ISIC2019 dataset must be available to download. & Must & \ref{obj:data_prep} \\
-			\req{req:dataset_preprocessed} & ISIC2019 dataset should be pre-processed using the same methods as in the SCDNet paper \cite{scdnet_2022}. & Should & \ref{obj:data_prep} \\
-			\req{req:model_match_in_out} & Implementation of SCDNet model must have the same input and output parameters as proposed SCDNet model in \cite{scdnet_2022}. & Must & \ref{obj:train} \\
-			\req{req:model_match_layers} & Implemented SCDNet model layers should match proposed SCDNet model layers. & Should & \ref{obj:train} \\
-			\req{req:baseline_acc} & Implemented SCDNet model performance should match reference paper model performance. & Should & \ref{obj:train} \\
-			\req{req:model_outside_eval} & Implemented SCDNet model performance could be compared to same skin lesion classification models as reference paper. & Could & \\
-			\req{req:model_compressed} & Implemented SCDNet model must be quantised and pruned to shrink the model resource requirements. & Must & \ref{obj:compress} \\
-			\req{req:use_camera} & Deployed model won't use a camera for an input & Won't & \\
-			\req{req:output_interface} & Deployed model won't output to a user interface & Won't & \\
+			\req{req:dataset_preprocessed} & ISIC2019 dataset must be pre-processed using the same methods as in the SCDNet paper \cite{scdnet_2022}. & Must & \ref{obj:data_prep} \\
+			\req{req:model_match_in_out} & Model must have same input and output parameters as proposed SCDNet model in \cite{scdnet_2022}. & Must & \ref{obj:train} \\
+			\req{req:model_match_layers} & Model layers should match proposed SCDNet model layers. & Should & \ref{obj:train} \\
+			\req{req:baseline_acc} & Model performance should match SCDNet model performance. & Should & \ref{obj:train} \\
+			\req{req:model_outside_eval} & Model performance could be compared to same skin lesion classification models as SCDNet. & Could & \\
+			\req{req:model_compressed} & Model must be quantised and pruned to shrink the model resource requirements. & Must & \ref{obj:compress} \\
+			\req{req:model_deployed} & Model must be fully deployed onto the PYNQ-Z1 FPGA. & Must & \ref{obj:deploy} \\
 			\req{req:modular_design} & Model should be implemented where possible in a modular way to allow for insertion and removal of pipeline tools. & Should & \ref{obj:train}\ref{obj:compress} \\
+			\req{req:use_camera} & The deployed model won't use a camera for the model input. & Won't & \\
+			\req{req:output_interface} & The deployed model won't output to a user interface. & Won't & \\
 		\end{models_table}
 	\end{table}
 	
@@ -323,7 +332,7 @@ This section contains a detailed description of the research questions, requirem
 			\item Platform: Desktop
 			\item CPU: AMD Ryzen 5 5600x at 3.7GHz
 			\item GPU: Nvidia RTX 5060Ti with 16GB VRAM
-			\item RAM: DRR4 32GB at 3200MHz (4 sticks of 8GB)
+			\item Memory: DRR4 32GB at 3200MHz (4 sticks of 8GB)
 			\item OS: Windows 11 version 25H2
 			\item Storage: 1TB Samsung 980 Pro NVME SSD (Primary drive) with 200GB available space, 2 other 1TB SSDs (not used for this project)
 		\end{itemize}
@@ -334,7 +343,7 @@ This section contains a detailed description of the research questions, requirem
 			\item Platform: Laptop
 			\item CPU: Intel Core i5-8365U at 1.6GHz
 			\item GPU: Intel UHD Graphics 620
-			\item RAM: DRR4 16GB at 2,400M/T (2 sticks of 8GB)
+			\item Memory: DRR4 16GB at 2,400M/T (2 sticks of 8GB)
 			\item OS: Windows 11 version 24H2
 			\item Storage: 240GB SK hynix SSD (Primary drive) with 40GB available space
 		\end{itemize}
@@ -350,26 +359,17 @@ This section contains a detailed description of the research questions, requirem
 		\end{itemize}
 
 		\subsubsection{Software}
-		Listed below are all the software tools that will/could be used for this project:
+		Below are listed all the software tools that will and could be used for the project \textbf{Python workflow}:
 		\begin{itemize}
-			\item Keras - 
-			\item hls4ml - 
-			\item Vivado - 
-			\item FINN - 
+			\item Keras - 3
+			\item TensorFlow - v2.21.0
+			\item hls4ml - v1.3.1
+			\item FINN - v1.0.0-alpha
+			\item Vivado - v2024.2
 		\end{itemize}
 
 		\noindent
-		The list of software editor tools that will be used:
-		\begin{itemize}
-			\item VSCode - 
-			\item VSCode extensions:
-				\begin{itemize}
-					\item 1
-					\item 2
-					\item 3
-				\end{itemize}
-			\item something else
-		\end{itemize}
+		Will use the latest version of VSCode IDE with the official extensions for Python Debugging and Environments. A Docker may be required to execute the FPGA deployment frameworks with specific versions. The Windows Command Prompt will be used to remotely SSH into the PYNQ-Z1.
 
 	\subsection{Plan for Execution}
 	This section explains the workflow steps that will be used for this project. The paper uses the Keras library to implement their SCDNet model, unknown which version of Keras so we will use the latest version Keras 3. A baseline model will be trained without any quantisation that matches the SCDNet parameters, layers and layer shapes as closely as possible. Another model will be trained using quantisation and pruning techniques to shrink the model size as far as possible while retaining the highest accuracy possible. Neither the pre-processed ISIC 2019 dataset nor the SCDNet model are available to download from the paper \cite{scdnet_2022} so will have to be replicated based on the stated methodology.
@@ -488,24 +488,26 @@ I have researched into skin lesion classification, the use of machine learning m
 	\\
 	Then gantt chart of future plan for semester 2 (Jan to Apr 2027) experimenting and report writing.
 
+	% find a 5x5 risk grid?
 	\subsection{Analysis of Risks}
-	This will have a table of risks (with a severity rating) and an accompanying table of mitigation plans.
-	\\
-	Include impact, risk of occurring, find a 5x5 risk grid
-	
-	\medskip\noindent
-	A few already identified risks: PYNQ-Z1 is unsupported by FINN so not guaranteed to work, using personal PC for model training with fallback to uni machine, personal PC doesn't have enough storage with making space or buying storage or fallback on solution involving uni, not able to compress model small enough to fit on PYNQ-Z1 with try a smaller model, model layer shape incompatibility with check paper and find equivalent shape, PYNQ-Z1 unsupported with trying small model end-to-end, SCDNet unreproducible with verify performance with baseline
+	This table has the risks for this project, each ranked by their severity and probability of occurring. It also includes for every risk a mitigation strategy.
 
 	\begin{table}[H] \caption{Table of identified risks} \label{tab:risks}
 		\centering
 		% l - left, c - centre, r - right, p{width} - paragraph with wrapped text, m{width} - vertically centred with wrapped text, X - auto-expanding column to fill remaining width, Q[...] - tabularray flexible type combining width & align e.g. Q[l, m, 3cm]
-		\begin{models_table}{
+		\begin{risks_table}{
 			width = \textwidth,
-			colspec = {| X | l | l |}
+			colspec = {| X[2,l] | l | l | X[1,l] |}
 		}
-			Risk & Impact & Likelihood \\
-			Model can't be compressed enough to fit on PYNQ-Z1 FPGA & 3 & 2 \\
-		\end{models_table}
+			Risk & Impact & Likelihood & Mitigation \\
+			SCDNet performance is not reproducible. & Medium & Low & Adjust layers and parameters. \\
+			Model won't compress enough to fit on PYNQ-Z1 FPGA & Medium & Medium & Try a compressing smaller model first. \\
+			Incompatible layer shapes & High & Low & Find valid layer shape with equivalent meaning. \\
+			PYNQ-Z1 fully unsupported by hls4ml and FINN & Medium & Low & Roll back framework version until PYNQ-Z1 is supported. \\
+			Not enough SSD storage for all the models and datasets & Low & Low & Add additional external storage drive. \\
+			Desktop machine unusable & Medium & Low & Use a university desktop machine. \\
+			Implementation and evaluation time constraint & Low & Low & Follow the defined project timeline. \\
+		\end{risks_table}
 	\end{table}
 
 	\subsection{PLES}
