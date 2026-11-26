@@ -14,6 +14,11 @@
 	- DONE - Model training sections
 	- DONE - Deployment
 - DONE - Feasibility section (includes evaluation plan)
+- DONE - Conclusion
+- NOT  - Project management
+	- NOT  - Gantt charts
+	- NOT  - Risks analysis
+	- NOT  - PLES
 - NOT  - Motivations and background (what is skin lesion, explain research field)
 - NOT  - Objectives
 - NOT  - Intro
